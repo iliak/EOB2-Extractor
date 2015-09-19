@@ -20,7 +20,7 @@ namespace INF
 			Timer = new Queue<byte>();
 			Monsters = new Queue<Monster>();
 			Hunks = new ushort[3];
-			Specials = new Queue<MazeInfo>();
+			Triggers = new Queue<Trigger>();
 			Messages = new Queue<string>();
 			Script = new Script();
 		}
@@ -48,7 +48,7 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public Queue<MazeInfo> Specials;
+		public Queue<Trigger> Triggers;
 
 		/// <summary>
 		/// 

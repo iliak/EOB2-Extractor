@@ -50,7 +50,7 @@
     <Compile Include="DoorInfo.cs" />
     <Compile Include="Header.cs" />
     <Compile Include="Maze.cs" />
-    <Compile Include="MazeInfo.cs" />
+    <Compile Include="Trigger.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="MonsterType.cs" />
     <Compile Include="MonsterGFX.cs" />

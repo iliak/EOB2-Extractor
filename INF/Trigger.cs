@@ -6,10 +6,25 @@ using System.Drawing;
 
 namespace INF
 {
-	public class MazeInfo
+	/// <summary>
+	/// 
+	/// </summary>
+	public class Trigger
 	{
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public Point Position;
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public ushort Flags;
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public ushort ScriptingOffset;
 	}
 }

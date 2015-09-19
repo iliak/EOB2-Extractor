@@ -17,7 +17,7 @@ namespace INF
 
 			Maze maze = new Maze();
 
-			string filename = @"c:\eob2-uncps\LEVEL16.INF_uncps";
+			string filename = @"c:\eob2-uncps\LEVEL1.INF_uncps";
 			using (Reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 
@@ -205,6 +205,7 @@ namespace INF
 				// Hunk2 offset
 				maze.Hunks[2] = Reader.ReadUInt16();
 
+
 				#region Monsters
 				b = Reader.ReadByte();
 				if (b != 0xff)
@@ -245,6 +246,7 @@ namespace INF
 				maze.Script.ByteCode = Reader.ReadBytes(s - 2);
 				#endregion
 
+
 				#region Messages
 				while (Reader.BaseStream.Position < maze.Hunks[2])
 				{
@@ -259,18 +261,20 @@ namespace INF
 				ushort specialcount = Reader.ReadUInt16();
 				for (ushort i = 0; i < specialcount; i++)
 				{
-					MazeInfo mi = new MazeInfo();
+					Trigger mi = new Trigger();
 					s = Reader.ReadUInt16();
 					mi.Position = new Point(s >> 5, s & 0x1F);
 					mi.Flags = Reader.ReadUInt16();
 					mi.ScriptingOffset = Reader.ReadUInt16();
 
-					maze.Specials.Enqueue(mi);
+					maze.Triggers.Enqueue(mi);
 				}
 
 				#endregion
 			}
 
+
+			Console.WriteLine(maze.Script.Decompile());
 		}
 
 		/// <summary>
