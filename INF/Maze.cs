@@ -21,7 +21,7 @@ namespace INF
 			Monsters = new Queue<Monster>();
 			Hunks = new ushort[3];
 			Triggers = new Queue<Trigger>();
-			Messages = new Queue<string>();
+			Messages = new List<string>();
 			Script = new Script();
 		}
 
@@ -53,7 +53,7 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public Queue<string> Messages;
+		public List<string> Messages;
 
 		/// <summary>
 		/// 

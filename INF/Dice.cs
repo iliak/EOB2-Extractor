@@ -11,16 +11,16 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte count;
+		public byte rolls;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte dice;
+		public byte sides;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte plus;
+		public byte @base;
 	}
 }

@@ -8,6 +8,10 @@ namespace INF
 {
 	class Program
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
 			byte b;
@@ -15,21 +19,21 @@ namespace INF
 			uint l;
 
 
-			Maze maze = new Maze();
+			Maze = new Maze();
 
 			string filename = @"c:\eob2-uncps\LEVEL1.INF_uncps";
 			using (Reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 
 				// Hunk1 offset
-				maze.Hunks[1] = Reader.ReadUInt16();
+				Maze.Hunks[1] = Reader.ReadUInt16();
 
 				#region Sub level data
 				for (byte sub = 0; sub < 2; sub++)
 				{
 					Header header = new Header();
 
-					if (Reader.BaseStream.Position < maze.Hunks[1])
+					if (Reader.BaseStream.Position < Maze.Hunks[1])
 					{
 						// Chunk offsets
 						header.NextHunk = Reader.ReadUInt16();
@@ -115,16 +119,16 @@ namespace INF
 								m.THAC0 = Reader.ReadByte();
 								m.unk1 = Reader.ReadByte();
 
-								m.HPDice.count = Reader.ReadByte();
-								m.HPDice.dice = Reader.ReadByte();
-								m.HPDice.plus = Reader.ReadByte();
+								m.HPDice.rolls = Reader.ReadByte();
+								m.HPDice.sides = Reader.ReadByte();
+								m.HPDice.@base = Reader.ReadByte();
 
 								m.numberOfAttacks = Reader.ReadByte();
 								for (byte i = 0; i < 3; i++)
 								{
-									m.AttackDice[i].count = Reader.ReadByte();
-									m.AttackDice[i].dice = Reader.ReadByte();
-									m.AttackDice[i].plus = Reader.ReadByte();
+									m.AttackDice[i].rolls = Reader.ReadByte();
+									m.AttackDice[i].sides = Reader.ReadByte();
+									m.AttackDice[i].@base = Reader.ReadByte();
 								}
 
 								m.specialAttackFlag = Reader.ReadUInt16();
@@ -198,12 +202,12 @@ namespace INF
 						}
 					}
 
-					maze.Headers[sub] = header;
+					Maze.Headers[sub] = header;
 				}
 				#endregion
 
 				// Hunk2 offset
-				maze.Hunks[2] = Reader.ReadUInt16();
+				Maze.Hunks[2] = Reader.ReadUInt16();
 
 
 				#region Monsters
@@ -213,7 +217,7 @@ namespace INF
 					#region Monster timers
 					while ((b = Reader.ReadByte()) != 0xff)
 					{
-						maze.Timer.Enqueue(Reader.ReadByte());
+						Maze.Timer.Enqueue(Reader.ReadByte());
 					}
 					#endregion
 
@@ -229,12 +233,12 @@ namespace INF
 						m.Direction = Reader.ReadByte();
 						m.Type = Reader.ReadByte();
 						m.PictureIndex = Reader.ReadByte();
-						m.InitialMoveState = Reader.ReadByte();
-						m.unk0 = Reader.ReadByte();
-						m.Item1 = Reader.ReadUInt16();
-						m.Item2 = Reader.ReadUInt16();
+						m.MoveState = Reader.ReadByte();
+						m.Pause = Reader.ReadByte();
+						m.Weapon = Reader.ReadUInt16();
+						m.PocketItem = Reader.ReadUInt16();
 
-						maze.Monsters.Enqueue(m);
+						Maze.Monsters.Enqueue(m);
 					}
 					#endregion
 				}
@@ -243,38 +247,38 @@ namespace INF
 
 				#region Scripts
 				s = Reader.ReadUInt16();			// Script length
-				maze.Script.ByteCode = Reader.ReadBytes(s - 2);
+				Maze.Script.ByteCode = Reader.ReadBytes(s - 2);
 				#endregion
 
 
 				#region Messages
-				while (Reader.BaseStream.Position < maze.Hunks[2])
+				while (Reader.BaseStream.Position < Maze.Hunks[2])
 				{
 					string str = SearchString();
-					maze.Messages.Enqueue(str);
+					Maze.Messages.Add(str);
 				}
 
 				#endregion
 
 
-				#region Special blocks
-				ushort specialcount = Reader.ReadUInt16();
-				for (ushort i = 0; i < specialcount; i++)
+				#region Triggers
+				ushort triggercount = Reader.ReadUInt16();
+				for (ushort i = 0; i < triggercount; i++)
 				{
-					Trigger mi = new Trigger();
+					Trigger t = new Trigger();
 					s = Reader.ReadUInt16();
-					mi.Position = new Point(s >> 5, s & 0x1F);
-					mi.Flags = Reader.ReadUInt16();
-					mi.ScriptingOffset = Reader.ReadUInt16();
+					t.Position = new Point(s >> 5, s & 0x1F);
+					t.Flags = Reader.ReadUInt16();
+					t.ScriptingOffset = Reader.ReadUInt16();
 
-					maze.Triggers.Enqueue(mi);
+					Maze.Triggers.Enqueue(t);
 				}
 
 				#endregion
 			}
 
 
-			Console.WriteLine(maze.Script.Decompile());
+			Console.WriteLine(Maze.Script.Decompile());
 		}
 
 		/// <summary>
@@ -321,6 +325,12 @@ namespace INF
 		/// 
 		/// </summary>
 		static BinaryReader Reader;
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		static public Maze Maze;
 
 		#endregion
 	}

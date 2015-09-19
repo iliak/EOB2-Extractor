@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace INF
 {
+	/// <summary>
+	/// http://eab.abime.net/showpost.php?p=533880&postcount=374
+	/// http://eab.abime.net/showpost.php?p=579468&postcount=405
+	/// </summary>
 	public class DoorInfo
 	{
 		public DoorInfo()
