@@ -21,7 +21,7 @@ namespace INF
 
 			Maze = new Maze();
 
-			string filename = @"c:\eob2-uncps\LEVEL1.INF_uncps";
+			string filename = @"c:\eob2-uncps\LEVEL4.INF_uncps";
 			using (Reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 
@@ -119,16 +119,16 @@ namespace INF
 								m.THAC0 = Reader.ReadByte();
 								m.unk1 = Reader.ReadByte();
 
-								m.HPDice.rolls = Reader.ReadByte();
-								m.HPDice.sides = Reader.ReadByte();
-								m.HPDice.@base = Reader.ReadByte();
+								m.HPDice.Rolls = Reader.ReadByte();
+								m.HPDice.Sides = Reader.ReadByte();
+								m.HPDice.Base = Reader.ReadByte();
 
 								m.numberOfAttacks = Reader.ReadByte();
 								for (byte i = 0; i < 3; i++)
 								{
-									m.AttackDice[i].rolls = Reader.ReadByte();
-									m.AttackDice[i].sides = Reader.ReadByte();
-									m.AttackDice[i].@base = Reader.ReadByte();
+									m.AttackDice[i].Rolls = Reader.ReadByte();
+									m.AttackDice[i].Sides = Reader.ReadByte();
+									m.AttackDice[i].Base = Reader.ReadByte();
 								}
 
 								m.specialAttackFlag = Reader.ReadUInt16();
