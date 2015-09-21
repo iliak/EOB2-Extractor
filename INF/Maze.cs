@@ -22,7 +22,6 @@ namespace INF
 			Hunks = new ushort[3];
 			Triggers = new Queue<Trigger>();
 			Messages = new List<string>();
-			Script = new Script();
 		}
 
 		/// <summary>

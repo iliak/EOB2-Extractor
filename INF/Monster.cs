@@ -15,7 +15,7 @@ namespace INF
 		/// <returns></returns>
 		public override String ToString()
 		{
-			return String.Format("({0}:{1} {2}|{3}) [delay:{4}\ttype:{5}\tpicture:{6}\tmovestate:{7}\tpause:{8}\tweapon:{9}\tpocket:{10}]",
+			return String.Format("({0}:{1} {2}|{3}) [delay:{4}\ttype:{5}\tpicture:{6}\tmovestate:{7}\tpause:{8}\tweapon:0x{9:X4}\tpocket:0x{10:X4}]",
 			Position.X, Position.X, SubPosition, Direction,
 			TimeDelay, Type, PictureIndex, MoveState, Pause, Weapon, PocketItem);
 		}

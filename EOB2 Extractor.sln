@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCR", "DCR\DCR.csproj", "{D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INF", "INF\INF.csproj", "{19405191-D8B7-4CFA-B6EF-FAD708FBBF81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAZ", "MAZ\MAZ.csproj", "{81C0DDCF-7333-4598-9B03-DEEC14FA53E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{19405191-D8B7-4CFA-B6EF-FAD708FBBF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19405191-D8B7-4CFA-B6EF-FAD708FBBF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19405191-D8B7-4CFA-B6EF-FAD708FBBF81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C0DDCF-7333-4598-9B03-DEEC14FA53E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C0DDCF-7333-4598-9B03-DEEC14FA53E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C0DDCF-7333-4598-9B03-DEEC14FA53E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C0DDCF-7333-4598-9B03-DEEC14FA53E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

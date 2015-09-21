@@ -16,9 +16,10 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public Script()
+		public Script(byte[] bytecode)
 		{
-			Debug = true;
+			ByteCode = bytecode;
+			Tokens = new List<ScriptToken>();
 		}
 
 
@@ -34,213 +35,56 @@ namespace INF
 			while (Cursor < ByteCode.Length)
 			{
 
-				if (Debug)
-				{
-					Console.Write("0x{0:X4}: ", Cursor);
-				}
+				Console.Write("[0x{0:X4}]: ", Cursor + 2);
 				byte opcode = ReadByte();
+
+				ScriptToken token = null;
 
 				#region Decode
 				switch (opcode)
 				{
-					// Set wall
-					case 0xff:
-					{
-						token_setwall();
-					}
-					break;
-					// Change Wall
-					case 0xfe:
-					{
-						token_changewall();
-					}
-					break;
-					// Open Door
-					case 0xfd:
-					{
-						token_opendoor();
-					}
-					break;
-					// Close Door
-					case 0xfc:
-					{
-						token_closedoor();
-					}
-					break;
-					// Create monster
-					case 0xfb:
-					{
-						token_createmonster();
-					}
-					break;
-					// Teleport
-					case 0xfa:
-					{
-						token_teleport();
-					}
-					break;
-					// Steal small item
-					case 0xf9:
-					{
-						token_stealsmallitems();
-					}
-					break;
-					// Message
-					case 0xf8:
-					{
-						token_message();
-					}
-					break;
-					// Set flag
-					case 0xf7:
-					{
-						token_setflag();
-					}
-					break;
-					// Sound
-					case 0xf6:
-					{
-						token_sound();
-					}
-					break;
-					// Clear flag
-					case 0xf5:
-					{
-						token_clearflag();
-					}
-					break;
-					// Heal
-					case 0xf4:
-					{
-						token_heal();
-					}
-					break;
-					// Damage
-					case 0xf3:
-					{
-						token_damage();
-					}
-					break;
-					// Jump
-					case 0xf2:
-					{
-						token_jump();
-					}
-					break;
-					// End code
-					case 0xf1:
-					{
-						token_end();
-					}
-					break;
-					// Return
-					case 0xf0:
-					{
-						token_return();
-					}
-					break;
-					//  Call
-					case 0xef:
-					{
-						token_call();
-					}
-					break;
-					//  Conditions
-					case 0xee:
-					{
-						token_conditional();
-					}
-					break;
-					// Item consume
-					case 0xed:
-					{
-						token_consume();
-					}
-					break;
-					//  Change level
-					case 0xec:
-					{
-						token_changelevel();
-					}
-					break;
-					//  Give Experience
-					case 0xeb:
-					{
-						token_givexp();
-					}
-					break;
-					// New item
-					case 0xea:
-					{
-						token_newitem();
-					}
-					break;
-					// Launcher
-					case 0xe9:
-					{
-						token_launcher();
-					}
-					break;
-					// Turn
-					case 0xe8:
-					{
-						token_turn();
-					}
-					break;
-					// Identify all items
-					case 0xe7:
-					{
-						token_identifyitem();
-					}
-					break;
-					// Encounters (cut scene)
-					case 0xe6:
-					{
-						token_encounter();
-					}
-					break;
-					// Wait
-					case 0xe5:
-					{
-						token_wait();
-					}
-					break;
-					// Update screen
-					case 0xe4:
-					{
-						token_updatescreen();
-					}
-					break;
-					// Text menu
-					case 0xe3:
-					{
-						token_screenmenu();
-					}
-					break;
-					// Special window picture
-					case 0xe2:
-					{
-						token_specialwindow();
-					}
-					break;
-					// 
-					case 0xe1:
-					{
-
-					}
-					break;
-					// Push EventFlags on stack 
-					case 0xe0:
-					{
-
-					}
-					break;
+					case 0xff: token = new SetWallToken(this); break;
+					case 0xfe: token = new ChangeWallToken(this); break;
+					case 0xfd: token = new OpenDoorToken(this); break;
+					case 0xfc: token = new CloseDoorToken(this); break;
+					case 0xfb: token = new CreateMonsterToken(this); break;
+					case 0xfa: token = new TeleportToken(this); break;
+					case 0xf9: token = new StealSmallItemToken(this); break;
+					case 0xf8: token = new MessageToken(this); break;
+					case 0xf7: token = new SetFlagToken(this); break;
+					case 0xf6: token = new SoundToken(this); break;
+					case 0xf5: token = new ClearFlagToken(this); break;
+					case 0xf4: token = new HealToken(this); break;
+					case 0xf3: token = new DamageToken(this); break;
+					case 0xf2: token = new JumpToken(this); break;
+					case 0xf1: token = new EndToken(this); break;
+					case 0xf0: token = new ReturnToken(this); break;
+					case 0xef: token = new CallToken(this); break;
+					case 0xee: token = new ConditionalToken(this); break;
+					case 0xed: token = new ConsumeItemToken(this); break;
+					case 0xec: token = new ChangeLevelToken(this); break;
+					case 0xeb: token = new GiveXPToken(this); break;
+					case 0xea: token = new NewItemToken(this); break;
+					case 0xe9: token = new LauncherToken(this); break;
+					case 0xe8: token = new TurnToken(this); break;
+					case 0xe7: token = new IdentifyItemToken(this); break;
+					case 0xe6: token = new EncounterToken(this); break;
+					case 0xe5: token = new WaitToken(this); break;
+					case 0xe4: token = new UpdateScreenToken(this); break;
+					case 0xe3: token = new ScreenMenuToken(this); break;
+					case 0xe2: token = new SpecialWindowToken(this); break; // Special window picture
+																			//case 0xe1: token = null; break;
+																			//case 0xe0: token = new PushEventFlagToken(this); break;
 					default:
 					{
-						Console.WriteLine("# opcode: 0x{0:X2}", opcode);
+						Console.Write("# opcode: 0x{0:X2}", opcode);
 					}
 					break;
 				}
+
+				Console.WriteLine(token);
+
+				Tokens.Add(token);
 
 			}
 			#endregion
@@ -251,215 +95,6 @@ namespace INF
 
 		#region Conditional tokens
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_conditional()
-		{
-			Console.Write("IF (");
-
-			while (true)
-			{
-				byte operation = ReadByte();
-				switch (operation)
-				{
-					// Contain race
-					case 0xdd:
-					{
-						condition_containrace();
-					}
-					break;
-
-					// get wall number
-					case 0xf7:
-					{
-						condition_getwallnumber();
-					}
-					break;
-
-					// Count items
-					case 0xf5:
-					{
-						condition_countitems();
-					}
-					break;
-
-					// Count monsters
-					case 0xf3:
-					{
-						condition_countmonsters();
-					}
-					break;
-
-					// Check party position
-					case 0xf1:
-					{
-						condition_checkpartyposition();
-					}
-					break;
-
-					// Get global flag
-					case 0xf0:
-					{
-						condition_getglobalflag();
-					}
-					break;
-
-					// Get Party direction
-					case 0xed:
-					{
-						condition_getpartydirection();
-					}
-					break;
-
-					// Get wall side
-					case 0xe9:
-					{
-						condition_getwallside();
-					}
-					break;
-
-					// Get pointer item
-					case 0xe7:
-					{
-						condition_getpointeritem();
-					}
-					break;
-
-					// Get trigger flag
-					case 0xe0:
-					{
-						condition_gettriggerflag();
-					}
-					break;
-
-					// contains class
-					case 0xdc:
-					{
-						condition_containclass();
-					}
-					break;
-
-					// Roll dice
-					case 0xdb:
-					{
-						condition_rolldice();
-					}
-					break;
-
-					// Is party visible
-					case 0xda:
-					{
-
-					}
-					break;
-
-					// Immediate short value
-					case 0xd2:
-					{
-						condition_immediateshort();
-					}
-					break;
-
-					// contains alignment
-					case 0xce:
-					{
-
-					}
-					break;
-
-					// Get level flag
-					case 0xef:
-					{
-						condition_getlevelflag();
-					}
-					break;
-
-					// End condition
-					case 0xee:
-					{
-						Console.Write(")");
-					}
-					break;
-
-					#region Operators
-					// operator EQ
-					case 0xff:
-					{
-						Console.Write(" == ");
-					}
-					break;
-
-					// operator NEQ
-					case 0xfe:
-					{
-						Console.Write(" != ");
-					}
-					break;
-
-					// operator LT
-					case 0xfd:
-					{
-						Console.Write(" < ");
-					}
-					break;
-
-					// operator LTE
-					case 0xfc:
-					{
-						Console.Write(" <= ");
-					}
-					break;
-
-					// operator GT
-					case 0xfb:
-					{
-						Console.Write(" > ");
-					}
-					break;
-
-					// operator GTE
-					case 0xfa:
-					{
-						Console.Write(" >= ");
-					}
-					break;
-
-					// operator AND
-					case 0xf9:
-					{
-						Console.Write(" && ");
-					}
-					break;
-
-					// operator OR
-					case 0xf8:
-					{
-						Console.Write(" || ");
-					}
-					break;
-					#endregion
-
-					default:
-					{
-						Console.Write("[0x{0:X2}] ", operation);
-					}
-					break;
-				}
-
-
-				if (operation == 0xee)
-				{
-					break;
-				}
-				//else
-				//Console.Write(" ... ");
-			}
-
-
-			ushort addr = ReadAddr();
-			Console.WriteLine("\t====> JUMP TO 0x{0:X4}", addr - 2);
-		}
 
 
 		/// <summary>
@@ -471,859 +106,9 @@ namespace INF
 			Console.Write("0x{0:X4}, ", value);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_countmonsters()
-		{
-			Point target = ReadPosition();
-			Console.Write("Count monsters at {0}, ", target);
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_countitems()
-		{
-			byte type = ReadByte();
-			Point target = ReadPosition();
-			Console.Write("Count items of type 0x{0:X2} at {1}, ", type, target);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_gettriggerflag()
-		{
-			Console.Write("Get trigger flag, ");
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_getpartydirection()
-		{
-			Console.Write("Check party direction ");
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_checkpartyposition()
-		{
-			Point pos = ReadPosition();
-			Console.Write("Check party position {0}, ", pos);
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_getglobalflag()
-		{
-			byte flag = ReadByte();
-			Console.Write("Get global flag 0x{0:X2}, ", flag);
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_getlevelflag()
-		{
-			byte flag = ReadByte();
-			Console.Write("Get level flag 0x{0:X2}, ", flag);
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_rolldice()
-		{
-			Dice dice = ReadDice();
-			Console.Write("Roll dice {0}, ", dice);
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_getpointeritem()
-		{
-			byte type = ReadByte();
-
-			if (type == 0xf5)
-				Console.Write("Get pointer item unknown, ");
-			else if (type == 0xf6)
-				Console.Write("Get pointer item value, ");
-			else if (type == 0xe1)
-				Console.Write("Get pointer item type, ");
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_getwallside()
-		{
-			byte side = ReadByte();
-			Point target = ReadPosition();
-			Console.Write("Get wall side {0} at {1}, ", side, target);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_getwallnumber()
-		{
-			Point target = ReadPosition();
-			Console.Write("Get wall number at {0}, ", target);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_containrace()
-		{
-			byte raceid = ReadByte();
-			Console.Write("Need race {0}, ", raceid);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void condition_containclass()
-		{
-			byte id = ReadByte();
-			Console.Write("Need class {0}, ", id);
-		}
-
 		#endregion
 
 
-		#region Token methods
-
-		private void token_specialwindow()
-		{
-			Console.WriteLine("Special window...");
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_screenmenu()
-		{
-			byte id = ReadByte();
-
-			if (Debug)
-			{
-				Console.WriteLine("Screen menu 0x{0:X2}", id);
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_updatescreen()
-		{
-			if (Debug)
-			{
-				Console.WriteLine("Update screen...");
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_wait()
-		{
-			ushort ticks = ReadShort();
-
-			if (Debug)
-			{
-				Console.WriteLine("Waiting {0} ticks", ticks);
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_encounter()
-		{
-			byte index = ReadByte();
-			if (Debug)
-			{
-				Console.WriteLine("Encounter {0}", index);
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_identifyitem()
-		{
-			Point target = ReadPosition();
-			if (Debug)
-			{
-				Console.WriteLine("Identify items at {0}", target);
-			}
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_turn()
-		{
-			byte type = ReadByte();
-			byte amount = ReadByte();
-
-			switch (type)
-			{
-				// Party
-				case 0xf1:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Turning party {0} time(s)", amount);
-					}
-				}
-				break;
-
-				// Item
-				case 0xf5:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Turning item {0} time(s)", amount);
-					}
-				}
-				break;
-
-				default:
-				{
-					Console.WriteLine("Turning unknow type (0x{0:2}) {1} time(s)", type, amount);
-				}
-				break;
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_launcher()
-		{
-			byte type = ReadByte();
-			ushort itemid = ReadShort();
-			Point target = ReadPosition();
-			byte direction = ReadByte();
-			byte subpos = ReadByte();
-
-			switch (type)
-			{
-				// Spell
-				case 0xdf:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Launching spell 0x{0:X4} from {1} facing {2} at subpos {3}", itemid, target, direction, subpos);
-					}
-				}
-				break;
-
-				// Item
-				case 0xec:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Launching item 0x{0:X4} from {1} facing {2} at subpos {3}", itemid, target, direction, subpos);
-					}
-				}
-				break;
-
-				default:
-				{
-					Console.WriteLine("Launching unknow (id: 0x{0:X4}) from {1} facing {2} at subpos {3}", itemid, target, direction, subpos);
-				}
-				break;
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_newitem()
-		{
-			ushort itemid = ReadShort();
-			Point target = ReadPosition();
-			byte subpos = ReadByte();
-
-			if (Debug)
-			{
-				Console.WriteLine("New item 0x{0:X4} at {1}:{2}", itemid, target, subpos);
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_changelevel()
-		{
-			byte type = ReadByte();
-			byte level;
-			Point target;
-			byte direction;
-
-			switch (type)
-			{
-				// Inter level
-				case 0xe5:
-				{
-					level = ReadByte();
-					target = ReadPosition();
-					direction = ReadByte();
-
-					if (Debug)
-					{
-						Console.WriteLine("Change level to {0} at {1} facing to {2}", level, target, direction);
-					}
-				}
-				break;
-
-				// Intra level
-				case 0x00:
-				{
-					target = ReadPosition();
-					direction = ReadByte();
-					if (Debug)
-					{
-						Console.WriteLine("Change level at {0} facing to {1}", target, direction);
-					}
-				}
-				break;
-
-				default:
-				{
-					Console.WriteLine("Change level (unknow id 0x{0:X2})", type);
-				}
-				break;
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_consume()
-		{
-			byte location;
-			Point target;
-
-			byte type = ReadByte();
-			switch (type)
-			{
-				// Mouse pointer
-				case 0xff:
-				{
-					location = type;
-					if (Debug)
-					{
-						Console.WriteLine("Consume item from mouse pointer");
-					}
-				}
-				break;
-				// at position
-				case 0xfe:
-				{
-					location = type;
-					target = ReadPosition();
-					if (Debug)
-					{
-						Console.WriteLine("Consume item at position {0}", target);
-					}
-				}
-				break;
-				// At position by type
-				case 0x0:
-				{
-					location = 0;
-					target = ReadPosition();
-					if (Debug)
-					{
-						Console.WriteLine("Consume item at position {0} of type {1}", target, type);
-					}
-				}
-				break;
-
-				default:
-				{
-					Console.WriteLine("Consume item unknown type 0x{0:X2}", type);
-				}
-				break;
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_call()
-		{
-			ushort address = ReadShort();
-			if (Debug)
-			{
-				Console.WriteLine("Call to 0x{0:X4}", address);
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_return()
-		{
-			if (Debug)
-			{
-				Console.WriteLine("Return");
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_end()
-		{
-			if (Debug)
-			{
-				Console.WriteLine("End");
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_jump()
-		{
-			ushort addr = ReadAddr();
-
-			if (Debug)
-			{
-				Console.WriteLine("Jumping to 0x{0:X4}", addr - 2);
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_damage()
-		{
-			byte whom = ReadByte();
-			Dice dice = ReadDice();
-
-			if (Debug)
-			{
-				Console.WriteLine("Damage {0} with dice {1}", whom, dice);
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_setwall()
-		{
-			Point target;
-			byte to;
-			byte side;
-			byte direction;
-
-			byte type = ReadByte();
-			switch (type)
-			{
-				// All sides
-				case 0xf7:
-				{
-					target = ReadPosition();
-					to = ReadByte();
-					if (Debug)
-					{
-						Console.WriteLine("Set wall at {0} all sides to {1}", target, to);
-					}
-				}
-				break;
-				// One side
-				case 0xe9:
-				{
-					target = ReadPosition();
-					side = ReadByte();
-					to = ReadByte();
-					if (Debug)
-					{
-						Console.WriteLine("Set wall at {0} sides {1} to {2}", target, side, to);
-					}
-				}
-				break;
-				// Change party direction
-				case 0xed:
-				{
-					direction = ReadByte();
-					if (Debug)
-					{
-						Console.WriteLine("Set wall change party direction to {0}", direction);
-					}
-				}
-				break;
-
-				default:
-				{
-					Console.WriteLine("Set wall unknow type 0x{0:X2}", type);
-				}
-				break;
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_changewall()
-		{
-			Point target;
-			byte to;
-			byte from;
-			byte side;
-
-			byte type = ReadByte();
-			switch (type)
-			{
-				// All sides
-				case 0xf7:
-				{
-					target = ReadPosition();
-					to = ReadByte();
-					from = ReadByte();
-					if (Debug)
-					{
-						Console.WriteLine("Change wall at {0} all sides to {1} from {2}", target, to, from);
-					}
-				}
-				break;
-				// One side
-				case 0xe9:
-				{
-					target = ReadPosition();
-					side = ReadByte();
-					to = ReadByte();
-					from = ReadByte();
-					if (Debug)
-					{
-						Console.WriteLine("Change wall at {0} side {1} to {2} from {3}", target, side, to, from);
-					}
-				}
-				break;
-				// Open door
-				case 0xed:
-				{
-					target = ReadPosition();
-					if (Debug)
-					{
-						Console.WriteLine("Change wall open door at {0}", target);
-					}
-				}
-				break;
-
-				default:
-				{
-					Console.WriteLine("Change wall unknow type 0x{0:X2}", type);
-				}
-				break;
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_setflag()
-		{
-			byte type = ReadByte();
-			byte flag = ReadByte();
-			switch (type)
-			{
-				// Level
-				case 0xef:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Set flag 0x{0:X2} to level", flag);
-					}
-				}
-				break;
-				// Global
-				case 0xf0:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Set flag 0x{0:X2} to global", flag);
-					}
-				}
-				break;
-				// Monster
-				case 0xf3:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Set flag 0x{0:X2} to monster!", flag);
-					}
-				}
-				break;
-
-				default:
-				{
-					Console.WriteLine("Set flag unknow type 0x{0:X2}", type);
-				}
-				break;
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_clearflag()
-		{
-			byte type = ReadByte();
-			byte flag = ReadByte();
-			switch (type)
-			{
-				// Level
-				case 0xef:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Clear flag 0x{0:X2} to level", flag);
-					}
-				}
-				break;
-				// Global
-				case 0xf0:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Clear flag 0x{0:X2} to global", flag);
-					}
-				}
-				break;
-				// Monster
-				case 0xf3:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Clear flag 0x{0:X2} to monster!", flag);
-					}
-				}
-				break;
-
-
-				default:
-				{
-					Console.WriteLine("Clear wall unknow type 0x{0:X2}", type);
-				}
-				break;
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_message()
-		{
-			byte id = ReadByte();
-			ReadByte();
-			byte color = ReadByte();
-			ReadByte();
-			if (Debug)
-			{
-				string msg = Program.Maze.Messages.ElementAtOrDefault(id);
-
-				Console.WriteLine("Display message {0} (color {1}) : \"{2}\"", id, color, msg);
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_sound()
-		{
-			byte id = ReadByte();
-			Point target = ReadPosition();
-
-			if (Debug)
-			{
-				Console.WriteLine("Play sound {0} at {1}", id, target);
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_teleport()
-		{
-			byte type = ReadByte();
-			Point source = ReadPosition();
-			Point target = ReadPosition();
-
-			switch (type)
-			{
-				// Party
-				case 0xe8:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Teleport team to {0}", target.ToString());
-					}
-				}
-				break;
-				// Monster
-				case 0xf3:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Teleport monster at {0} to {1}", source.ToString(), target.ToString());
-					}
-				}
-				break;
-				// Item
-				case 0xf5:
-				{
-					if (Debug)
-					{
-						Console.WriteLine("Teleport item at {0} to {1}", source.ToString(), target.ToString());
-					}
-				}
-				break;
-
-				default:
-				{
-					Console.WriteLine("Teleport unknow type 0x{0:X2}", type);
-				}
-				break;
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_createmonster()
-		{
-
-			Monster m = new Monster();
-			m.Index = ReadByte();
-			m.Type = ReadByte();
-			m.Position = ReadPosition();
-			m.SubPosition = ReadByte();
-			m.Direction = ReadByte();
-			m.Type = ReadByte();
-			m.PictureIndex = ReadByte();
-			m.MoveState = ReadByte();
-			m.Pause = ReadByte();
-			m.PocketItem = ReadShort();
-			m.Weapon = ReadShort();
-
-
-
-			if (Debug)
-			{
-				Console.WriteLine("Create monster : {0}", m.ToString());
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_opendoor()
-		{
-			Point target = ReadPosition();
-			if (Debug)
-			{
-				Console.WriteLine("Open door at {0}:{1}", target.X, target.Y);
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_closedoor()
-		{
-			Point target = ReadPosition();
-			if (Debug)
-			{
-				Console.WriteLine("Close door at {0}:{1}", target.X, target.Y);
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_stealsmallitems()
-		{
-			Point target = ReadPosition();
-			if (Debug)
-			{
-				Console.WriteLine("Close door at {0}:{1}", target.X, target.Y);
-			}
-		}
-
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_heal()
-		{
-			if (Debug)
-			{
-				Console.WriteLine("Heal");
-			}
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void token_givexp()
-		{
-			byte type = ReadByte();
-
-			switch (type)
-			{
-				// To the party
-				case 0x2e:
-				{
-					ushort amount = ReadShort();
-					if (Debug)
-					{
-						Console.WriteLine("Give {0} XP to the team", amount);
-					}
-				}
-				break;
-				default:
-				{
-					Console.WriteLine("Give XP unknow type 0x{0:X2}", type);
-				}
-				break;
-			}
-		}
-
-		#endregion
 
 
 		#region Helpers
@@ -1332,7 +117,7 @@ namespace INF
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		private Point ReadPosition()
+		public Point ReadPosition()
 		{
 			ushort pos = ReadShort();
 			return new Point((byte)((pos >> 5) & 0x1f), (byte)(pos & 0x1f));
@@ -1342,7 +127,7 @@ namespace INF
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		private Dice ReadDice()
+		public Dice ReadDice()
 		{
 			return new Dice(ReadByte(), ReadByte(), ReadByte());
 		}
@@ -1351,7 +136,7 @@ namespace INF
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		private byte ReadByte()
+		public byte ReadByte()
 		{
 			return ByteCode[Cursor++];
 		}
@@ -1360,7 +145,7 @@ namespace INF
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		private ushort ReadShort()
+		public ushort ReadShort()
 		{
 			byte h = ByteCode[Cursor++];
 			byte l = ByteCode[Cursor++];
@@ -1372,7 +157,7 @@ namespace INF
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		private ushort ReadAddr()
+		public ushort ReadAddr()
 		{
 			byte h = ByteCode[Cursor++];
 			byte l = ByteCode[Cursor++];
@@ -1380,35 +165,27 @@ namespace INF
 			return (ushort)((l << 8) + h);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
-		private byte PeekByte()
-		{
-			return ByteCode[Cursor];
-		}
-
 		#endregion
 
 
 		#region Properties
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public bool Debug;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte[] ByteCode;
+		List<ScriptToken> Tokens;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private byte[] ByteCode;
 
 
 		/// <summary>
 		/// 
 		/// </summary>
-		private ushort Cursor;
+		public ushort Cursor;
 
 		#endregion
 	}
@@ -1417,7 +194,7 @@ namespace INF
 	/// <summary>
 	/// Script tokens
 	/// </summary>
-	public enum ScriptToken
+	public enum ScriptTokens
 	{
 		TOKEN_SET_WALL = 0xff,
 		TOKEN_CHANGE_WALL = 0xfe,
