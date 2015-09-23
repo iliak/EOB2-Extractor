@@ -186,8 +186,8 @@ namespace INF
 										deco.WallMappings.index = Reader.ReadByte();
 										deco.WallMappings.WallType = Reader.ReadByte();
 										deco.WallMappings.DecorationID = Reader.ReadByte();
-										deco.WallMappings.unk0 = Reader.ReadByte();
-										deco.WallMappings.unk1 = Reader.ReadByte();
+										deco.WallMappings.EventMask = Reader.ReadByte();
+										deco.WallMappings.Flags = Reader.ReadByte();
 									}
 
 									header.Decorations.Enqueue(deco);
