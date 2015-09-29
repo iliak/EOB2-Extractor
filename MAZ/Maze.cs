@@ -25,9 +25,6 @@ namespace MAZ
 		/// <returns></returns>
 		public bool Load(string filename)
 		{
-			byte b;
-			ushort s;
-
 			using (Reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 				Size = new Size(Reader.ReadUInt16(), Reader.ReadUInt16());

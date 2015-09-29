@@ -55,6 +55,7 @@
     <Compile Include="Script\ConditionalImmediateShort.cs" />
     <Compile Include="Script\Conditions\ConditionalInvalid.cs" />
     <Compile Include="Script\Conditions\ConditionalLiteral.cs" />
+    <Compile Include="Script\Conditions\ConditionalMenuChoice.cs" />
     <Compile Include="Script\Conditions\ConditionalUnknownToken.cs" />
     <Compile Include="Script\Conditions\ConditionalOperator.cs" />
     <Compile Include="Script\Conditions\ConditionalContainAlignment.cs" />

@@ -26,7 +26,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Literal 0x{0:X2}, ", Value);
+			return string.Format("0x{0:X2}, ", Value);
 		}
 
 		/// <summary>

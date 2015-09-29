@@ -48,6 +48,7 @@ namespace INF
 					case 0xed: token = new ConditionalGetPartyDirection(script); break;
 					case 0xe9: token = new ConditionalGetWallSide(script); break;
 					case 0xe7: token = new ConditionalGetPointerItem(script); break;
+					case 0xe4: token = new ConditionalMenuChoice(script); break;
 					case 0xe0: token = new ConditionalGetTriggerFlag(script); break;
 					case 0xdd: token = new ConditionalContainRace(script); break;
 					case 0xdc: token = new ConditionalContainClass(script); break;

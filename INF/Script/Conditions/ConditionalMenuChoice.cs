@@ -9,15 +9,16 @@ namespace INF
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ConditionalGetPartyPosition : ConditionalBase
+	public class ConditionalMenuChoice : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalGetPartyPosition(Script script) : base(script)
+		public ConditionalMenuChoice(Script script) : base(script)
 		{
-			Target = script.ReadPosition();
+			Type = script.ReadByte();
+			Value = script.ReadByte();
 		}
 
 		/// <summary>
@@ -26,12 +27,21 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Party position == {0} ", Target);
+			return string.Format("Menu choice Type: 0x{0:X2}, Value 0x{1:X2}", Type, Value);
 		}
+
+		#region Properties
 
 		/// <summary>
 		/// 
 		/// </summary>
-		Point Target;
+		public byte Type;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public byte Value;
+
+		#endregion
 	}
 }

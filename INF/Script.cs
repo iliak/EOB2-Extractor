@@ -77,7 +77,7 @@ namespace INF
 																			//case 0xe0: token = new PushEventFlagToken(this); break;
 					default:
 					{
-						Console.Write("# opcode: 0x{0:X2}", opcode);
+						Console.Write("############# opcode: 0x{0:X2}", opcode);
 					}
 					break;
 				}
@@ -120,7 +120,8 @@ namespace INF
 		public Point ReadPosition()
 		{
 			ushort pos = ReadShort();
-			return new Point((byte)((pos >> 5) & 0x1f), (byte)(pos & 0x1f));
+			return new Point((byte)(pos & 0x1f), (byte)((pos >> 5) & 0x1f));
+			//return new Point((byte)(pos & 0x1f), (byte)((pos >> 5) & 0x1f));
 		}
 
 		/// <summary>
@@ -163,6 +164,47 @@ namespace INF
 			byte l = ByteCode[Cursor++];
 
 			return (ushort)((l << 8) + h);
+		}
+
+
+		/// <summary>
+		/// Reads a string from the stream
+		/// </summary>
+		/// <returns></returns>
+		//public string ReadString()
+		//{
+		//	StringBuilder sb = new StringBuilder();
+		//	byte c;
+		//	while ((c = ByteCode[Cursor++]) != 0)
+		//	{
+		//		sb.Append((char)c);
+		//	}
+
+		//	return sb.ToString();
+		//}
+
+		/// <summary>
+		/// Reads a string from the stream
+		/// </summary>
+		/// <param name="length"></param>
+		/// <returns></returns>
+		public string ReadString(byte length)
+		{
+
+			StringBuilder sb = new StringBuilder();
+			for (byte i = 0; i < length; i++)
+			{
+				char c = (char)ByteCode[Cursor+i];
+
+				if (c == 0)
+					break;
+
+				sb.Append(c);
+			}
+
+			Cursor += length;
+
+			return sb.ToString();
 		}
 
 		#endregion
@@ -257,4 +299,54 @@ namespace INF
 		VALUE_GET_LEVEL_FLAG = 0xef,
 	}
 
+
+	public enum Class
+	{
+		Fighter = 0x0,
+		Ranger = 0x1,
+		Paladin = 0x2,
+		Mage = 0x3,
+		Cleric = 0x4,
+		Thief = 0x5,
+		FighterCleric = 0x6,
+		FighterThief = 0x7,
+		FighterMage = 0x8,
+		FighterMageThief = 0x9,
+		ThiefMage = 0xa,
+		ClericThief = 0xb,
+		FighterClericMage = 0xc,
+		RangerCleric = 0xd,
+		ClericMage = 0xe,
+	}
+
+
+	public enum Race
+	{
+		HumanMale = 0x0,
+		HumanFemale = 0x1,
+		ElfMale = 0x2,
+		ElfFemale = 0x3,
+		HalfElfMale = 0x4,
+		HalfElfFemale = 0x5,
+		DwarfMale = 0x6,
+		DwarfFemale = 0x7,
+		GnomeMale = 0x8,
+		GnomeFemale = 0x9,
+		HalflingMale = 0xa,
+		HalflingFemale = 0xb,
+	}
+
+	public enum Alignment
+	{
+		LawfullGood = 0,
+		NeutralGood = 1,
+		ChaoticGood = 2,
+		LawfullNeutral = 3,
+		TrueNeutral = 4,
+		ChaoticNeutral = 5,
+		LawfullEvil = 6,
+		NeutralEvil = 7,
+		ChaoticEvil = 8,
+
+	}
 }

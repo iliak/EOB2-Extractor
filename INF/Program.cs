@@ -21,7 +21,7 @@ namespace INF
 
 			Maze = new Maze();
 
-			string filename = @"c:\eob2-uncps\LEVEL5.INF_uncps";
+			string filename = @"c:\eob2-uncps\LEVEL1.INF_uncps";
 			using (Reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 
@@ -267,9 +267,11 @@ namespace INF
 				{
 					Trigger t = new Trigger();
 					s = Reader.ReadUInt16();
-					t.Position = new Point(s >> 5, s & 0x1F);
+					t.Position = new Point((byte)(s & 0x1f), (byte)((s >> 5) & 0x1f));
+					//t.Position = new Point((byte)((s >> 5) & 0x1f), (byte)(s & 0x1f));
+					//t.Position = new Point(s >> 5, s & 0x1F);
 					t.Flags = Reader.ReadUInt16();
-					t.ScriptingOffset = Reader.ReadUInt16();
+					t.Offset = Reader.ReadUInt16();
 
 					Maze.Triggers.Enqueue(t);
 				}
@@ -280,6 +282,8 @@ namespace INF
 
 			Console.WriteLine(Maze.Script.Decompile());
 		}
+
+		#region Helpers
 
 		/// <summary>
 		/// Reads a string from the stream
@@ -318,6 +322,9 @@ namespace INF
 
 			return sb.ToString();
 		}
+
+		#endregion
+
 
 		#region Properties
 

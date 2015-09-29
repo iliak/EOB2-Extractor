@@ -38,6 +38,11 @@ namespace INF
 					direction = script.ReadByte();
 				}
 				break;
+				default:
+				{
+
+				}
+				break;
 			}
 		}
 

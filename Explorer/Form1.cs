@@ -35,18 +35,18 @@ namespace Explorer
 		{
 			ItemIdentifiedName.Text = item != null ? item.IdentifiedName : "";
 			ItemUnidentifiedName.Text = item != null ? item.UnidentifiedName : "";
-			ItemFlag.Text = item != null ? "0x" + item.Flags.ToString("X2") : "";
+			ItemFlagBox.Text = item != null ? "0x" + ((byte)item.Flags).ToString("X2") : "";
 			ItemCharges.Text = item != null ? item.Charges.ToString() : "";
 			ItemPicture.Text = item != null ? "0x" + item.Picture.ToString("X2") : "";
-			ItemTypeTxt.Text = item != null ? "0x" + item.Type.ToString("X2") : "";
+			ItemTypeTxt.Text = item != null ? "0x" + item.ItemTypeID.ToString("X2") : "";
 			ItemSubPos.Text = item != null ? "0x" + item.SubPos.ToString("X2") : "";
 			ItemLocation.Text = item != null ? item.Location.ToString() : "";
 			ItemLevel.Text = item != null ? item.Level.ToString() : "";
 			ItemValue.Text = item != null ? item.Value.ToString() : "";
-			ItemIndex.Text = item != null ? "0x" + item.Index.ToString("X2") : "";
+			ItemIndex.Text = item != null ? "0x" + item.Index.ToString("X4") : "";
 
 			if (item != null)
-				ItemTypesListbox.SelectedIndex = item.Type;
+				ItemTypesListbox.SelectedIndex = item.ItemTypeID;
         }
 
 
@@ -68,16 +68,17 @@ namespace Explorer
 			ItemTypeRing.Checked = type != null ? (type.Inventory & ItemTypeInventory.Ring) == ItemTypeInventory.Ring : false;
 
 
-			ItemTypeHandsBox.Text = type != null ? "0x" + ((ushort)type.Hand).ToString("X4") : "";
-			checkBox3.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.A) == ItemTypeHandsFlag.A : false;
-			ItemTypeIsMagic.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.Magical) == ItemTypeHandsFlag.Magical : false;
-			checkBox4.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.C) == ItemTypeHandsFlag.C : false;
-			checkBox1.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.D) == ItemTypeHandsFlag.D : false;
-			checkBox2.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.E) == ItemTypeHandsFlag.E : false;
-			checkBox5.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.F) == ItemTypeHandsFlag.F : false;
-			checkBox6.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.G) == ItemTypeHandsFlag.G : false;
-			ItemTypeKey.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.Key) == ItemTypeHandsFlag.Key : false;
-			checkBox8.Checked = type != null ? (type.Hand & ItemTypeHandsFlag.I) == ItemTypeHandsFlag.I : false;
+			ItemTypeHandsBox.Text = type != null ? "0x" + ((ushort)type.HandBits).ToString("X4") : "";
+			ItemTypeFlag_01.Checked = type != null ? (type.HandBits & ItemFlag._01) == ItemFlag._01 : false;
+			ItemTypeFlag_02.Checked = type != null ? (type.HandBits & ItemFlag._02) == ItemFlag._02 : false;
+			ItemTypeFlag_04.Checked = type != null ? (type.HandBits & ItemFlag._04) == ItemFlag._04 : false;
+			ItemTypeDrainHP.Checked = type != null ? (type.HandBits & ItemFlag.DrainHP) == ItemFlag.DrainHP : false;
+			ItemTypeFlag_10.Checked = type != null ? (type.HandBits & ItemFlag._10) == ItemFlag._10 : false;
+			ItemTypeCursed.Checked = type != null ? (type.HandBits & ItemFlag.Cursed) == ItemFlag.Cursed : false;
+			ItemTypeIdentified.Checked = type != null ? (type.HandBits & ItemFlag.Identified) == ItemFlag.Identified : false;
+			ItemTypeMagic.Checked = type != null ? (type.HandBits & ItemFlag.Magic) == ItemFlag.Magic : false;
+			ItemTypeFlag_100.Checked = type != null ? (type.HandBits & ItemFlag._100) == ItemFlag._100 : false;
+
 
 			ItemTypeACBox.Text = type != null ? type.ACBonus.ToString() : "";
 
@@ -89,13 +90,20 @@ namespace Explorer
 			ItemTypeThief.Checked = type != null ? (type.Classes & ItemTypeClass.Thief) == ItemTypeClass.Thief : false;
 			ItemTypeRanger.Checked = type != null ? (type.Classes & ItemTypeClass.Ranger) == ItemTypeClass.Ranger : false;
 
-			ItemTypeDoubleHandedBox.Text = type != null ? "0x" + type.DoubleHanded.ToString("X2") : "";
+			ItemTypeRestrictionBox.Text = type != null ? "0x" + ((byte)type.HandRestriction).ToString("X2") : "";
+			ItemTypeNoRestriction.Checked = type != null ? type.HandRestriction  == ItemHandRestiction.NoRestiction : false;
+			ItemTypeOneHand.Checked = type != null ? type.HandRestriction  == ItemHandRestiction.OneHand : false;
+			ItemTypeTwoHands.Checked = type != null ? type.HandRestriction == ItemHandRestiction.TwoHands : false;
+
+
 			ItemTypeDVSBox.Text = type != null ? type.DamageVSSmall.ToString() : "";
 			ItemTypeDVBBox.Text = type != null ? type.DamageVsBig.ToString() : "";
+			ItemTypeActionBox.Text = type != null ? "0x" + type.Action.ToString("X2") : "";
+
 			ItemTypeUnknown0Box.Text = type != null ? "0x" + type.Unk0.ToString("X2") : "";
 			ItemTypeUnknown1Box.Text = type != null ? "0x" + type.Unk1.ToString("X2") : "";
-			ItemTypeUnknown2Box.Text = type != null ? "0x" + type.Unk2.ToString("X2") : "";
-		}
+			ItemTypeActionDescription.Text = type.GetAction();
+        }
 
 
 		#region Events

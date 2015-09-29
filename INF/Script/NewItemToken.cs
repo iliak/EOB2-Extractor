@@ -14,9 +14,10 @@ namespace INF
 		/// <param name="script"></param>
 		public NewItemToken(Script script) : base(script)
 		{
-			ItemID = script.ReadByte();
+			ItemID = script.ReadShort();
 			Target = script.ReadPosition();
 			SubPos = script.ReadByte();
+			Unknown0 = script.ReadByte();
 
 		}
 
@@ -26,7 +27,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("New item 0x{0:X4} at {1}:{2}", ItemID, Target, SubPos);
+			return string.Format("New item 0x{0:X4} at {1}:{2} (unknown 0x{3:X2})", ItemID, Target, SubPos, Unknown0);
 		}
 
 
@@ -35,6 +36,7 @@ namespace INF
 		ushort ItemID;
 		Point Target;
 		byte SubPos;
+		byte Unknown0;
 
 		#endregion
 	}

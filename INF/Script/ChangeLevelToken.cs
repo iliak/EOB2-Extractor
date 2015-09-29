@@ -23,6 +23,7 @@ namespace INF
 					Level = script.ReadByte();
 					Target = script.ReadPosition();
 					Direction = script.ReadByte();
+					Unknown0 = script.ReadByte();
 				}
 				break;
 
@@ -45,9 +46,9 @@ namespace INF
 			switch (Type)
 			{
 				// Inter level
-				case 0xe5:	return string.Format("Change level to {0} at {1} facing to {2}", Level, Target, Direction);
-				case 0x00:	return string.Format("Change level at {0} facing to {1}", Target, Direction);
-				default:	return string.Format("Change level (unknow id 0x{0:X2})", Type);
+				case 0xe5:	return string.Format("Change level to {0} at {1} facing to {2} (unknown 0x{3:X4})", Level, Target, Direction, Unknown0);
+				case 0x00:	return string.Format("Change level at {0} facing to {1} (unknown 0x{2:X4})", Target, Direction, Unknown0);
+				default:	return string.Format("Change level (unknow id 0x{0:X2}) (unknown 0x{1:X4})", Type, Unknown0);
 			}
 		}
 
@@ -57,6 +58,7 @@ namespace INF
 		byte Level;
 		Point Target;
 		byte Direction;
+		byte Unknown0;
 
 		#endregion
 	}

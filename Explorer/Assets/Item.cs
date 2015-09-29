@@ -27,10 +27,10 @@ namespace Explorer
 			UnidentifiedNameId = reader.ReadByte();
 			IdentifiedNameId = reader.ReadByte();
 			b = reader.ReadByte();
-			Flags = (byte)(b & 0xE0);
+			Flags = (ItemFlag)(b & 0xE0);
 			Charges = (byte)(b & 0x1F);
 			Picture = reader.ReadByte();
-			Type = reader.ReadByte();
+			ItemTypeID = reader.ReadByte();
 			SubPos = reader.ReadByte();
 			Location = new Location(reader);
 			Unk0 = reader.ReadUInt16();
@@ -55,19 +55,24 @@ namespace Explorer
 			string filename = basedir + "ITEM.DAT";
 			using (BinaryReader reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
+
 				ushort itemscount = reader.ReadUInt16();
+
+				// Items definitions
 				for (ushort i = 0; i < itemscount; i++)
 				{
 					items.Add(new Item(i, reader));
 				}
 
+				// Item's name
 				ushort namescount = reader.ReadUInt16();
 				for (ushort i = 0; i < namescount; i++)
 				{
-                    names.Add(new string(reader.ReadChars(35)).Replace("\0", ""));
+					names.Add(new string(reader.ReadChars(35)).Replace("\0", ""));
 				}
 
-				foreach(Item item in items)
+				// Associate each item its name
+				foreach (Item item in items)
 				{
 					item.IdentifiedName = names[item.IdentifiedNameId];
 					item.UnidentifiedName = names[item.UnidentifiedNameId];
@@ -96,20 +101,36 @@ namespace Explorer
 		public string UnidentifiedName;
 		public byte IdentifiedNameId;
 		public string IdentifiedName;
-		public byte Flags;
+		public ItemFlag Flags;
 		public byte Charges;
 		public byte Picture;
-		public byte Type;
+		public byte ItemTypeID;
 		public byte SubPos;
 		public Location Location;
 		public byte Level;
 		public sbyte Value;
 		public ushort Index;
-		
+
 		public ushort Unk0;
 		public ushort Unk1;
 
 
 		#endregion
+	}
+
+
+
+	[Flags]
+	public enum ItemFlag
+	{
+		_01 = 0x01,				// Never used
+		_02 = 0x02,				// 
+		_04 = 0x04,				// Never used
+		DrainHP = 0x08,         // Drains HP when weapon hits enemies
+		_10 = 0x10,				// 
+		Cursed = 0x20,			// Can't remove on hand
+		Identified = 0x40,		// Identified
+		Magic = 0x80,			// Magic
+		_100 = 0x100,			// 
 	}
 }

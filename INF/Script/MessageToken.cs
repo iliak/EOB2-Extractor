@@ -14,7 +14,7 @@ namespace INF
 		/// <param name="script"></param>
 		public MessageToken(Script script) : base(script)
 		{
-			Id = script.ReadByte();
+			MsgId = script.ReadByte();
 			Unk0 = script.ReadByte();
 			Color = script.ReadByte();
 			Unk1 = script.ReadByte();
@@ -26,16 +26,16 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			string msg = Program.Maze.Messages.ElementAtOrDefault(Id);
-			return string.Format("Display message {0} (color {1}) : \"{2}\"", Id, Color, msg);
+			string msg = Program.Maze.Messages.ElementAtOrDefault(MsgId);
+			return string.Format("Display message id: {0} (color: {1}, unk0: {2}, unk1: {3}) : \"{4}\"", MsgId, Color, Unk0, Unk1, msg);
 		}
 
 
 		#region Properties
-		byte Id;
-		byte Unk0;
+		byte MsgId;
 		byte Color;
-		byte Unk1;
+		byte Unk0;
+		byte Unk1;			// Display text in the bottom of the main menu, or 0xff display message with a OK button and the blue backgroun (?)
 
 
 		#endregion

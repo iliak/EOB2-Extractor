@@ -23,7 +23,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Unknown condition opcode 0x{0:X2}", OpCode);
+			return string.Format("####################### Unknown condition opcode 0x{0:X2}", OpCode);
 		}
 
 
