@@ -47,7 +47,7 @@ namespace Explorer
 
 			if (item != null)
 				ItemTypesListbox.SelectedIndex = item.ItemTypeID;
-        }
+		}
 
 
 		/// <summary>
@@ -68,16 +68,16 @@ namespace Explorer
 			ItemTypeRing.Checked = type != null ? (type.Inventory & ItemTypeInventory.Ring) == ItemTypeInventory.Ring : false;
 
 
-			ItemTypeHandsBox.Text = type != null ? "0x" + ((ushort)type.HandBits).ToString("X4") : "";
-			ItemTypeFlag_01.Checked = type != null ? (type.HandBits & ItemFlag._01) == ItemFlag._01 : false;
-			ItemTypeFlag_02.Checked = type != null ? (type.HandBits & ItemFlag._02) == ItemFlag._02 : false;
-			ItemTypeFlag_04.Checked = type != null ? (type.HandBits & ItemFlag._04) == ItemFlag._04 : false;
-			ItemTypeDrainHP.Checked = type != null ? (type.HandBits & ItemFlag.DrainHP) == ItemFlag.DrainHP : false;
-			ItemTypeFlag_10.Checked = type != null ? (type.HandBits & ItemFlag._10) == ItemFlag._10 : false;
-			ItemTypeCursed.Checked = type != null ? (type.HandBits & ItemFlag.Cursed) == ItemFlag.Cursed : false;
-			ItemTypeIdentified.Checked = type != null ? (type.HandBits & ItemFlag.Identified) == ItemFlag.Identified : false;
-			ItemTypeMagic.Checked = type != null ? (type.HandBits & ItemFlag.Magic) == ItemFlag.Magic : false;
-			ItemTypeFlag_100.Checked = type != null ? (type.HandBits & ItemFlag._100) == ItemFlag._100 : false;
+			ItemTypeHandsBox.Text = type != null ? "0x" + ((ushort)type.Flags).ToString("X4") : "";
+			ItemTypeFlag_01.Checked = type != null ? (type.Flags & ItemFlag._01) == ItemFlag._01 : false;
+			ItemTypeFlag_02.Checked = type != null ? (type.Flags & ItemFlag.ArmorBonus) == ItemFlag.ArmorBonus : false;
+			ItemTypeFlag_04.Checked = type != null ? (type.Flags & ItemFlag._04) == ItemFlag._04 : false;
+			ItemTypeDrainHP.Checked = type != null ? (type.Flags & ItemFlag.DrainHP) == ItemFlag.DrainHP : false;
+			ItemTypeFlag_10.Checked = type != null ? (type.Flags & ItemFlag.SpeedBonus) == ItemFlag.SpeedBonus : false;
+			ItemTypeCursed.Checked = type != null ? (type.Flags & ItemFlag.Cursed) == ItemFlag.Cursed : false;
+			ItemTypeIdentified.Checked = type != null ? (type.Flags & ItemFlag.Identified) == ItemFlag.Identified : false;
+			ItemTypeMagic.Checked = type != null ? (type.Flags & ItemFlag.Magic) == ItemFlag.Magic : false;
+			ItemTypeFlag_100.Checked = type != null ? (type.Flags & ItemFlag.Ring) == ItemFlag.Ring : false;
 
 
 			ItemTypeACBox.Text = type != null ? type.ACBonus.ToString() : "";
@@ -91,8 +91,8 @@ namespace Explorer
 			ItemTypeRanger.Checked = type != null ? (type.Classes & ItemTypeClass.Ranger) == ItemTypeClass.Ranger : false;
 
 			ItemTypeRestrictionBox.Text = type != null ? "0x" + ((byte)type.HandRestriction).ToString("X2") : "";
-			ItemTypeNoRestriction.Checked = type != null ? type.HandRestriction  == ItemHandRestiction.NoRestiction : false;
-			ItemTypeOneHand.Checked = type != null ? type.HandRestriction  == ItemHandRestiction.OneHand : false;
+			ItemTypeNoRestriction.Checked = type != null ? type.HandRestriction == ItemHandRestiction.NoRestiction : false;
+			ItemTypeOneHand.Checked = type != null ? type.HandRestriction == ItemHandRestiction.OneHand : false;
 			ItemTypeTwoHands.Checked = type != null ? type.HandRestriction == ItemHandRestiction.TwoHands : false;
 
 
@@ -103,8 +103,18 @@ namespace Explorer
 			ItemTypeUnknown0Box.Text = type != null ? "0x" + type.Unk0.ToString("X2") : "";
 			ItemTypeUnknown1Box.Text = type != null ? "0x" + type.Unk1.ToString("X2") : "";
 			ItemTypeActionDescription.Text = type.GetAction();
-        }
+		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		void RebuildTextInterface(int id)
+		{
+			MessageIdBox.Text = TextData.Count > id ? id.ToString() : "";
+			TextMsgBox.Text = TextData.Count > id ? TextData[id] : "";
+		}
 
 		#region Events
 
@@ -126,6 +136,12 @@ namespace Explorer
 			ItemTypesListbox.Items.Clear();
 			foreach (ItemType type in ItemTypes)
 				ItemTypesListbox.Items.Add(type);
+
+			// Text data
+			TextData = Explorer.Text.Decode(WorkingDirectory);
+			TextIDBox.Items.Clear();
+			for (int i = 0; i < TextData.Count; i++)
+				TextIDBox.Items.Add("0x" + i.ToString("X4"));
 		}
 
 
@@ -147,6 +163,17 @@ namespace Explorer
 		private void ItemTypesListbox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			RebuildItemTypeInterface(ItemTypesListbox.SelectedItem as ItemType);
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TextIDBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			RebuildTextInterface(TextIDBox.SelectedIndex);
 		}
 
 		#endregion
@@ -171,6 +198,14 @@ namespace Explorer
 		/// 
 		/// </summary>
 		List<ItemType> ItemTypes;
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		List<string> TextData;
+
+
 		#endregion
 
 	}

@@ -33,7 +33,7 @@ namespace Explorer
 			ID = id;
 
 			Inventory = (ItemTypeInventory)reader.ReadUInt16();
-			HandBits = (ItemFlag)reader.ReadUInt16();
+			Flags = (ItemFlag)reader.ReadUInt16();
 			ACBonus = reader.ReadSByte();
 			Classes = (ItemTypeClass)reader.ReadByte();
 			HandRestriction = (ItemHandRestiction)reader.ReadByte();
@@ -136,7 +136,7 @@ namespace Explorer
 		/// <summary>
 		/// 
 		/// </summary>
-		public ItemFlag HandBits;
+		public ItemFlag Flags;
 
 		/// <summary>
 		/// 

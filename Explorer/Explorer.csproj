@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Assets\Dice.cs" />
     <Compile Include="Assets\ItemType.cs" />
+    <Compile Include="Assets\Text.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -124,13 +124,13 @@ namespace Explorer
 	public enum ItemFlag
 	{
 		_01 = 0x01,				// Never used
-		_02 = 0x02,				// 
+		ArmorBonus = 0x02,				// 
 		_04 = 0x04,				// Never used
 		DrainHP = 0x08,         // Drains HP when weapon hits enemies
-		_10 = 0x10,				// 
+		SpeedBonus = 0x10,				// 
 		Cursed = 0x20,			// Can't remove on hand
 		Identified = 0x40,		// Identified
 		Magic = 0x80,			// Magic
-		_100 = 0x100,			// 
+		Ring = 0x100,			// 
 	}
 }

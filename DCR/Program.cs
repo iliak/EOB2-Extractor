@@ -6,44 +6,79 @@ using System.Threading.Tasks;
 
 namespace undcr
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			string filename = @"c:\eob2\guard2.dcr";
+			List<MonsterGfxSides> monsters = new List<MonsterGfxSides>();
+			string path = @"c:\eob2\";
+			string filename = "cleric1";
 
-			Bitmap bm = new Bitmap(320, 200);
-			
-			using (BinaryReader reader = new BinaryReader(File.Open(filename, FileMode.Open)))
+
+			using (BinaryReader reader = new BinaryReader(File.Open(path + filename + ".dcr", FileMode.Open)))
 			{
 				short count = reader.ReadInt16();
 
 				Console.WriteLine("{0} descriptor(s) found !", count);
 
-				parts parts = new parts();
-				for(int i = 0; i < count; i++)
+				for (short i = 0; i < count; i++)
 				{
-					parts.cps_x = reader.ReadByte();
-					parts.cps_y = reader.ReadByte();
-					parts.w = reader.ReadByte();
-					parts.h = reader.ReadByte();
-					parts.screen_x = reader.ReadByte();
-					parts.screen_y = reader.ReadByte();
+					MonsterGfxSides def = new MonsterGfxSides();
+					for (byte j = 0; j < 6; j++)
+					{
+						MonsterGfxPart part = new MonsterGfxPart();
+						part.cps_x = reader.ReadByte();
+						part.cps_y = reader.ReadByte();
+						part.w = reader.ReadByte();
+						part.h = reader.ReadByte();
+						part.screen_x = reader.ReadByte();
+						part.screen_y = reader.ReadByte();
 
-					parts.w *= 8;
-					parts.h *= 8;
+						part.w *= 8;
+						part.cps_x *= 8;
+						def.Sides[j] = part;
+					}
+
+					monsters.Add(def);
 				}
 
 			}
 
-			bm.Save(@"c:\eob2\guard2.png");
+			Bitmap bm = new Bitmap(320, 200);
+			Graphics gfx = Graphics.FromImage(bm);
+			foreach (var part in monsters)
+			{
+				for (byte j = 0; j < 6; j++)
+				{
+					MonsterGfxPart p = part.Sides[j];
+					gfx.DrawRectangle(Pens.Red, new Rectangle(p.cps_x, p.cps_y, p.w, p.h));
+
+				}
+
+			}
+			bm.Save(path + filename + "_dcr.png");
 		}
 
-		
+
 	}
 
 
-	struct parts
+	/// <summary>
+	/// 
+	/// </summary>
+	class MonsterGfxSides
+	{
+		public MonsterGfxPart[] Sides = new MonsterGfxPart[6];
+	}
+
+
+	/// <summary>
+	/// 
+	/// </summary>
+	struct MonsterGfxPart
 	{
 		public byte cps_x;
 		public byte cps_y;

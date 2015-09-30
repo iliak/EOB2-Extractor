@@ -106,14 +106,20 @@
 			this.ItemIdentifiedName = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.MazeTab = new System.Windows.Forms.TabPage();
+			this.TextTab = new System.Windows.Forms.TabPage();
+			this.TextMsgBox = new System.Windows.Forms.TextBox();
+			this.TextIDBox = new System.Windows.Forms.ListBox();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.DecodeButton = new System.Windows.Forms.ToolStripButton();
+			this.label22 = new System.Windows.Forms.Label();
+			this.MessageIdBox = new System.Windows.Forms.TextBox();
 			this.tabControl1.SuspendLayout();
 			this.ItemTab.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this.TextTab.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -121,11 +127,12 @@
 			// 
 			this.tabControl1.Controls.Add(this.ItemTab);
 			this.tabControl1.Controls.Add(this.MazeTab);
+			this.tabControl1.Controls.Add(this.TextTab);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 25);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1194, 645);
+			this.tabControl1.Size = new System.Drawing.Size(1084, 514);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// ItemTab
@@ -135,7 +142,7 @@
 			this.ItemTab.Location = new System.Drawing.Point(4, 22);
 			this.ItemTab.Name = "ItemTab";
 			this.ItemTab.Padding = new System.Windows.Forms.Padding(3);
-			this.ItemTab.Size = new System.Drawing.Size(1186, 619);
+			this.ItemTab.Size = new System.Drawing.Size(1076, 488);
 			this.ItemTab.TabIndex = 0;
 			this.ItemTab.Text = "Items";
 			this.ItemTab.UseVisualStyleBackColor = true;
@@ -196,7 +203,7 @@
 			this.groupBox2.Controls.Add(this.label12);
 			this.groupBox2.Location = new System.Drawing.Point(444, 13);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(734, 607);
+			this.groupBox2.Size = new System.Drawing.Size(624, 476);
 			this.groupBox2.TabIndex = 3;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Item Types :";
@@ -213,9 +220,9 @@
 			this.ItemTypeFlag_100.AutoSize = true;
 			this.ItemTypeFlag_100.Location = new System.Drawing.Point(458, 151);
 			this.ItemTypeFlag_100.Name = "ItemTypeFlag_100";
-			this.ItemTypeFlag_100.Size = new System.Drawing.Size(55, 17);
+			this.ItemTypeFlag_100.Size = new System.Drawing.Size(63, 17);
 			this.ItemTypeFlag_100.TabIndex = 23;
-			this.ItemTypeFlag_100.Text = "0x100";
+			this.ItemTypeFlag_100.Text = "Ring (?)";
 			this.ItemTypeFlag_100.UseVisualStyleBackColor = true;
 			// 
 			// ItemTypeTwoHands
@@ -315,9 +322,9 @@
 			this.ItemTypeFlag_02.AutoSize = true;
 			this.ItemTypeFlag_02.Location = new System.Drawing.Point(351, 105);
 			this.ItemTypeFlag_02.Name = "ItemTypeFlag_02";
-			this.ItemTypeFlag_02.Size = new System.Drawing.Size(49, 17);
+			this.ItemTypeFlag_02.Size = new System.Drawing.Size(86, 17);
 			this.ItemTypeFlag_02.TabIndex = 20;
-			this.ItemTypeFlag_02.Text = "0x02";
+			this.ItemTypeFlag_02.Text = "Armor Bonus";
 			this.ItemTypeFlag_02.UseVisualStyleBackColor = true;
 			// 
 			// ItemTypeMagic
@@ -651,7 +658,7 @@
 			this.ItemTypesListbox.FormattingEnabled = true;
 			this.ItemTypesListbox.Location = new System.Drawing.Point(3, 16);
 			this.ItemTypesListbox.Name = "ItemTypesListbox";
-			this.ItemTypesListbox.Size = new System.Drawing.Size(54, 588);
+			this.ItemTypesListbox.Size = new System.Drawing.Size(54, 457);
 			this.ItemTypesListbox.TabIndex = 0;
 			this.ItemTypesListbox.SelectedIndexChanged += new System.EventHandler(this.ItemTypesListbox_SelectedIndexChanged);
 			// 
@@ -693,7 +700,7 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(6, 6);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(432, 613);
+			this.groupBox1.Size = new System.Drawing.Size(432, 482);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Items :";
@@ -712,7 +719,7 @@
 			this.ItemListbox.FormattingEnabled = true;
 			this.ItemListbox.Location = new System.Drawing.Point(3, 16);
 			this.ItemListbox.Name = "ItemListbox";
-			this.ItemListbox.Size = new System.Drawing.Size(148, 594);
+			this.ItemListbox.Size = new System.Drawing.Size(148, 463);
 			this.ItemListbox.Sorted = true;
 			this.ItemListbox.TabIndex = 0;
 			this.ItemListbox.SelectedIndexChanged += new System.EventHandler(this.ItemListbox_SelectedIndexChanged);
@@ -901,16 +908,49 @@
 			this.MazeTab.Location = new System.Drawing.Point(4, 22);
 			this.MazeTab.Name = "MazeTab";
 			this.MazeTab.Padding = new System.Windows.Forms.Padding(3);
-			this.MazeTab.Size = new System.Drawing.Size(1186, 619);
+			this.MazeTab.Size = new System.Drawing.Size(1076, 488);
 			this.MazeTab.TabIndex = 1;
 			this.MazeTab.Text = "Maze";
 			this.MazeTab.UseVisualStyleBackColor = true;
 			// 
+			// TextTab
+			// 
+			this.TextTab.Controls.Add(this.MessageIdBox);
+			this.TextTab.Controls.Add(this.label22);
+			this.TextTab.Controls.Add(this.TextMsgBox);
+			this.TextTab.Controls.Add(this.TextIDBox);
+			this.TextTab.Location = new System.Drawing.Point(4, 22);
+			this.TextTab.Name = "TextTab";
+			this.TextTab.Size = new System.Drawing.Size(1076, 488);
+			this.TextTab.TabIndex = 2;
+			this.TextTab.Text = "Text";
+			this.TextTab.UseVisualStyleBackColor = true;
+			// 
+			// TextMsgBox
+			// 
+			this.TextMsgBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.TextMsgBox.Location = new System.Drawing.Point(87, 36);
+			this.TextMsgBox.Multiline = true;
+			this.TextMsgBox.Name = "TextMsgBox";
+			this.TextMsgBox.Size = new System.Drawing.Size(981, 146);
+			this.TextMsgBox.TabIndex = 1;
+			// 
+			// TextIDBox
+			// 
+			this.TextIDBox.Dock = System.Windows.Forms.DockStyle.Left;
+			this.TextIDBox.FormattingEnabled = true;
+			this.TextIDBox.Location = new System.Drawing.Point(0, 0);
+			this.TextIDBox.Name = "TextIDBox";
+			this.TextIDBox.Size = new System.Drawing.Size(81, 488);
+			this.TextIDBox.TabIndex = 0;
+			this.TextIDBox.SelectedIndexChanged += new System.EventHandler(this.TextIDBox_SelectedIndexChanged);
+			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 670);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 539);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(1194, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(1084, 22);
 			this.statusStrip1.TabIndex = 0;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
@@ -921,7 +961,7 @@
             this.DecodeButton});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(1194, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(1084, 25);
 			this.toolStrip1.TabIndex = 0;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -944,15 +984,33 @@
 			this.DecodeButton.Text = "Decode !";
 			this.DecodeButton.Click += new System.EventHandler(this.DecodeButton_Click);
 			// 
+			// label22
+			// 
+			this.label22.AutoSize = true;
+			this.label22.Location = new System.Drawing.Point(87, 7);
+			this.label22.Name = "label22";
+			this.label22.Size = new System.Drawing.Size(70, 13);
+			this.label22.TabIndex = 2;
+			this.label22.Text = "Message ID :";
+			// 
+			// MessageIdBox
+			// 
+			this.MessageIdBox.Location = new System.Drawing.Point(164, 4);
+			this.MessageIdBox.Name = "MessageIdBox";
+			this.MessageIdBox.ReadOnly = true;
+			this.MessageIdBox.Size = new System.Drawing.Size(68, 20);
+			this.MessageIdBox.TabIndex = 3;
+			this.MessageIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1194, 692);
+			this.ClientSize = new System.Drawing.Size(1084, 561);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.statusStrip1);
-			this.MinimumSize = new System.Drawing.Size(900, 500);
+			this.MinimumSize = new System.Drawing.Size(1100, 600);
 			this.Name = "Form1";
 			this.Text = "EOB2 Inspector";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -962,6 +1020,8 @@
 			this.groupBox2.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			this.TextTab.ResumeLayout(false);
+			this.TextTab.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			this.ResumeLayout(false);
@@ -1052,6 +1112,11 @@
 		private System.Windows.Forms.CheckBox ItemTypeNoRestriction;
 		private System.Windows.Forms.CheckBox ItemTypeFlag_100;
 		private System.Windows.Forms.TextBox ItemTypeActionDescription;
+		private System.Windows.Forms.TabPage TextTab;
+		private System.Windows.Forms.TextBox TextMsgBox;
+		private System.Windows.Forms.ListBox TextIDBox;
+		private System.Windows.Forms.TextBox MessageIdBox;
+		private System.Windows.Forms.Label label22;
 	}
 }
 
