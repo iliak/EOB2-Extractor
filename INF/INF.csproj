@@ -47,6 +47,7 @@
     <Compile Include="Dice.cs" />
     <Compile Include="DoorInfo.cs" />
     <Compile Include="Header.cs" />
+    <Compile Include="Location.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Script\CallToken.cs" />
     <Compile Include="Script\ChangeLevelToken.cs" />
@@ -54,7 +55,9 @@
     <Compile Include="Script\CloseDoorToken.cs" />
     <Compile Include="Script\ConditionalImmediateShort.cs" />
     <Compile Include="Script\Conditions\ConditionalInvalid.cs" />
-    <Compile Include="Script\Conditions\ConditionalLiteral.cs" />
+    <Compile Include="Script\Conditions\ConditionalPushFalse.cs" />
+    <Compile Include="Script\Conditions\ConditionalPushTrue.cs" />
+    <Compile Include="Script\Conditions\ConditionalPushValue.cs" />
     <Compile Include="Script\Conditions\ConditionalMenuChoice.cs" />
     <Compile Include="Script\Conditions\ConditionalUnknownToken.cs" />
     <Compile Include="Script\Conditions\ConditionalOperator.cs" />
@@ -91,7 +94,7 @@
     <Compile Include="Script\Conditions\ConditionalBase.cs" />
     <Compile Include="Script\JumpToken.cs" />
     <Compile Include="Script\ReturnToken.cs" />
-    <Compile Include="Script\ScreenMenuToken.cs" />
+    <Compile Include="Script\TextMenuToken.cs" />
     <Compile Include="Script\ScriptToken.cs" />
     <Compile Include="Script\SetFlagToken.cs" />
     <Compile Include="Script\SetWallToken.cs" />

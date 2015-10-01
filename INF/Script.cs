@@ -71,7 +71,7 @@ namespace INF
 					case 0xe6: token = new EncounterToken(this); break;
 					case 0xe5: token = new WaitToken(this); break;
 					case 0xe4: token = new UpdateScreenToken(this); break;
-					case 0xe3: token = new ScreenMenuToken(this); break;
+					case 0xe3: token = new TextMenuToken(this); break;
 					case 0xe2: token = new SpecialWindowToken(this); break; // Special window picture
 																			//case 0xe1: token = null; break;
 																			//case 0xe0: token = new PushEventFlagToken(this); break;
@@ -119,7 +119,7 @@ namespace INF
 		/// <returns></returns>
 		public Point ReadPosition()
 		{
-			ushort pos = ReadShort();
+			ushort pos = ReadAddr();
 			return new Point((byte)(pos & 0x1f), (byte)((pos >> 5) & 0x1f));
 			//return new Point((byte)(pos & 0x1f), (byte)((pos >> 5) & 0x1f));
 		}

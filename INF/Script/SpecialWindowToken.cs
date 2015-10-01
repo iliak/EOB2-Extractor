@@ -14,7 +14,7 @@ namespace INF
 		/// <param name="script"></param>
 		public SpecialWindowToken(Script script) : base(script)
 		{
-
+			Unknown = script.ReadShort();
 		}
 
 		/// <summary>
@@ -23,7 +23,13 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Special Window...");
+			return string.Format("Special Window (0x{0:X4})...", Unknown);
 		}
+
+		#region Properties
+
+		ushort Unknown;
+
+		#endregion
 	}
 }

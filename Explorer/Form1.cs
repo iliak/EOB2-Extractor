@@ -116,6 +116,21 @@ namespace Explorer
 			TextMsgBox.Text = TextData.Count > id ? TextData[id] : "";
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		void ExportTextData()
+		{
+			using (TextWriter writer = File.CreateText(WorkingDirectory + "textdata.txt"))
+			{
+				for(int i = 0; i < TextData.Count; i++)
+				{
+					writer.WriteLine("0x{0:X2}:	'{1}'", i, TextData[i]);
+				}
+			}
+		}
+
 		#region Events
 
 		/// <summary>
@@ -174,6 +189,17 @@ namespace Explorer
 		private void TextIDBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			RebuildTextInterface(TextIDBox.SelectedIndex);
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void button1_Click(object sender, EventArgs e)
+		{
+			ExportTextData();
 		}
 
 		#endregion

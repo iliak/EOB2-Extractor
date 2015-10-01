@@ -21,7 +21,7 @@ namespace INF
 
 			Maze = new Maze();
 
-			string filename = @"c:\eob2-uncps\LEVEL1.INF_uncps";
+			string filename = @"c:\eob2-uncps\LEVEL16.INF_uncps";
 			using (Reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 
@@ -228,7 +228,7 @@ namespace INF
 						m.Index = Reader.ReadByte();
 						m.TimeDelay = Reader.ReadByte();
 						s = Reader.ReadUInt16();
-						m.Position = new Point(s >> 5, s & 0x1F);
+						m.Position = Location.FromValue(s); // new Point(s >> 5, s & 0x1F);
 						m.SubPosition = Reader.ReadByte();
 						m.Direction = Reader.ReadByte();
 						m.Type = Reader.ReadByte();

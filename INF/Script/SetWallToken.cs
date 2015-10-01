@@ -20,14 +20,14 @@ namespace INF
 				// All sides
 				case 0xf7:
 				{
-					Target = script.ReadPosition();
+					Target = Location.FromScript(script);
 					To = script.ReadByte();
 				}
 				break;
 				// One side
 				case 0xe9:
 				{
-					Target = script.ReadPosition();
+					Target = Location.FromScript(script);
 					Side = script.ReadByte();
 					To = script.ReadByte();
 				}
@@ -63,7 +63,7 @@ namespace INF
 
 		#region Properties
 
-		Point Target;
+		Location Target;
 		byte To;
 		byte Side;
 		byte direction;

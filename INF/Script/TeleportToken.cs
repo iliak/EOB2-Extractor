@@ -21,17 +21,23 @@ namespace INF
 				case 0xe8:
 				{
 					Unknown0 = script.ReadShort();
-					Destination = script.ReadPosition();
+					Destination = Location.FromScript(script);
 				}
 				break;
 
 				// Monster
 				case 0xf3:
+				{
+					Source = Location.FromScript(script); 
+					Destination = Location.FromScript(script);
+				}
+				break;
+
 				// Item
 				case 0xf5:
 				{
-					Source = script.ReadPosition();
-					Destination = script.ReadPosition();
+					Source = Location.FromScript(script);
+					Destination = Location.FromScript(script); 
 				}
 				break;
 			}
@@ -56,8 +62,8 @@ namespace INF
 
 		#region Properties
 
-		Point Destination;
-		Point Source;
+		Location Destination;
+		Location Source;
 		byte Type;
 		ushort Unknown0;
 

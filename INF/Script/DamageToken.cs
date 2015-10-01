@@ -15,7 +15,8 @@ namespace INF
 		public DamageToken(Script script) : base(script)
 		{
 			Whom = script.ReadByte();
-			Dice = script.ReadDice();
+			VersusSmall = script.ReadDice();
+			VersusBig = script.ReadDice();
 		}
 
 		/// <summary>
@@ -24,14 +25,29 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Damage {0} with dice {1}", Whom, Dice);
+			if (Whom == 0xff)
+				return string.Format("Damage Team with dice vsSmall: {1}, vsBig: {2}", Whom, VersusSmall, VersusBig);
+			else
+				return string.Format("Damage member {0} with dice vsSmall: {1}, vsBig: {2}", Whom, VersusSmall, VersusBig);
 		}
 
 
 		#region Properties
 
+		/// <summary>
+		/// 
+		/// </summary>
 		byte Whom;
-		Dice Dice;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		Dice VersusSmall;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		Dice VersusBig;
 
 		#endregion
 	}

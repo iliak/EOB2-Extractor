@@ -14,12 +14,9 @@ namespace INF
 		/// <param name="script"></param>
 		public GiveXPToken(Script script) : base(script)
 		{
-			Type = script.ReadByte();
-			if (Type == 0x2e)
-			{
-				Amount = script.ReadShort();
-			}
-
+			Amount = script.ReadAddr();
+			Unknown0 = script.ReadShort();
+			Unknown1 = script.ReadShort();
 		}
 
 		/// <summary>
@@ -28,17 +25,16 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			if (Type == 0x2e)
-				return string.Format("Give {0} XP to the team", Amount);
-			else
-				return string.Format("Give {0} XP to 0x{0:X2}", Amount, Type);
+			return string.Format("Give {0} XP to the team (0x{1:X4}, 0x{2:X4})", Amount, Unknown0, Unknown1);
 		}
 
 
 		#region Properties
 
-		byte Type;
 		ushort Amount;
+
+		ushort Unknown0;
+		ushort Unknown1;
 
 		#endregion
 	}

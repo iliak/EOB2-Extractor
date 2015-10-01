@@ -15,7 +15,39 @@ namespace INF
 		public ClearFlagToken(Script script) : base(script)
 		{
 			Type = script.ReadByte();
-			Flag = script.ReadByte();
+			switch(Type)
+			{
+				// Maze
+				case 0xef:
+				// Global
+				case 0xf0:
+				{
+					Flag = script.ReadByte();
+				}
+				break;
+
+				// Monster
+				case 0xf3:
+				{
+					MonsterID = script.ReadByte();
+					Flag = script.ReadByte();
+				}
+				break;
+
+				// Event
+				case 0xe4:
+				{
+
+				}
+				break;
+
+				// Party function ???
+				case 0xd1:
+				{
+
+				}
+				break;
+			}
 		}
 
 		/// <summary>
@@ -29,22 +61,32 @@ namespace INF
 				// Level
 				case 0xef:
 				{
-					return string.Format("Clear flag 0x{0:X2} to level", Flag);
+					return string.Format("Clear level flag 0x{0:X2}", Flag);
 				}
 				// Global
 				case 0xf0:
 				{
-					return string.Format("Clear flag 0x{0:X2} to global", Flag);
+					return string.Format("Clear global flag 0x{0:X2}", Flag);
 				}
 				// Monster
 				case 0xf3:
 				{
-					return string.Format("Clear flag 0x{0:X2} to monster!", Flag);
+					return string.Format("Clear monster {0:X2} flag 0x{1:X2}", MonsterID, Flag);
+				}
+				// Event
+				case 0xe4:
+				{
+					return string.Format("Clear flag event");
+				}
+				// Party function
+				case 0xd1:
+				{
+					return string.Format("Clear flag Party_Function(FUNC_SETVAL, PARTY_SAVEREST, 0)");
 				}
 
 				default:
 				{
-					return string.Format("Clear flag unknow type 0x{0:X2}", Type);
+					return string.Format("Clear unknow flag 0x{0:X2}", Type);
 				}
 			}
 		}
@@ -54,6 +96,7 @@ namespace INF
 
 		byte Type;
 		byte Flag;
+		byte MonsterID;
 
 		#endregion
 	}

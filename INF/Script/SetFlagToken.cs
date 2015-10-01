@@ -15,7 +15,39 @@ namespace INF
 		public SetFlagToken(Script script) : base(script)
 		{
 			Type = script.ReadByte();
-			Flag = script.ReadByte();
+			switch (Type)
+			{
+				// Maze
+				case 0xef:
+				// Global
+				case 0xf0:
+				{
+					Flag = script.ReadByte();
+				}
+				break;
+
+				// Monster
+				case 0xf3:
+				{
+					MonsterID = script.ReadByte();
+					Flag = script.ReadByte();
+				}
+				break;
+
+				// Event
+				case 0xe4:
+				{
+
+				}
+				break;
+
+				// Party function ???
+				case 0xd1:
+				{
+
+				}
+				break;
+			}
 		}
 
 		/// <summary>
@@ -26,10 +58,36 @@ namespace INF
 		{
 			switch (Type)
 			{
-				case 0xef:	return string.Format("Set flag 0x{0:X2} to level", Flag);
-				case 0xf0:	return string.Format("Set flag 0x{0:X2} to global", Flag);
-				case 0xf3:	return string.Format("Set flag 0x{0:X2} to monster!", Flag);
-				default:	return string.Format("Set flag unknow type 0x{0:X2}", Type);
+				// Level
+				case 0xef:
+				{
+					return string.Format("Set level flag 0x{0:X2}", Flag);
+				}
+				// Global
+				case 0xf0:
+				{
+					return string.Format("Set global flag 0x{0:X2}", Flag);
+				}
+				// Monster
+				case 0xf3:
+				{
+					return string.Format("Set monster {0:X2} flag 0x{1:X2}", MonsterID, Flag);
+				}
+				// Event
+				case 0xe4:
+				{
+					return string.Format("Set flag event");
+				}
+				// Party function
+				case 0xd1:
+				{
+					return string.Format("Set flag Party_Function(FUNC_SETVAL, PARTY_SAVEREST, 0)");
+				}
+
+				default:
+				{
+					return string.Format("Set unknow flag 0x{0:X2}", Type);
+				}
 			}
 		}
 
@@ -38,7 +96,7 @@ namespace INF
 
 		byte Type;
 		byte Flag;
-
+		byte MonsterID;
 		#endregion
 	}
 }

@@ -6,16 +6,17 @@ using System.Drawing;
 
 namespace INF
 {
-	class CloseDoorToken : ScriptToken
+	/// <summary>
+	/// 
+	/// </summary>
+	public class ConditionalPushFalse : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public CloseDoorToken(Script script) : base(script)
+		public ConditionalPushFalse(Script script) : base(script)
 		{
-			Target = Location.FromScript(script);
-
 		}
 
 		/// <summary>
@@ -24,14 +25,8 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Close door at {0}", Target);
+			return string.Format("Push false ");
 		}
 
-
-		#region Properties
-
-		Location Target;
-
-		#endregion
 	}
 }

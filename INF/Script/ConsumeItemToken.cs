@@ -15,30 +15,8 @@ namespace INF
 		public ConsumeItemToken(Script script) : base(script)
 		{
 			Type = script.ReadByte();
-			switch (Type)
-			{
-				// Mouse pointer
-				case 0xff:
-				{
-					Location = Type;
-				}
-				break;
-				// at position
-				case 0xfe:
-				{
-					Location = Type;
-					Target = script.ReadPosition();
-				}
-				break;
-				// At position by type
-				case 0x0:
-				{
-					Location = 0;
-					Target = script.ReadPosition();
-				}
-				break;
-
-			}
+			if (Type != 0xff)
+				Target = Location.FromScript(script);
 		}
 
 		/// <summary>
@@ -49,18 +27,16 @@ namespace INF
 		{
 			switch (Type)
 			{
-				case 0xff:	return string.Format("Consume item from mouse pointer");
-				case 0xfe:	return string.Format("Consume item at position {0}", Target);
-				case 0x0:	return string.Format("Consume item at position {0} of type {1}", Target, Type);
-				default:	return string.Format("Consume item unknown type 0x{0:X2}", Type);
+				case 0xff: return string.Format("Consume item from mouse pointer");
+				case 0xfe: return string.Format("Consume item at position {0}", Target);
+				default: return string.Format("Consume item at position {0} of type {1}", Target, Type);
 			}
 		}
 
 		#region Properties
 
 		byte Type;
-		byte Location;
-		Point Target;
+		Location Target;
 
 		#endregion
 	}

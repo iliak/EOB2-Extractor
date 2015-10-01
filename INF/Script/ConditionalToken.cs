@@ -56,11 +56,13 @@ namespace INF
 					case 0xda: token = new ConditionalPartyVisible(script); break;
 					case 0xd2: token = new ConditionalImmediateShort(script); break;
 					case 0xce: token = new ConditionalContainAlignment(script); break;
+					case 0x01: token = new ConditionalPushTrue(script); break;
+					case 0x00: token = new ConditionalPushFalse(script); break;
 					default:
 					if (operation >= 0x80)
 						token = new ConditionalInvalid(operation, script);
 					else
-						token = new ConditionalLiteral(operation, script); break;
+						token = new ConditionalPushValue(operation, script); break;
 				}
 
 				if (token == null)

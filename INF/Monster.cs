@@ -15,15 +15,15 @@ namespace INF
 		/// <returns></returns>
 		public override String ToString()
 		{
-			return String.Format("({0}:{1} {2}|{3}) [delay:{4}\ttype:{5}\tpicture:{6}\tmovestate:{7}\tpause:{8}\tweapon:0x{9:X4}\tpocket:0x{10:X4}]",
-			Position.X, Position.X, SubPosition, Direction,
+			return String.Format("({0} {1}|{2}) [delay:{3}\ttype:{4}\tpicture:{5}\tmovestate:{6}\tpause:{7}\tweapon:0x{8:X4}\tpocket:0x{9:X4}]",
+			Position, SubPosition, Direction,
 			TimeDelay, Type, PictureIndex, MoveState, Pause, Weapon, PocketItem);
 		}
 
 		#region Properties
 		public byte Index;
 		public byte TimeDelay;
-		public Point Position;
+		public Location Position;
 		public byte SubPosition;
 		public byte Direction;
 		public byte Type;

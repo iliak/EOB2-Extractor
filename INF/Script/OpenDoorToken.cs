@@ -14,7 +14,7 @@ namespace INF
 		/// <param name="script"></param>
 		public OpenDoorToken(Script script) : base(script)
 		{
-			Target = script.ReadPosition();
+			Target = Location.FromScript(script);
 		}
 
 		/// <summary>
@@ -23,13 +23,13 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Open door at {0}:{1}", Target.X, Target.Y);
+			return string.Format("Open door at {0}", Target);
 		}
 
 
 		#region Properties
 
-		Point Target;
+		Location Target;
 
 		#endregion
 	}

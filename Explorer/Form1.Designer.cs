@@ -115,6 +115,7 @@
 			this.DecodeButton = new System.Windows.Forms.ToolStripButton();
 			this.label22 = new System.Windows.Forms.Label();
 			this.MessageIdBox = new System.Windows.Forms.TextBox();
+			this.button1 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.ItemTab.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -915,6 +916,7 @@
 			// 
 			// TextTab
 			// 
+			this.TextTab.Controls.Add(this.button1);
 			this.TextTab.Controls.Add(this.MessageIdBox);
 			this.TextTab.Controls.Add(this.label22);
 			this.TextTab.Controls.Add(this.TextMsgBox);
@@ -1001,6 +1003,17 @@
 			this.MessageIdBox.Size = new System.Drawing.Size(68, 20);
 			this.MessageIdBox.TabIndex = 3;
 			this.MessageIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// button1
+			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.Location = new System.Drawing.Point(993, 462);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 4;
+			this.button1.Text = "Export...";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// Form1
 			// 
@@ -1117,6 +1130,7 @@
 		private System.Windows.Forms.ListBox TextIDBox;
 		private System.Windows.Forms.TextBox MessageIdBox;
 		private System.Windows.Forms.Label label22;
+		private System.Windows.Forms.Button button1;
 	}
 }
 

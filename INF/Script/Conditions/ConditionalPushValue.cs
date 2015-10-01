@@ -9,13 +9,13 @@ namespace INF
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ConditionalLiteral : ConditionalBase
+	public class ConditionalPushValue : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalLiteral(byte value, Script script) : base(script)
+		public ConditionalPushValue(byte value, Script script) : base(script)
 		{
 			Value = value;
 		}
@@ -26,7 +26,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("0x{0:X2}, ", Value);
+			return string.Format("Push value 0x{0:X2}, ", Value);
 		}
 
 		/// <summary>

@@ -17,7 +17,7 @@ namespace INF
 			Monster = new Monster();
 			Monster.Index = script.ReadByte();
 			Monster.Type = script.ReadByte();
-			Monster.Position = script.ReadPosition();
+			Monster.Position = Location.FromScript(script); // script.ReadPosition();
 			Monster.SubPosition = script.ReadByte();
 			Monster.Direction = script.ReadByte();
 			Monster.Type = script.ReadByte();
