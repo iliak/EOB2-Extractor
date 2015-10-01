@@ -34,7 +34,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("{0} => 0x{1:X4}", Position, Offset);
+			return string.Format("{0} => 0x{1:X4} Flag: 0x{2:X4}", Position, Offset, Flags);
 		}
 	}
 }

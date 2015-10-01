@@ -21,7 +21,7 @@ namespace INF
 
 			Maze = new Maze();
 
-			string filename = @"c:\eob2-uncps\LEVEL16.INF_uncps";
+			string filename = @"c:\eob2-uncps\LEVEL4.INF_uncps";
 			using (Reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 

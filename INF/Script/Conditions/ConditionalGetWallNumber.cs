@@ -17,7 +17,7 @@ namespace INF
 		/// <param name="script"></param>
 		public ConditionalGetWallNumber(Script script) : base(script)
 		{
-			Target = script.ReadPosition();
+			Target = Location.FromScript(script);
 		}
 
 		/// <summary>
@@ -32,6 +32,6 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public Point Target;
+		public Location Target;
 	}
 }

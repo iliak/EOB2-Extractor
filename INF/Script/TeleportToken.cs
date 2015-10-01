@@ -25,19 +25,26 @@ namespace INF
 				}
 				break;
 
-				// Monster
-				case 0xf3:
+				//
+				case 0xe1:
 				{
-					Source = Location.FromScript(script); 
 					Destination = Location.FromScript(script);
 				}
 				break;
 
+				// Monster
+				case 0xf3:
 				// Item
 				case 0xf5:
 				{
+
+				}
+				break;
+
+				default:
+				{
 					Source = Location.FromScript(script);
-					Destination = Location.FromScript(script); 
+					Destination = Location.FromScript(script);
 				}
 				break;
 			}
@@ -49,13 +56,13 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-
 			switch (Type)
 			{
 				case 0xe8: return string.Format("Teleport team to {0}", Destination);
 				case 0xf3: return string.Format("Teleport monster from {0} to {1}", Source, Destination);
-				case 0xf5: return string.Format("Teleport item from {0} to {1}", Source, Destination);
-				default: return string.Format("Teleport unknow type 0x{0:X2}", Type);
+				case 0xf5: return string.Format("Teleport unknown");
+				case 0xe1: return string.Format("Teleport unknown to {0}", Destination);
+				default: return string.Format("Teleport unknow type 0x{0:X2} from {1} to {2}", Type, Source, Destination);
 			}
 		}
 

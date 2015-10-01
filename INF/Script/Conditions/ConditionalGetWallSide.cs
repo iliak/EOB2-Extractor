@@ -18,7 +18,7 @@ namespace INF
 		public ConditionalGetWallSide(Script script) : base(script)
 		{
 			Side = script.ReadByte();
-			target = script.ReadPosition();
+			target = Location.FromScript(script);
 		}
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public Point target;
+		public Location target;
 
 		#endregion
 	}

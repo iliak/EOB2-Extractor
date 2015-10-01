@@ -66,6 +66,12 @@ namespace INF
 					Y = script.ReadAddr();
 				}
 				break;
+
+				default:
+				{
+
+				}
+				break;
 			}
 		}
 
@@ -87,34 +93,35 @@ namespace INF
 				// Close dialog
 				case 0xd4:
 				{
-					return string.Format("Text menu 0x{0:X2} Close", Type);
+					return string.Format("Text menu Display border off");
 				}
 
 				//Display background ?
 				case 0xd5:
 				{
-					return string.Format("Text menu 0x{0:X2} Display border", Type);
+					return string.Format("Text menu Display border on");
 
 				}
 
 				// Fade in 
 				case 0xd6:
 				{
-					return string.Format("Text menu 0x{0:X2} Fade in", Type);
+					return string.Format("Text menuFade in");
 
 				}
 
-				// Buttons
+				// Message and 3 buttons
 				case 0xd8:
 				{
-					return string.Format("Text menu 0x{0:X2} Button def : (Text ID (?): {1}, Button 1: {2}, Button 2: {3}, Button 3: {4})", Type, TextID, Buttons[0], Buttons[1], Buttons[2]);
+					return string.Format("Text menu 0x{0:X2} Message with 3 buttons : (Msg ID: 0x{1:X2}, Button 1: 0x{2:X2}, Button 2: 0x{3:X2}, Button 3: 0x{4:X2})", Type, TextID, Buttons[0], Buttons[1], Buttons[2]);
 				}
 
+
+				// Message and 1 button
 				case 0xf8:
 				{
-					return string.Format("Text menu 0x{0:X2} (??) : (Text ID: 0x{1:X4}, Y: 0x{2:X4})", Type, X, Y);
+					return string.Format("Text menu 0x{0:X2} Message with 1 button : (Msg ID: 0x{1:X4}, Text ID: 0x{2:X4})", Type, X, Y);
 				}
-
 			}
 
 

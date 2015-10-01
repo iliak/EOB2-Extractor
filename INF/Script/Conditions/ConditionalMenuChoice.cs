@@ -18,7 +18,7 @@ namespace INF
 		public ConditionalMenuChoice(Script script) : base(script)
 		{
 			Type = script.ReadByte();
-			Value = script.ReadByte();
+			Value = script.ReadAddr();
 		}
 
 		/// <summary>
@@ -27,7 +27,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Menu choice Type: 0x{0:X2}, Value 0x{1:X2}", Type, Value);
+			return string.Format("Menu choice Type: 0x{0:X2}, Value 0x{1:X4}", Type, Value);
 		}
 
 		#region Properties
@@ -40,7 +40,7 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte Value;
+		public ushort Value;
 
 		#endregion
 	}

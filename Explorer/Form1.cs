@@ -124,9 +124,9 @@ namespace Explorer
 		{
 			using (TextWriter writer = File.CreateText(WorkingDirectory + "textdata.txt"))
 			{
-				for(int i = 0; i < TextData.Count; i++)
+				for (int i = 0; i < TextData.Count; i++)
 				{
-					writer.WriteLine("0x{0:X2}:	'{1}'", i, TextData[i]);
+					writer.WriteLine("0x{0:X2}:	'{1}'", i + 1, TextData[i]);
 				}
 			}
 		}
