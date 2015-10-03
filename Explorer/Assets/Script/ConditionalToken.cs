@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
 	class ConditionalToken : ScriptToken
 	{
@@ -16,8 +16,9 @@ namespace INF
 		{
 			Conditions = new Stack<ConditionalBase>();
 			ConditionalBase token = null;
+			Buffer = new StringBuilder();
 
-			Console.WriteLine("IF ");
+			Buffer.AppendLine("IF ");
 			while (true)
 			{
 				byte operation = script.ReadByte();
@@ -68,14 +69,14 @@ namespace INF
 				if (token == null)
 					continue;
 
-				Console.WriteLine("\t" + token);
+				Buffer.AppendLine("\t" + token);
 				Conditions.Push(token);
 
 			}
 
 
 			ushort addr = script.ReadAddr();
-			Console.WriteLine("\t====> JUMP TO 0x{0:X4}", addr);
+			Buffer.AppendFormat("\t====> JUMP TO 0x{0:X4}\n", addr);
 
 		}
 
@@ -85,31 +86,31 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("");
+			return Buffer.ToString();
 		}
 
 
 		/// <summary>
 		/// 
 		/// </summary>
-		void Decode()
-		{
-			while (Conditions.Count > 0)
-			{
-				ConditionalOperator op = Conditions.Pop() as ConditionalOperator;
-				if (op.Operator == 0xf9 || op.Operator == 0xf8)
-				{
+		//void Decode()
+		//{
+		//	while (Conditions.Count > 0)
+		//	{
+		//		ConditionalOperator op = Conditions.Pop() as ConditionalOperator;
+		//		if (op.Operator == 0xf9 || op.Operator == 0xf8)
+		//		{
 
-				}
+		//		}
 
 
-				ConditionalBase right = Conditions.Pop();
-				ConditionalBase left = Conditions.Pop();
+		//		ConditionalBase right = Conditions.Pop();
+		//		ConditionalBase left = Conditions.Pop();
 
-				Console.WriteLine("{0} {1} {2}", left, op, right);
-			}
+		//		Console.WriteLine("{0} {1} {2}", left, op, right);
+		//	}
 
-		}
+		//}
 
 
 
@@ -118,6 +119,10 @@ namespace INF
 
 
 		#region Properties
+
+		
+
+		StringBuilder Buffer;
 
 		/// <summary>
 		/// 

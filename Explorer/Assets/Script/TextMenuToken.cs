@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
 	class TextMenuToken : ScriptToken
 	{
@@ -86,7 +86,7 @@ namespace INF
 				// Display a picture from a CPS file
 				case 0xd3:
 				{
-					return string.Format("Text menu 0x{0:X2} Display picture : (\"{1}\", X: {2}, Y: {3}, 0x{4:X2}, 0x{5:X2}, 0x{6:X2}, 0x{7:X2})", Type, PictureName, X * 8, Y, unk0, unk1, unk2, unk3);
+					return string.Format("Text menu 0x{0:X2} Display picture : (\"{1}\", X: {2}, Y: {3}, 0x{4:X2}, 0x{5:X2}, 0x{6:X2})", Type, PictureName, X * 8, Y, unk0, unk1, unk2);
 				}
 
 
@@ -145,12 +145,9 @@ namespace INF
 
 		ushort X;
 		ushort Y;
-		//ushort Width;
-		//ushort Height;
 		byte unk0;
 		byte unk1;
 		byte unk2;
-		byte unk3;
 
 
 

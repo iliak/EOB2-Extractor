@@ -82,6 +82,7 @@
 			this.ItemTypesListbox = new System.Windows.Forms.ListBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.ItemUnidentifiedName = new System.Windows.Forms.TextBox();
 			this.ItemListbox = new System.Windows.Forms.ListBox();
 			this.label2 = new System.Windows.Forms.Label();
@@ -106,20 +107,65 @@
 			this.ItemIdentifiedName = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.MazeTab = new System.Windows.Forms.TabPage();
+			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.ScriptTextBox = new System.Windows.Forms.TextBox();
+			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.StringMessageLabel = new System.Windows.Forms.Label();
+			this.StringIdBox = new System.Windows.Forms.NumericUpDown();
+			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this.TriggerOffsetBox = new System.Windows.Forms.TextBox();
+			this.TriggerCoordinateBox = new System.Windows.Forms.TextBox();
+			this.label24 = new System.Windows.Forms.Label();
+			this.label23 = new System.Windows.Forms.Label();
+			this.TriggerIdBox = new System.Windows.Forms.NumericUpDown();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.MonsterType = new System.Windows.Forms.TextBox();
+			this.MonsterDirection = new System.Windows.Forms.TextBox();
+			this.MonsterLocation = new System.Windows.Forms.TextBox();
+			this.MonsterMoveTime = new System.Windows.Forms.TextBox();
+			this.label27 = new System.Windows.Forms.Label();
+			this.label31 = new System.Windows.Forms.Label();
+			this.label32 = new System.Windows.Forms.Label();
+			this.label33 = new System.Windows.Forms.Label();
+			this.label34 = new System.Windows.Forms.Label();
+			this.label30 = new System.Windows.Forms.Label();
+			this.label29 = new System.Windows.Forms.Label();
+			this.label26 = new System.Windows.Forms.Label();
+			this.label25 = new System.Windows.Forms.Label();
+			this.MonsterIdBox = new System.Windows.Forms.NumericUpDown();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.MazeSelectBox = new System.Windows.Forms.ListBox();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.TextTab = new System.Windows.Forms.TabPage();
+			this.button1 = new System.Windows.Forms.Button();
+			this.TextIdBox = new System.Windows.Forms.TextBox();
+			this.label22 = new System.Windows.Forms.Label();
 			this.TextMsgBox = new System.Windows.Forms.TextBox();
-			this.TextIDBox = new System.Windows.Forms.ListBox();
+			this.SelectTextIDBox = new System.Windows.Forms.ListBox();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.DecodeButton = new System.Windows.Forms.ToolStripButton();
-			this.label22 = new System.Windows.Forms.Label();
-			this.MessageIdBox = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.MonsterWeapon = new System.Windows.Forms.TextBox();
+			this.MonsterPause = new System.Windows.Forms.TextBox();
+			this.MonsterPhase = new System.Windows.Forms.TextBox();
+			this.MonsterPicture = new System.Windows.Forms.TextBox();
+			this.MonsterPocket = new System.Windows.Forms.TextBox();
+			this.MonsterPocketItemTxt = new System.Windows.Forms.Label();
+			this.MonsterWeaponTxt = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.ItemTab.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this.MazeTab.SuspendLayout();
+			this.groupBox7.SuspendLayout();
+			this.groupBox6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.StringIdBox)).BeginInit();
+			this.groupBox5.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.TriggerIdBox)).BeginInit();
+			this.groupBox4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MonsterIdBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.TextTab.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -133,7 +179,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(0, 25);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1084, 514);
+			this.tabControl1.Size = new System.Drawing.Size(1181, 614);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// ItemTab
@@ -143,7 +189,7 @@
 			this.ItemTab.Location = new System.Drawing.Point(4, 22);
 			this.ItemTab.Name = "ItemTab";
 			this.ItemTab.Padding = new System.Windows.Forms.Padding(3);
-			this.ItemTab.Size = new System.Drawing.Size(1076, 488);
+			this.ItemTab.Size = new System.Drawing.Size(1076, 588);
 			this.ItemTab.TabIndex = 0;
 			this.ItemTab.Text = "Items";
 			this.ItemTab.UseVisualStyleBackColor = true;
@@ -204,7 +250,7 @@
 			this.groupBox2.Controls.Add(this.label12);
 			this.groupBox2.Location = new System.Drawing.Point(444, 13);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(624, 476);
+			this.groupBox2.Size = new System.Drawing.Size(624, 576);
 			this.groupBox2.TabIndex = 3;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Item Types :";
@@ -659,7 +705,7 @@
 			this.ItemTypesListbox.FormattingEnabled = true;
 			this.ItemTypesListbox.Location = new System.Drawing.Point(3, 16);
 			this.ItemTypesListbox.Name = "ItemTypesListbox";
-			this.ItemTypesListbox.Size = new System.Drawing.Size(54, 457);
+			this.ItemTypesListbox.Size = new System.Drawing.Size(54, 557);
 			this.ItemTypesListbox.TabIndex = 0;
 			this.ItemTypesListbox.SelectedIndexChanged += new System.EventHandler(this.ItemTypesListbox_SelectedIndexChanged);
 			// 
@@ -676,6 +722,7 @@
 			// 
 			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox1.Controls.Add(this.checkBox1);
 			this.groupBox1.Controls.Add(this.ItemUnidentifiedName);
 			this.groupBox1.Controls.Add(this.ItemListbox);
 			this.groupBox1.Controls.Add(this.label2);
@@ -701,10 +748,22 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(6, 6);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(432, 482);
+			this.groupBox1.Size = new System.Drawing.Size(432, 582);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Items :";
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(157, 559);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(90, 17);
+			this.checkBox1.TabIndex = 4;
+			this.checkBox1.Text = "Sort by Name";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.SortItemListboxCheck_CheckedChanged);
 			// 
 			// ItemUnidentifiedName
 			// 
@@ -720,8 +779,7 @@
 			this.ItemListbox.FormattingEnabled = true;
 			this.ItemListbox.Location = new System.Drawing.Point(3, 16);
 			this.ItemListbox.Name = "ItemListbox";
-			this.ItemListbox.Size = new System.Drawing.Size(148, 463);
-			this.ItemListbox.Sorted = true;
+			this.ItemListbox.Size = new System.Drawing.Size(148, 563);
 			this.ItemListbox.TabIndex = 0;
 			this.ItemListbox.SelectedIndexChanged += new System.EventHandler(this.ItemListbox_SelectedIndexChanged);
 			// 
@@ -906,53 +964,435 @@
 			// 
 			// MazeTab
 			// 
+			this.MazeTab.Controls.Add(this.groupBox7);
+			this.MazeTab.Controls.Add(this.groupBox6);
+			this.MazeTab.Controls.Add(this.groupBox5);
+			this.MazeTab.Controls.Add(this.groupBox4);
+			this.MazeTab.Controls.Add(this.groupBox3);
+			this.MazeTab.Controls.Add(this.MazeSelectBox);
+			this.MazeTab.Controls.Add(this.pictureBox1);
 			this.MazeTab.Location = new System.Drawing.Point(4, 22);
 			this.MazeTab.Name = "MazeTab";
 			this.MazeTab.Padding = new System.Windows.Forms.Padding(3);
-			this.MazeTab.Size = new System.Drawing.Size(1076, 488);
+			this.MazeTab.Size = new System.Drawing.Size(1173, 588);
 			this.MazeTab.TabIndex = 1;
-			this.MazeTab.Text = "Maze";
+			this.MazeTab.Text = "Mazes";
 			this.MazeTab.UseVisualStyleBackColor = true;
+			// 
+			// groupBox7
+			// 
+			this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox7.Controls.Add(this.ScriptTextBox);
+			this.groupBox7.Location = new System.Drawing.Point(607, 347);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(552, 235);
+			this.groupBox7.TabIndex = 6;
+			this.groupBox7.TabStop = false;
+			this.groupBox7.Text = "Script :";
+			// 
+			// ScriptTextBox
+			// 
+			this.ScriptTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ScriptTextBox.Location = new System.Drawing.Point(6, 19);
+			this.ScriptTextBox.Multiline = true;
+			this.ScriptTextBox.Name = "ScriptTextBox";
+			this.ScriptTextBox.ReadOnly = true;
+			this.ScriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.ScriptTextBox.Size = new System.Drawing.Size(540, 210);
+			this.ScriptTextBox.TabIndex = 0;
+			// 
+			// groupBox6
+			// 
+			this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox6.Controls.Add(this.StringMessageLabel);
+			this.groupBox6.Controls.Add(this.StringIdBox);
+			this.groupBox6.Location = new System.Drawing.Point(607, 231);
+			this.groupBox6.Name = "groupBox6";
+			this.groupBox6.Size = new System.Drawing.Size(558, 58);
+			this.groupBox6.TabIndex = 5;
+			this.groupBox6.TabStop = false;
+			this.groupBox6.Text = "Strings :";
+			// 
+			// StringMessageLabel
+			// 
+			this.StringMessageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.StringMessageLabel.Location = new System.Drawing.Point(57, 21);
+			this.StringMessageLabel.Name = "StringMessageLabel";
+			this.StringMessageLabel.Size = new System.Drawing.Size(495, 34);
+			this.StringMessageLabel.TabIndex = 3;
+			// 
+			// StringIdBox
+			// 
+			this.StringIdBox.Location = new System.Drawing.Point(6, 21);
+			this.StringIdBox.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+			this.StringIdBox.Name = "StringIdBox";
+			this.StringIdBox.Size = new System.Drawing.Size(45, 20);
+			this.StringIdBox.TabIndex = 2;
+			this.StringIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.StringIdBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.StringIdBox.ValueChanged += new System.EventHandler(this.StringIdBox_ValueChanged);
+			// 
+			// groupBox5
+			// 
+			this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox5.Controls.Add(this.TriggerOffsetBox);
+			this.groupBox5.Controls.Add(this.TriggerCoordinateBox);
+			this.groupBox5.Controls.Add(this.label24);
+			this.groupBox5.Controls.Add(this.label23);
+			this.groupBox5.Controls.Add(this.TriggerIdBox);
+			this.groupBox5.Location = new System.Drawing.Point(607, 295);
+			this.groupBox5.Name = "groupBox5";
+			this.groupBox5.Size = new System.Drawing.Size(558, 46);
+			this.groupBox5.TabIndex = 4;
+			this.groupBox5.TabStop = false;
+			this.groupBox5.Text = "Triggers :";
+			// 
+			// TriggerOffsetBox
+			// 
+			this.TriggerOffsetBox.Location = new System.Drawing.Point(254, 18);
+			this.TriggerOffsetBox.Name = "TriggerOffsetBox";
+			this.TriggerOffsetBox.ReadOnly = true;
+			this.TriggerOffsetBox.Size = new System.Drawing.Size(44, 20);
+			this.TriggerOffsetBox.TabIndex = 7;
+			// 
+			// TriggerCoordinateBox
+			// 
+			this.TriggerCoordinateBox.Location = new System.Drawing.Point(127, 18);
+			this.TriggerCoordinateBox.Name = "TriggerCoordinateBox";
+			this.TriggerCoordinateBox.ReadOnly = true;
+			this.TriggerCoordinateBox.Size = new System.Drawing.Size(46, 20);
+			this.TriggerCoordinateBox.TabIndex = 6;
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.Location = new System.Drawing.Point(179, 22);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(69, 13);
+			this.label24.TabIndex = 5;
+			this.label24.Text = "Script offset :";
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.Location = new System.Drawing.Point(57, 21);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(64, 13);
+			this.label23.TabIndex = 4;
+			this.label23.Text = "Coordinate :";
+			// 
+			// TriggerIdBox
+			// 
+			this.TriggerIdBox.Location = new System.Drawing.Point(6, 19);
+			this.TriggerIdBox.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+			this.TriggerIdBox.Name = "TriggerIdBox";
+			this.TriggerIdBox.Size = new System.Drawing.Size(45, 20);
+			this.TriggerIdBox.TabIndex = 1;
+			this.TriggerIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TriggerIdBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.TriggerIdBox.ValueChanged += new System.EventHandler(this.TriggerIdBox_ValueChanged);
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox4.Controls.Add(this.MonsterPause);
+			this.groupBox4.Controls.Add(this.label33);
+			this.groupBox4.Controls.Add(this.MonsterWeaponTxt);
+			this.groupBox4.Controls.Add(this.MonsterPocketItemTxt);
+			this.groupBox4.Controls.Add(this.label27);
+			this.groupBox4.Controls.Add(this.MonsterWeapon);
+			this.groupBox4.Controls.Add(this.label32);
+			this.groupBox4.Controls.Add(this.MonsterPocket);
+			this.groupBox4.Controls.Add(this.MonsterPhase);
+			this.groupBox4.Controls.Add(this.MonsterPicture);
+			this.groupBox4.Controls.Add(this.MonsterType);
+			this.groupBox4.Controls.Add(this.label34);
+			this.groupBox4.Controls.Add(this.MonsterDirection);
+			this.groupBox4.Controls.Add(this.MonsterLocation);
+			this.groupBox4.Controls.Add(this.label31);
+			this.groupBox4.Controls.Add(this.MonsterMoveTime);
+			this.groupBox4.Controls.Add(this.label30);
+			this.groupBox4.Controls.Add(this.label29);
+			this.groupBox4.Controls.Add(this.label26);
+			this.groupBox4.Controls.Add(this.label25);
+			this.groupBox4.Controls.Add(this.MonsterIdBox);
+			this.groupBox4.Location = new System.Drawing.Point(607, 103);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(558, 122);
+			this.groupBox4.TabIndex = 3;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "Monsters :";
+			// 
+			// MonsterType
+			// 
+			this.MonsterType.Location = new System.Drawing.Point(266, 64);
+			this.MonsterType.Name = "MonsterType";
+			this.MonsterType.ReadOnly = true;
+			this.MonsterType.Size = new System.Drawing.Size(56, 20);
+			this.MonsterType.TabIndex = 15;
+			// 
+			// MonsterDirection
+			// 
+			this.MonsterDirection.Location = new System.Drawing.Point(127, 64);
+			this.MonsterDirection.Name = "MonsterDirection";
+			this.MonsterDirection.ReadOnly = true;
+			this.MonsterDirection.Size = new System.Drawing.Size(56, 20);
+			this.MonsterDirection.TabIndex = 14;
+			// 
+			// MonsterLocation
+			// 
+			this.MonsterLocation.Location = new System.Drawing.Point(127, 38);
+			this.MonsterLocation.Name = "MonsterLocation";
+			this.MonsterLocation.ReadOnly = true;
+			this.MonsterLocation.Size = new System.Drawing.Size(56, 20);
+			this.MonsterLocation.TabIndex = 13;
+			// 
+			// MonsterMoveTime
+			// 
+			this.MonsterMoveTime.Location = new System.Drawing.Point(127, 12);
+			this.MonsterMoveTime.Name = "MonsterMoveTime";
+			this.MonsterMoveTime.ReadOnly = true;
+			this.MonsterMoveTime.Size = new System.Drawing.Size(56, 20);
+			this.MonsterMoveTime.TabIndex = 12;
+			// 
+			// label27
+			// 
+			this.label27.AutoSize = true;
+			this.label27.Location = new System.Drawing.Point(14, 99);
+			this.label27.Name = "label27";
+			this.label27.Size = new System.Drawing.Size(47, 13);
+			this.label27.TabIndex = 11;
+			this.label27.Text = "Pocket :";
+			// 
+			// label31
+			// 
+			this.label31.AutoSize = true;
+			this.label31.Location = new System.Drawing.Point(217, 41);
+			this.label31.Name = "label31";
+			this.label31.Size = new System.Drawing.Size(43, 13);
+			this.label31.TabIndex = 10;
+			this.label31.Text = "Phase :";
+			// 
+			// label32
+			// 
+			this.label32.AutoSize = true;
+			this.label32.Location = new System.Drawing.Point(244, 99);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(54, 13);
+			this.label32.TabIndex = 9;
+			this.label32.Text = "Weapon :";
+			// 
+			// label33
+			// 
+			this.label33.AutoSize = true;
+			this.label33.Location = new System.Drawing.Point(381, 15);
+			this.label33.Name = "label33";
+			this.label33.Size = new System.Drawing.Size(43, 13);
+			this.label33.TabIndex = 8;
+			this.label33.Text = "Pause :";
+			// 
+			// label34
+			// 
+			this.label34.AutoSize = true;
+			this.label34.Location = new System.Drawing.Point(214, 15);
+			this.label34.Name = "label34";
+			this.label34.Size = new System.Drawing.Size(46, 13);
+			this.label34.TabIndex = 7;
+			this.label34.Text = "Picture :";
+			// 
+			// label30
+			// 
+			this.label30.AutoSize = true;
+			this.label30.Location = new System.Drawing.Point(67, 41);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(54, 13);
+			this.label30.TabIndex = 6;
+			this.label30.Text = "Location :";
+			// 
+			// label29
+			// 
+			this.label29.AutoSize = true;
+			this.label29.Location = new System.Drawing.Point(223, 67);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(37, 13);
+			this.label29.TabIndex = 5;
+			this.label29.Text = "Type :";
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.Location = new System.Drawing.Point(71, 67);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(55, 13);
+			this.label26.TabIndex = 2;
+			this.label26.Text = "Direction :";
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.Location = new System.Drawing.Point(64, 15);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(62, 13);
+			this.label25.TabIndex = 1;
+			this.label25.Text = "Move time :";
+			// 
+			// MonsterIdBox
+			// 
+			this.MonsterIdBox.Location = new System.Drawing.Point(6, 19);
+			this.MonsterIdBox.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+			this.MonsterIdBox.Name = "MonsterIdBox";
+			this.MonsterIdBox.Size = new System.Drawing.Size(45, 20);
+			this.MonsterIdBox.TabIndex = 0;
+			this.MonsterIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.MonsterIdBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.MonsterIdBox.ValueChanged += new System.EventHandler(this.MonsterIdBox_ValueChanged);
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox3.Location = new System.Drawing.Point(607, 6);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(558, 91);
+			this.groupBox3.TabIndex = 2;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Informations :";
+			// 
+			// MazeSelectBox
+			// 
+			this.MazeSelectBox.FormattingEnabled = true;
+			this.MazeSelectBox.Items.AddRange(new object[] {
+            "Level 01",
+            "Level 02",
+            "Level 03",
+            "Level 04",
+            "Level 05",
+            "Level 06",
+            "Level 07",
+            "Level 08",
+            "Level 09",
+            "Level 10",
+            "Level 11",
+            "Level 12",
+            "Level 13",
+            "Level 14",
+            "Level 15",
+            "Level 16"});
+			this.MazeSelectBox.Location = new System.Drawing.Point(8, 3);
+			this.MazeSelectBox.Name = "MazeSelectBox";
+			this.MazeSelectBox.Size = new System.Drawing.Size(75, 212);
+			this.MazeSelectBox.TabIndex = 1;
+			this.MazeSelectBox.SelectedIndexChanged += new System.EventHandler(this.MazeSelectBox_SelectedIndexChanged);
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
+			this.pictureBox1.Location = new System.Drawing.Point(89, 6);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(512, 512);
+			this.pictureBox1.TabIndex = 0;
+			this.pictureBox1.TabStop = false;
 			// 
 			// TextTab
 			// 
 			this.TextTab.Controls.Add(this.button1);
-			this.TextTab.Controls.Add(this.MessageIdBox);
+			this.TextTab.Controls.Add(this.TextIdBox);
 			this.TextTab.Controls.Add(this.label22);
 			this.TextTab.Controls.Add(this.TextMsgBox);
-			this.TextTab.Controls.Add(this.TextIDBox);
+			this.TextTab.Controls.Add(this.SelectTextIDBox);
 			this.TextTab.Location = new System.Drawing.Point(4, 22);
 			this.TextTab.Name = "TextTab";
-			this.TextTab.Size = new System.Drawing.Size(1076, 488);
+			this.TextTab.Size = new System.Drawing.Size(1076, 588);
 			this.TextTab.TabIndex = 2;
 			this.TextTab.Text = "Text";
 			this.TextTab.UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(239, 3);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 4;
+			this.button1.Text = "Export...";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.ExportTextButton_Click);
+			// 
+			// TextIdBox
+			// 
+			this.TextIdBox.Location = new System.Drawing.Point(165, 5);
+			this.TextIdBox.Name = "TextIdBox";
+			this.TextIdBox.ReadOnly = true;
+			this.TextIdBox.Size = new System.Drawing.Size(68, 20);
+			this.TextIdBox.TabIndex = 3;
+			this.TextIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// label22
+			// 
+			this.label22.AutoSize = true;
+			this.label22.Location = new System.Drawing.Point(88, 8);
+			this.label22.Name = "label22";
+			this.label22.Size = new System.Drawing.Size(48, 13);
+			this.label22.TabIndex = 2;
+			this.label22.Text = "Text ID :";
 			// 
 			// TextMsgBox
 			// 
 			this.TextMsgBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.TextMsgBox.Location = new System.Drawing.Point(87, 36);
+			this.TextMsgBox.Location = new System.Drawing.Point(87, 32);
 			this.TextMsgBox.Multiline = true;
 			this.TextMsgBox.Name = "TextMsgBox";
 			this.TextMsgBox.Size = new System.Drawing.Size(981, 146);
 			this.TextMsgBox.TabIndex = 1;
 			// 
-			// TextIDBox
+			// SelectTextIDBox
 			// 
-			this.TextIDBox.Dock = System.Windows.Forms.DockStyle.Left;
-			this.TextIDBox.FormattingEnabled = true;
-			this.TextIDBox.Location = new System.Drawing.Point(0, 0);
-			this.TextIDBox.Name = "TextIDBox";
-			this.TextIDBox.Size = new System.Drawing.Size(81, 488);
-			this.TextIDBox.TabIndex = 0;
-			this.TextIDBox.SelectedIndexChanged += new System.EventHandler(this.TextIDBox_SelectedIndexChanged);
+			this.SelectTextIDBox.Dock = System.Windows.Forms.DockStyle.Left;
+			this.SelectTextIDBox.FormattingEnabled = true;
+			this.SelectTextIDBox.Location = new System.Drawing.Point(0, 0);
+			this.SelectTextIDBox.Name = "SelectTextIDBox";
+			this.SelectTextIDBox.Size = new System.Drawing.Size(81, 588);
+			this.SelectTextIDBox.TabIndex = 0;
+			this.SelectTextIDBox.SelectedIndexChanged += new System.EventHandler(this.TextIDBox_SelectedIndexChanged);
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 639);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(1084, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(1181, 22);
 			this.statusStrip1.TabIndex = 0;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
@@ -963,7 +1403,7 @@
             this.DecodeButton});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(1084, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(1181, 25);
 			this.toolStrip1.TabIndex = 0;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -986,44 +1426,69 @@
 			this.DecodeButton.Text = "Decode !";
 			this.DecodeButton.Click += new System.EventHandler(this.DecodeButton_Click);
 			// 
-			// label22
+			// MonsterWeapon
 			// 
-			this.label22.AutoSize = true;
-			this.label22.Location = new System.Drawing.Point(87, 7);
-			this.label22.Name = "label22";
-			this.label22.Size = new System.Drawing.Size(70, 13);
-			this.label22.TabIndex = 2;
-			this.label22.Text = "Message ID :";
+			this.MonsterWeapon.Location = new System.Drawing.Point(304, 96);
+			this.MonsterWeapon.Name = "MonsterWeapon";
+			this.MonsterWeapon.ReadOnly = true;
+			this.MonsterWeapon.Size = new System.Drawing.Size(56, 20);
+			this.MonsterWeapon.TabIndex = 19;
 			// 
-			// MessageIdBox
+			// MonsterPause
 			// 
-			this.MessageIdBox.Location = new System.Drawing.Point(164, 4);
-			this.MessageIdBox.Name = "MessageIdBox";
-			this.MessageIdBox.ReadOnly = true;
-			this.MessageIdBox.Size = new System.Drawing.Size(68, 20);
-			this.MessageIdBox.TabIndex = 3;
-			this.MessageIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.MonsterPause.Location = new System.Drawing.Point(430, 12);
+			this.MonsterPause.Name = "MonsterPause";
+			this.MonsterPause.ReadOnly = true;
+			this.MonsterPause.Size = new System.Drawing.Size(56, 20);
+			this.MonsterPause.TabIndex = 18;
 			// 
-			// button1
+			// MonsterPhase
 			// 
-			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(993, 462);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 4;
-			this.button1.Text = "Export...";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.MonsterPhase.Location = new System.Drawing.Point(266, 38);
+			this.MonsterPhase.Name = "MonsterPhase";
+			this.MonsterPhase.ReadOnly = true;
+			this.MonsterPhase.Size = new System.Drawing.Size(56, 20);
+			this.MonsterPhase.TabIndex = 17;
+			// 
+			// MonsterPicture
+			// 
+			this.MonsterPicture.Location = new System.Drawing.Point(266, 12);
+			this.MonsterPicture.Name = "MonsterPicture";
+			this.MonsterPicture.ReadOnly = true;
+			this.MonsterPicture.Size = new System.Drawing.Size(56, 20);
+			this.MonsterPicture.TabIndex = 16;
+			// 
+			// MonsterPocket
+			// 
+			this.MonsterPocket.Location = new System.Drawing.Point(67, 96);
+			this.MonsterPocket.Name = "MonsterPocket";
+			this.MonsterPocket.ReadOnly = true;
+			this.MonsterPocket.Size = new System.Drawing.Size(56, 20);
+			this.MonsterPocket.TabIndex = 20;
+			// 
+			// MonsterPocketItemTxt
+			// 
+			this.MonsterPocketItemTxt.Location = new System.Drawing.Point(129, 99);
+			this.MonsterPocketItemTxt.Name = "MonsterPocketItemTxt";
+			this.MonsterPocketItemTxt.Size = new System.Drawing.Size(109, 23);
+			this.MonsterPocketItemTxt.TabIndex = 21;
+			// 
+			// MonsterWeaponTxt
+			// 
+			this.MonsterWeaponTxt.Location = new System.Drawing.Point(366, 99);
+			this.MonsterWeaponTxt.Name = "MonsterWeaponTxt";
+			this.MonsterWeaponTxt.Size = new System.Drawing.Size(109, 23);
+			this.MonsterWeaponTxt.TabIndex = 22;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1084, 561);
+			this.ClientSize = new System.Drawing.Size(1181, 661);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.statusStrip1);
-			this.MinimumSize = new System.Drawing.Size(1100, 600);
+			this.MinimumSize = new System.Drawing.Size(1100, 700);
 			this.Name = "Form1";
 			this.Text = "EOB2 Inspector";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1033,6 +1498,18 @@
 			this.groupBox2.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			this.MazeTab.ResumeLayout(false);
+			this.groupBox7.ResumeLayout(false);
+			this.groupBox7.PerformLayout();
+			this.groupBox6.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.StringIdBox)).EndInit();
+			this.groupBox5.ResumeLayout(false);
+			this.groupBox5.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.TriggerIdBox)).EndInit();
+			this.groupBox4.ResumeLayout(false);
+			this.groupBox4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MonsterIdBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.TextTab.ResumeLayout(false);
 			this.TextTab.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
@@ -1127,10 +1604,47 @@
 		private System.Windows.Forms.TextBox ItemTypeActionDescription;
 		private System.Windows.Forms.TabPage TextTab;
 		private System.Windows.Forms.TextBox TextMsgBox;
-		private System.Windows.Forms.ListBox TextIDBox;
-		private System.Windows.Forms.TextBox MessageIdBox;
+		private System.Windows.Forms.ListBox SelectTextIDBox;
+		private System.Windows.Forms.TextBox TextIdBox;
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.ListBox MazeSelectBox;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.GroupBox groupBox4;
+		private System.Windows.Forms.GroupBox groupBox6;
+		private System.Windows.Forms.GroupBox groupBox5;
+		private System.Windows.Forms.NumericUpDown MonsterIdBox;
+		private System.Windows.Forms.NumericUpDown TriggerIdBox;
+		private System.Windows.Forms.NumericUpDown StringIdBox;
+		private System.Windows.Forms.Label StringMessageLabel;
+		private System.Windows.Forms.Label label24;
+		private System.Windows.Forms.Label label23;
+		private System.Windows.Forms.TextBox TriggerOffsetBox;
+		private System.Windows.Forms.TextBox TriggerCoordinateBox;
+		private System.Windows.Forms.GroupBox groupBox7;
+		private System.Windows.Forms.TextBox ScriptTextBox;
+		private System.Windows.Forms.TextBox MonsterType;
+		private System.Windows.Forms.TextBox MonsterDirection;
+		private System.Windows.Forms.TextBox MonsterLocation;
+		private System.Windows.Forms.TextBox MonsterMoveTime;
+		private System.Windows.Forms.Label label27;
+		private System.Windows.Forms.Label label31;
+		private System.Windows.Forms.Label label32;
+		private System.Windows.Forms.Label label33;
+		private System.Windows.Forms.Label label34;
+		private System.Windows.Forms.Label label30;
+		private System.Windows.Forms.Label label29;
+		private System.Windows.Forms.Label label26;
+		private System.Windows.Forms.Label label25;
+		private System.Windows.Forms.TextBox MonsterPocket;
+		private System.Windows.Forms.TextBox MonsterWeapon;
+		private System.Windows.Forms.TextBox MonsterPause;
+		private System.Windows.Forms.TextBox MonsterPhase;
+		private System.Windows.Forms.TextBox MonsterPicture;
+		private System.Windows.Forms.Label MonsterPocketItemTxt;
+		private System.Windows.Forms.Label MonsterWeaponTxt;
 	}
 }
 

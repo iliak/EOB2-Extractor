@@ -8,8 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+// http://www.gamewinners.com/walkthrough/eye_of_the_beholder_2/
+// http://gigi.nullneuron.net/comp/eob2.php
+// http://www.gamefaqs.com/pc/564792-eye-of-the-beholder-ii-the-legend-of-darkmoon/faqs/8566
+//
+//
 namespace Explorer
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public partial class Form1 : Form
 	{
 
@@ -20,10 +29,38 @@ namespace Explorer
 		{
 			InitializeComponent();
 
-			Items = new List<Item>();
-			ItemTypes = new List<ItemType>();
-
 			WorkingDirectory = @"c:\eob2-uncps\";
+		}
+
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		void LoadAssets()
+		{
+			// Items
+			Items = Item.Decode(WorkingDirectory);
+			ItemListbox.Items.Clear();
+			foreach (Item item in Items)
+				ItemListbox.Items.Add(item);
+
+			// Item types
+			ItemTypes = ItemType.Decode(WorkingDirectory);
+			ItemTypesListbox.Items.Clear();
+			foreach (ItemType type in ItemTypes)
+				ItemTypesListbox.Items.Add(type);
+
+			// Text data
+			TextData = Explorer.Text.Decode(WorkingDirectory);
+			SelectTextIDBox.Items.Clear();
+			for (int i = 0; i < TextData.Count; i++)
+				SelectTextIDBox.Items.Add("0x" + i.ToString("X2"));
+
+			// Mazes
+			for (byte i = 1; i <= 16; i++)
+				Mazes.Add(Maze.FromFile(string.Format("{0}LEVEL{1}.INF_uncps", WorkingDirectory, i)));
+			MazeSelectBox.SelectedIndex = 0;
 		}
 
 
@@ -112,7 +149,7 @@ namespace Explorer
 		/// <param name="text"></param>
 		void RebuildTextInterface(int id)
 		{
-			MessageIdBox.Text = TextData.Count > id ? id.ToString() : "";
+			TextIdBox.Text = TextData.Count > id ? "0x" + id.ToString("X2") : "";
 			TextMsgBox.Text = TextData.Count > id ? TextData[id] : "";
 		}
 
@@ -131,6 +168,29 @@ namespace Explorer
 			}
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		void RebuildMazeInterface(int id)
+		{
+			if (Mazes.Count == 0)
+				return;
+
+			Maze maze = Mazes[id];
+			MonsterIdBox.Value = 0;
+			MonsterIdBox.Maximum = maze.Monsters.Count - 1;
+			StringIdBox.Value = 0;
+			StringIdBox.Maximum = maze.Messages.Count - 1;
+			TriggerIdBox.Value = 0;
+			TriggerIdBox.Maximum = maze.Triggers.Count - 1;
+
+
+			ScriptTextBox.Text = maze.Script.Decompile();
+		}
+
+
 		#region Events
 
 		/// <summary>
@@ -140,24 +200,9 @@ namespace Explorer
 		/// <param name="e"></param>
 		private void DecodeButton_Click(object sender, EventArgs e)
 		{
-			// Items
-			Items = Item.Decode(WorkingDirectory);
-			ItemListbox.Items.Clear();
-			foreach (Item item in Items)
-				ItemListbox.Items.Add(item);
-
-			// Item types
-			ItemTypes = ItemType.Decode(WorkingDirectory);
-			ItemTypesListbox.Items.Clear();
-			foreach (ItemType type in ItemTypes)
-				ItemTypesListbox.Items.Add(type);
-
-			// Text data
-			TextData = Explorer.Text.Decode(WorkingDirectory);
-			TextIDBox.Items.Clear();
-			for (int i = 0; i < TextData.Count; i++)
-				TextIDBox.Items.Add("0x" + i.ToString("X4"));
+			LoadAssets();
 		}
+
 
 
 		/// <summary>
@@ -188,7 +233,7 @@ namespace Explorer
 		/// <param name="e"></param>
 		private void TextIDBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			RebuildTextInterface(TextIDBox.SelectedIndex);
+			RebuildTextInterface(SelectTextIDBox.SelectedIndex);
 		}
 
 
@@ -197,11 +242,95 @@ namespace Explorer
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void button1_Click(object sender, EventArgs e)
+		private void ExportTextButton_Click(object sender, EventArgs e)
 		{
 			ExportTextData();
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SortItemListboxCheck_CheckedChanged(object sender, EventArgs e)
+		{
+			ItemListbox.Sorted = checkBox1.Checked;
+		}
+
+
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MazeSelectBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			RebuildMazeInterface(MazeSelectBox.SelectedIndex);
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void StringIdBox_ValueChanged(object sender, EventArgs e)
+		{
+			if (Mazes.Count == 0)
+				return;
+
+			Maze maze = Mazes[MazeSelectBox.SelectedIndex];
+			StringMessageLabel.Text = maze.Messages[(int)StringIdBox.Value];
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TriggerIdBox_ValueChanged(object sender, EventArgs e)
+		{
+			if (Mazes.Count == 0)
+				return;
+
+			Maze maze = Mazes[MazeSelectBox.SelectedIndex];
+			Trigger trigger = maze.Triggers[(int)TriggerIdBox.Value];
+			TriggerCoordinateBox.Text = trigger.Location.ToString();
+			TriggerOffsetBox.Text = "0x" + trigger.Offset.ToString("X4");
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MonsterIdBox_ValueChanged(object sender, EventArgs e)
+		{
+			if (Mazes.Count == 0)
+				return;
+
+			Maze maze = Mazes[MazeSelectBox.SelectedIndex];
+			Monster m = maze.Monsters[(int)MonsterIdBox.Value];
+
+			MonsterMoveTime.Text = "0x" + m.TimeDelay.ToString("X2");
+			MonsterLocation.Text = m.Position.ToString();
+			MonsterDirection.Text = "0x" + m.Direction.ToString("X2");
+			MonsterType.Text = "0x" + m.Type.ToString("X2");
+			MonsterPicture.Text = "0x" + m.PictureIndex.ToString("X2");
+			MonsterPhase.Text = "0x" + m.Phase.ToString("X2");
+			MonsterPause.Text = "0x" + m.Pause.ToString("X2");
+			MonsterPocket.Text = "0x" + m.PocketItem.ToString("X4");
+			MonsterWeapon.Text = "0x" + m.Weapon.ToString("X4");
+
+
+			MonsterPocketItemTxt.Text = m.PocketItem != 0 ? Items[m.PocketItem].UnidentifiedName : "";
+			MonsterWeaponTxt.Text = m.Weapon != 0 ? Items[m.Weapon].UnidentifiedName : "";
+		}
 		#endregion
 
 
@@ -212,24 +341,28 @@ namespace Explorer
 		/// </summary>
 		string WorkingDirectory;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		List<Maze> Mazes = new List<Maze>();
 
 
 		/// <summary>
 		/// 
 		/// </summary>
-		List<Item> Items;
+		List<Item> Items = new List<Item>();
 
 
 		/// <summary>
 		/// 
 		/// </summary>
-		List<ItemType> ItemTypes;
+		List<ItemType> ItemTypes = new List<ItemType>();
 
 
 		/// <summary>
 		/// 
 		/// </summary>
-		List<string> TextData;
+		List<string> TextData = new List<string>();
 
 
 		#endregion

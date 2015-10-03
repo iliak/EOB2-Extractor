@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	public class ConditionalMenuChoice : ConditionalBase
+	class StealSmallItemToken : ScriptToken
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalMenuChoice(Script script) : base(script)
+		public StealSmallItemToken(Script script) : base(script)
 		{
-			Type = script.ReadByte();		// Always 0xd2
-			Value = script.ReadAddr();
+
+			Member = script.ReadByte();
+			Target = script.ReadPosition();
+			SubPos = script.ReadByte();
+
 		}
 
 		/// <summary>
@@ -27,20 +27,26 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Push(Menu choice), Push(0x{0:X4})", Value);
+			return string.Format("Steal small item to member {0} and drop to {1}:{2}", Member, Target, SubPos);
 		}
+
 
 		#region Properties
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte Type;
+		byte Member;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public ushort Value;
+		Point Target;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		byte SubPos;
 
 		#endregion
 	}

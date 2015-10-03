@@ -4,15 +4,15 @@ using System.IO;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
-	class Program
+	class Program2
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="args"></param>
-		static void Main(string[] args)
+		static void Main32(string[] args)
 		{
 			byte b;
 			ushort s;
@@ -241,7 +241,7 @@ namespace INF
 							m.Weapon = Reader.ReadUInt16();
 							m.PocketItem = Reader.ReadUInt16();
 
-							Maze.Monsters.Enqueue(m);
+							Maze.Monsters.Add(m);
 						}
 						#endregion
 					}
@@ -276,7 +276,7 @@ namespace INF
 						t.Flags = (TriggerFlag)Reader.ReadUInt16();
 						t.Offset = Reader.ReadUInt16();
 
-						Maze.Triggers.Enqueue(t);
+						Maze.Triggers.Add(t);
 					}
 
 					#endregion

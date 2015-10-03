@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
-	class CreateMonsterToken : ScriptToken
+	/// <summary>
+	/// 
+	/// </summary>
+	public class ConditionalPartyVisible : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public CreateMonsterToken(Script script) : base(script)
+		public ConditionalPartyVisible(Script script) : base(script)
 		{
-			Monster = Monster.FromScript(script);
 		}
 
 		/// <summary>
@@ -23,16 +25,10 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Create monster {0}", Monster);
+			return "Party visibility";
 		}
 
-
 		#region Properties
-
-		/// <summary>
-		/// 
-		/// </summary>
-		Monster Monster;
 
 		#endregion
 	}

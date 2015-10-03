@@ -29,9 +29,9 @@ namespace INF
 			if (Type == 0xf5)
 				return string.Format("Pointer item unknown, ");
 			else if (Type == 0xf6)
-				return string.Format("Pointer item value, ");
+				return string.Format("Pointer item ID, ");
 			else if (Type == 0xe1)
-				return string.Format("Pointer item type, ");
+				return string.Format("Pointer item type ID, ");
 
 			return "Get pointer item unknown !";
 		}

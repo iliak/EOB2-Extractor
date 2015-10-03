@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INF
+namespace Explorer
 {
 	/// <summary>
 	/// 
@@ -236,7 +236,7 @@ namespace INF
 						m.Weapon = reader.ReadUInt16();
 						m.PocketItem = reader.ReadUInt16();
 
-						maze.Monsters.Enqueue(m);
+						maze.Monsters.Add(m);
 					}
 					#endregion
 				}
@@ -271,7 +271,7 @@ namespace INF
 					t.Flags = (TriggerFlag)reader.ReadUInt16();
 					t.Offset = reader.ReadUInt16();
 
-					maze.Triggers.Enqueue(t);
+					maze.Triggers.Add(t);
 				}
 
 				#endregion
@@ -334,7 +334,7 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public Queue<Monster> Monsters = new Queue<Monster>();
+		public List<Monster> Monsters = new List<Monster>();
 
 		/// <summary>
 		/// 
@@ -349,7 +349,7 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public Queue<Trigger> Triggers = new Queue<Trigger>();
+		public List<Trigger> Triggers = new List<Trigger>();
 
 		/// <summary>
 		/// 

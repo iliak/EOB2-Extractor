@@ -32,7 +32,7 @@ namespace Explorer
 			Picture = reader.ReadByte();
 			ItemTypeID = reader.ReadByte();
 			SubPos = reader.ReadByte();
-			Location = new Location(reader);
+			Location = Location.FromValue(reader.ReadUInt16());
 			Unk0 = reader.ReadUInt16();
 			Unk1 = reader.ReadUInt16();
 			Level = reader.ReadByte();

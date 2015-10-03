@@ -4,21 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ConditionalMenuChoice : ConditionalBase
+	public class ConditionalDice : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalMenuChoice(Script script) : base(script)
+		public ConditionalDice(Script script) : base(script)
 		{
-			Type = script.ReadByte();		// Always 0xd2
-			Value = script.ReadAddr();
+			Dice = script.ReadDice();
 		}
 
 		/// <summary>
@@ -27,21 +26,12 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Push(Menu choice), Push(0x{0:X4})", Value);
+			return string.Format("Roll dice {0} ", Dice);
 		}
 
-		#region Properties
-
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte Type;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public ushort Value;
-
-		#endregion
+		Dice Dice;
 	}
 }

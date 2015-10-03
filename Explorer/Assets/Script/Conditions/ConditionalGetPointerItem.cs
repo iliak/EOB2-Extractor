@@ -4,21 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ConditionalMenuChoice : ConditionalBase
+	public class ConditionalGetPointerItem : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalMenuChoice(Script script) : base(script)
+		public ConditionalGetPointerItem(Script script) : base(script)
 		{
-			Type = script.ReadByte();		// Always 0xd2
-			Value = script.ReadAddr();
+			Type = script.ReadByte();
 		}
 
 		/// <summary>
@@ -27,7 +26,14 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Push(Menu choice), Push(0x{0:X4})", Value);
+			if (Type == 0xf5)
+				return string.Format("Pointer item unknown, ");
+			else if (Type == 0xf6)
+				return string.Format("Pointer item ID, ");
+			else if (Type == 0xe1)
+				return string.Format("Pointer item type ID, ");
+
+			return "Get pointer item unknown !";
 		}
 
 		#region Properties
@@ -36,11 +42,6 @@ namespace INF
 		/// 
 		/// </summary>
 		public byte Type;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public ushort Value;
 
 		#endregion
 	}

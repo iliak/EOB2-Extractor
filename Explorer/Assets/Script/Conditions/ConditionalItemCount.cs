@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ConditionalMenuChoice : ConditionalBase
+	public class ConditionalItemCount : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalMenuChoice(Script script) : base(script)
+		public ConditionalItemCount(Script script) : base(script)
 		{
-			Type = script.ReadByte();		// Always 0xd2
-			Value = script.ReadAddr();
+			Type = script.ReadByte();
+			Target = script.ReadPosition();
 		}
 
 		/// <summary>
@@ -27,21 +27,14 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Push(Menu choice), Push(0x{0:X4})", Value);
+			return string.Format("Count items of type 0x{0:X2} at {1}, ", Type, Target);
 		}
 
-		#region Properties
-
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte Type;
+		Point Target;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public ushort Value;
-
-		#endregion
+		byte Type;
 	}
 }

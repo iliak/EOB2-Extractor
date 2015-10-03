@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
-	class CreateMonsterToken : ScriptToken
+	class UnknownToken : ScriptToken
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public CreateMonsterToken(Script script) : base(script)
+		public UnknownToken(Script script) : base(script)
 		{
-			Monster = Monster.FromScript(script);
+			OpCode = script.ReadByte();
 		}
 
 		/// <summary>
@@ -23,16 +23,13 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Create monster {0}", Monster);
+			return string.Format("################### Unknown opcode 0x{0:X2}", OpCode);
 		}
 
 
 		#region Properties
 
-		/// <summary>
-		/// 
-		/// </summary>
-		Monster Monster;
+		byte OpCode;
 
 		#endregion
 	}

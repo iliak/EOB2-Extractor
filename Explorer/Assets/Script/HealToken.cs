@@ -4,17 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
-	class CreateMonsterToken : ScriptToken
+	class HealToken : ScriptToken
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public CreateMonsterToken(Script script) : base(script)
+		public HealToken(Script script) : base(script)
 		{
-			Monster = Monster.FromScript(script);
+			//Type = script.ReadByte();
+			//if (Type == 0x2e)
+			//{
+				//Amount = script.ReadShort();
+			//}
+
 		}
 
 		/// <summary>
@@ -23,16 +28,15 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Create monster {0}", Monster);
+			return string.Format("Heal");
 		}
 
 
 		#region Properties
 
-		/// <summary>
-		/// 
-		/// </summary>
-		Monster Monster;
+		//byte Type;
+		//ushort Amount;
+		//byte Target;
 
 		#endregion
 	}

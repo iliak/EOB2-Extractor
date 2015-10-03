@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ConditionalMenuChoice : ConditionalBase
+	public class ConditionalGetWallSide : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalMenuChoice(Script script) : base(script)
+		public ConditionalGetWallSide(Script script) : base(script)
 		{
-			Type = script.ReadByte();		// Always 0xd2
-			Value = script.ReadAddr();
+			Side = script.ReadByte();
+			target = Location.FromScript(script);
 		}
 
 		/// <summary>
@@ -27,7 +27,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Push(Menu choice), Push(0x{0:X4})", Value);
+			return string.Format("Wall side {0} at {1}, ", Side, target);
 		}
 
 		#region Properties
@@ -35,12 +35,12 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte Type;
+		byte Side;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public ushort Value;
+		public Location target;
 
 		#endregion
 	}

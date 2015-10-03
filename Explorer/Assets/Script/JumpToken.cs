@@ -4,22 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	public class ConditionalMenuChoice : ConditionalBase
+	class JumpToken : ScriptToken
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalMenuChoice(Script script) : base(script)
+		public JumpToken(Script script) : base(script)
 		{
-			Type = script.ReadByte();		// Always 0xd2
-			Value = script.ReadAddr();
+			Target = script.ReadAddr();
+
 		}
+
 
 		/// <summary>
 		/// 
@@ -27,7 +25,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Push(Menu choice), Push(0x{0:X4})", Value);
+			return string.Format("Jump to 0x{0:X4}", Target);
 		}
 
 		#region Properties
@@ -35,12 +33,7 @@ namespace INF
 		/// <summary>
 		/// 
 		/// </summary>
-		public byte Type;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public ushort Value;
+		ushort Target;
 
 		#endregion
 	}

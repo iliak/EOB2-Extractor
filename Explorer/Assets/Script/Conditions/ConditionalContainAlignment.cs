@@ -4,21 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace INF
+namespace Explorer
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ConditionalMenuChoice : ConditionalBase
+	public class ConditionalContainAlignment : ConditionalBase
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public ConditionalMenuChoice(Script script) : base(script)
+		public ConditionalContainAlignment(Script script) : base(script)
 		{
-			Type = script.ReadByte();		// Always 0xd2
-			Value = script.ReadAddr();
+			Type = script.ReadByte();
 		}
 
 		/// <summary>
@@ -27,7 +26,7 @@ namespace INF
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("Push(Menu choice), Push(0x{0:X4})", Value);
+			return string.Format("Party contains alignment 0x{0:X2}", Type);
 		}
 
 		#region Properties
@@ -36,11 +35,6 @@ namespace INF
 		/// 
 		/// </summary>
 		public byte Type;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public ushort Value;
 
 		#endregion
 	}

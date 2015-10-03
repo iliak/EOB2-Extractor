@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INF
+namespace Explorer
 {
 	public class Monster
 	{
