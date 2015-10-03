@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 
 namespace Explorer
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public class DecorationInfo
 	{
-		public DecorationInfo()
-		{
-			Files = new DecorationFileName();
-			WallMappings = new WallMapping();
-		}
-
+		/// <summary>
+		/// 
+		/// </summary>
 		public DecorationFileName Files;
 
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public WallMapping WallMappings;
 	}
 }

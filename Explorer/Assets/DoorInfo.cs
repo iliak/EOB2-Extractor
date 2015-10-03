@@ -12,27 +12,48 @@ namespace Explorer
 	/// </summary>
 	public class DoorInfo
 	{
-		public DoorInfo()
-		{
-			DoorRectangle = new Rectangle[] { new Rectangle(), new Rectangle(), new Rectangle() };
-			ButtonRectangles = new Rectangle[] { new Rectangle(), new Rectangle() };
-			ButtonPositions = new Point[] { new Point(), new Point() };
+		#region Properties
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
 		public byte Command;
 
-		public byte idx;
+		/// <summary>
+		/// 
+		/// </summary>
+		public byte Id;
 
-		public byte type;
+		/// <summary>
+		/// 
+		/// </summary>
+		public byte Type;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public byte knob;
 
-		public string gfxfile;
+		/// <summary>
+		/// 
+		/// </summary>
+		public string GfxName;
 
-		public Rectangle[] DoorRectangle; // rectangles in door?.cps size [3]
+		/// <summary>
+		/// 
+		/// </summary>
+		public Rectangle[] DoorRectangle = new Rectangle[3]; // rectangles in door?.cps size [3]
 
-		public Rectangle[] ButtonRectangles; // rectangles in door?.cps size [2]
+		/// <summary>
+		/// 
+		/// </summary>
+		public Rectangle[] ButtonRectangles = new Rectangle[2]; // rectangles in door?.cps size [2]
 
-		public Point[] ButtonPositions; // x y position where to place door button size [2,2]
+		/// <summary>
+		/// 
+		/// </summary>
+		public Point[] ButtonPositions = new Point[2]; // x y position where to place door button size [2,2]
+
+		#endregion
 	}
 }

@@ -52,7 +52,7 @@ namespace Explorer
 			List<Item> items = new List<Item>();
 			List<string> names = new List<string>();
 
-			string filename = basedir + "ITEM.DAT";
+			string filename = Path.Combine(basedir, "ITEM.DAT");
 			using (BinaryReader reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 
@@ -84,6 +84,10 @@ namespace Explorer
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public override string ToString()
 		{
 			StringBuilder sb = new StringBuilder();
@@ -119,7 +123,9 @@ namespace Explorer
 	}
 
 
-
+	/// <summary>
+	/// 
+	/// </summary>
 	[Flags]
 	public enum ItemFlag
 	{

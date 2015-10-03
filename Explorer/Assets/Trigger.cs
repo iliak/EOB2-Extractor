@@ -38,6 +38,10 @@ namespace Explorer
 		}
 	}
 
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[Flags]
 	public enum TriggerFlag
 	{

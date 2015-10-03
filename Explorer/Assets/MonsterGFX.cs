@@ -11,21 +11,29 @@ namespace Explorer
 	/// </summary>
 	public class MonsterGFX
 	{
-		public MonsterGFX()
-		{
-			used = false;
+		/// <summary>
+		/// 
+		/// </summary>
+		public bool used = false;
 
-		}
-
-
-		public bool used;
-
+		/// <summary>
+		/// 
+		/// </summary>
 		public byte LoadProg;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public byte unk0;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public byte unk1;
 
-		public string label;		// for .cps and .dcr files
+		/// <summary>
+		/// 
+		/// </summary>
+		public string Label;		// for .cps and .dcr files
 	}
 }

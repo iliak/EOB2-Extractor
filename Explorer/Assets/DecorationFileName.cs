@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Explorer
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public class DecorationFileName
 	{
 		/// <summary>

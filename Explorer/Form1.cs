@@ -29,7 +29,7 @@ namespace Explorer
 		{
 			InitializeComponent();
 
-			WorkingDirectory = @"c:\eob2-uncps\";
+			WorkingDirectory = @"c:\eob2-uncps";
 		}
 
 
@@ -59,7 +59,10 @@ namespace Explorer
 
 			// Mazes
 			for (byte i = 1; i <= 16; i++)
-				Mazes.Add(Maze.FromFile(string.Format("{0}LEVEL{1}.INF_uncps", WorkingDirectory, i)));
+			{
+				string filename = Path.Combine(WorkingDirectory, string.Format("LEVEL{0}.INF", i));
+				Mazes.Add(Maze.FromFile(filename));
+			}
 			MazeSelectBox.SelectedIndex = 0;
 		}
 
@@ -173,22 +176,308 @@ namespace Explorer
 		/// 
 		/// </summary>
 		/// <param name="id"></param>
-		void RebuildMazeInterface(int id)
+		void RebuildMazeInterface()
 		{
-			if (Mazes.Count == 0)
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
 				return;
 
-			Maze maze = Mazes[id];
-			MonsterIdBox.Value = 0;
-			MonsterIdBox.Maximum = maze.Monsters.Count - 1;
-			StringIdBox.Value = 0;
-			StringIdBox.Maximum = maze.Messages.Count - 1;
-			TriggerIdBox.Value = 0;
-			TriggerIdBox.Maximum = maze.Triggers.Count - 1;
+			// Header
+			RebuildMazeHeaderInterface();
 
+			// Monster
+			MonsterIdBox.Value = 0;
+			MonsterIdBox.Maximum = Math.Max(maze.Monsters.Count - 1, 0);
+			RebuildMonsterInterface();
+
+
+			// Strings
+			StringIdBox.Value = 0;
+			StringIdBox.Maximum = Math.Max(maze.Messages.Count - 1, 0);
+
+			// Triggers
+			TriggerIdBox.Value = 0;
+			TriggerIdBox.Maximum = Math.Max(maze.Triggers.Count - 1, 0);
 
 			ScriptTextBox.Text = maze.Script.Decompile();
 		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="header"></param>
+		void RebuildMazeHeaderInterface()
+		{
+
+			MazeHeader header = GetCurrentMazeHeader();
+			if (header == null)
+			{
+				MazeNameBox.Text = "";
+				MazeVMPName.Text = "";
+				MazePaletteName.Text = "";
+				MazeSoundName.Text = "";
+
+				MazeHeaderInformationTab.SelectedIndex = 0;
+				MazeHeaderInformationTab.Enabled = false;
+				return;
+			}
+			MazeHeaderInformationTab.Enabled = true;
+
+			MazeNameBox.Text = header.MazeName;
+			MazeVMPName.Text = header.VmpVcnName;
+			MazePaletteName.Text = header.paletteName;
+			MazeSoundName.Text = header.SoundName;
+
+			RebuildDoorInfoInterface();
+			RebuildMonsterGFXInterface();
+
+			// Decorations
+			DecorationInfoID.Value = 0;
+			DecorationInfoID.Maximum = Math.Max(header.Decorations.Count - 1, 0);
+			RebuildDecorationInterface();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void RebuildMonsterInterface()
+		{
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
+				return;
+
+			int id = (int)MonsterIdBox.Value;
+			if (id >= maze.Monsters.Count)
+			{
+				MonsterMoveTime.Text = "";
+				MonsterLocation.Text = "";
+				MonsterDirection.Text = "";
+				MonsterType.Text = "";
+				MonsterPicture.Text = "";
+				MonsterPhase.Text = "";
+				MonsterPause.Text = "";
+				MonsterPocket.Text = "";
+				MonsterWeapon.Text = "";
+				MonsterPocketItemTxt.Text = "";
+				MonsterWeaponTxt.Text = "";
+				return;
+			}
+
+			Monster m = maze.Monsters[id];
+
+			MonsterMoveTime.Text = "0x" + m.TimeDelay.ToString("X2");
+			MonsterLocation.Text = m.Position.ToString();
+			MonsterDirection.Text = "0x" + m.Direction.ToString("X2");
+			MonsterType.Text = "0x" + m.Type.ToString("X2");
+			MonsterPicture.Text = "0x" + m.PictureIndex.ToString("X2");
+			MonsterPhase.Text = "0x" + m.Phase.ToString("X2");
+			MonsterPause.Text = "0x" + m.Pause.ToString("X2");
+			MonsterPocket.Text = "0x" + m.PocketItem.ToString("X4");
+			MonsterWeapon.Text = "0x" + m.Weapon.ToString("X4");
+			MonsterPocketItemTxt.Text = m.PocketItem != 0 ? Items[m.PocketItem].UnidentifiedName : "";
+			MonsterWeaponTxt.Text = m.Weapon != 0 ? Items[m.Weapon].UnidentifiedName : "";
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void RebuildDoorInfoInterface()
+		{
+			MazeHeader header = GetCurrentMazeHeader();
+			if (header == null)
+			{
+				ClearDoorInfoInterface();
+				return;
+			}
+
+			DoorInfo info = header.Doors[(int)DoorInfoBox.Value];
+			if (info == null)
+			{
+				ClearDoorInfoInterface();
+				return;
+			}
+
+			DoorInfoIDBox.Text = info.Id.ToString();
+			DoorInfoGfxBox.Text = info.GfxName;
+			DoorInfoTypeBox.Text = info.Type.ToString();
+			DoorInfoKnob.Checked = info.knob == 1;
+
+			DoorInfoRect1.Text = string.Format("{0},{1} {2},{3}", info.DoorRectangle[0].X, info.DoorRectangle[0].Y, info.DoorRectangle[0].Width, info.DoorRectangle[0].Height);
+			DoorInfoRect2.Text = string.Format("{0},{1} {2},{3}", info.DoorRectangle[1].X, info.DoorRectangle[1].Y, info.DoorRectangle[1].Width, info.DoorRectangle[1].Height);
+			DoorInfoRect3.Text = string.Format("{0},{1} {2},{3}", info.DoorRectangle[2].X, info.DoorRectangle[2].Y, info.DoorRectangle[2].Width, info.DoorRectangle[2].Height);
+
+			DoorInfoButton1.Text = string.Format("{0},{1}", info.ButtonPositions[0].X, info.ButtonPositions[0].Y);
+			DoorInfoButton2.Text = string.Format("{0},{1}", info.ButtonPositions[1].X, info.ButtonPositions[1].Y);
+
+			DoorInfoPos1.Text = string.Format("{0},{1} {2},{3}", info.ButtonRectangles[0].X, info.ButtonRectangles[0].Y, info.ButtonRectangles[0].Width, info.ButtonRectangles[0].Height);
+			DoorInfoPos2.Text = string.Format("{0},{1} {2},{3}", info.ButtonRectangles[1].X, info.ButtonRectangles[1].Y, info.ButtonRectangles[1].Width, info.ButtonRectangles[1].Height);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ClearDoorInfoInterface()
+		{
+			DoorInfoIDBox.Text = "";
+			DoorInfoGfxBox.Text = "";
+			DoorInfoTypeBox.Text = "";
+			DoorInfoKnob.Checked = false;
+
+			DoorInfoRect1.Text = "";
+			DoorInfoRect2.Text = "";
+			DoorInfoRect3.Text = "";
+
+			DoorInfoButton1.Text = "";
+			DoorInfoButton2.Text = "";
+
+			DoorInfoPos1.Text = "";
+			DoorInfoPos2.Text = "";
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void RebuildMonsterGFXInterface()
+		{
+			MazeHeader header = GetCurrentMazeHeader();
+			if (header == null)
+			{
+				ClearMonsterGFXInterface();
+				return;
+			}
+
+			if (header.MonsterGFX[0] != null)
+			{
+				MonsterGFXProgramId1.Text = "0x" + header.MonsterGFX[0].LoadProg.ToString("X2");
+				MonsterGFXFilename1.Text = header.MonsterGFX[0].Label;
+				MonsterGFXUnknown1.Text = string.Format("0x{0:X2}, 0x{1:X2}", header.MonsterGFX[0].unk0, header.MonsterGFX[0].unk1);
+				MonsterGFXUsed1.Checked = header.MonsterGFX[0].used;
+			}
+			else
+			{
+				MonsterGFXProgramId1.Text = "";
+				MonsterGFXFilename1.Text = "";
+				MonsterGFXUnknown1.Text = "";
+				MonsterGFXUsed1.Checked = false;
+			}
+			if (header.MonsterGFX[1] != null)
+			{
+				MonsterGFXProgramId2.Text = "0x" + header.MonsterGFX[1].LoadProg.ToString("X2");
+				MonsterGFXFilename2.Text = header.MonsterGFX[1].Label;
+				MonsterGFXUnknown2.Text = string.Format("0x{0:X2}, 0x{1:X2}", header.MonsterGFX[1].unk0, header.MonsterGFX[1].unk1);
+				MonsterGFXUsed2.Checked = header.MonsterGFX[1].used;
+			}
+			else
+			{
+				MonsterGFXProgramId2.Text = "";
+				MonsterGFXFilename2.Text = "";
+				MonsterGFXUnknown2.Text = "";
+				MonsterGFXUsed2.Checked = false;
+			}
+
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ClearMonsterGFXInterface()
+		{
+			MonsterGFXProgramId1.Text = "";
+			MonsterGFXFilename1.Text = "";
+			MonsterGFXUnknown1.Text = "";
+			MonsterGFXUsed1.Checked = false;
+
+			MonsterGFXProgramId2.Text = "";
+			MonsterGFXFilename2.Text = "";
+			MonsterGFXUnknown2.Text = "";
+			MonsterGFXUsed2.Checked = false;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void RebuildDecorationInterface()
+		{
+			MazeHeader header = GetCurrentMazeHeader();
+			if (header == null)
+			{
+				ClearDecorationInterface();
+				return;
+			}
+
+			DecorationInfo di = header.Decorations[(int)DecorationInfoID.Value];
+			if (di.Files != null)
+			{
+				DecorationInfoGFX.Text = di.Files.GFXName;
+				DecorationInfoDEC.Text = di.Files.DECName;
+			}
+			else
+			{
+				DecorationInfoGFX.Text = "";
+				DecorationInfoDEC.Text = "";
+			}
+			if (di.WallMappings != null)
+			{
+				DecorationInfoDecoID.Text = di.WallMappings.DecorationID.ToString();
+				DecorationInfoWallType.Text = di.WallMappings.WallType.ToString();
+				DecorationInfoEventMask.Text = di.WallMappings.EventMask.ToString();
+				DecorationInfoFlags.Text = di.WallMappings.Flags.ToString();
+			}
+			else
+			{
+				DecorationInfoDecoID.Text = "";
+				DecorationInfoWallType.Text = "";
+				DecorationInfoEventMask.Text = "";
+				DecorationInfoFlags.Text = "";
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ClearDecorationInterface()
+		{
+			DecorationInfoGFX.Text = "";
+			DecorationInfoDEC.Text = "";
+
+			DecorationInfoDecoID.Text = "";
+			DecorationInfoWallType.Text = "";
+			DecorationInfoEventMask.Text = "";
+			DecorationInfoFlags.Text = "";
+		}
+
+		/// <summary>
+		/// Returns the selected maze
+		/// </summary>
+		Maze GetCurrentMaze()
+		{
+			if (Mazes.Count == 0)
+				return null;
+
+			return Mazes[MazeSelectBox.SelectedIndex];
+		}
+
+
+		/// <summary>
+		/// Returns current Maze header
+		/// </summary>
+		/// <returns></returns>
+		MazeHeader GetCurrentMazeHeader()
+		{
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
+				return null;
+
+			return maze.Headers[(int)MazeHeaderNumberBox.Value];
+		}
+
+
 
 
 		#region Events
@@ -202,8 +491,6 @@ namespace Explorer
 		{
 			LoadAssets();
 		}
-
-
 
 		/// <summary>
 		/// 
@@ -225,7 +512,6 @@ namespace Explorer
 			RebuildItemTypeInterface(ItemTypesListbox.SelectedItem as ItemType);
 		}
 
-
 		/// <summary>
 		/// 
 		/// </summary>
@@ -235,7 +521,6 @@ namespace Explorer
 		{
 			RebuildTextInterface(SelectTextIDBox.SelectedIndex);
 		}
-
 
 		/// <summary>
 		/// 
@@ -247,7 +532,6 @@ namespace Explorer
 			ExportTextData();
 		}
 
-
 		/// <summary>
 		/// 
 		/// </summary>
@@ -258,9 +542,6 @@ namespace Explorer
 			ItemListbox.Sorted = checkBox1.Checked;
 		}
 
-
-
-
 		/// <summary>
 		/// 
 		/// </summary>
@@ -268,9 +549,8 @@ namespace Explorer
 		/// <param name="e"></param>
 		private void MazeSelectBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			RebuildMazeInterface(MazeSelectBox.SelectedIndex);
+			RebuildMazeInterface();
 		}
-
 
 		/// <summary>
 		/// 
@@ -285,7 +565,6 @@ namespace Explorer
 			Maze maze = Mazes[MazeSelectBox.SelectedIndex];
 			StringMessageLabel.Text = maze.Messages[(int)StringIdBox.Value];
 		}
-
 
 		/// <summary>
 		/// 
@@ -303,7 +582,6 @@ namespace Explorer
 			TriggerOffsetBox.Text = "0x" + trigger.Offset.ToString("X4");
 		}
 
-
 		/// <summary>
 		/// 
 		/// </summary>
@@ -311,25 +589,61 @@ namespace Explorer
 		/// <param name="e"></param>
 		private void MonsterIdBox_ValueChanged(object sender, EventArgs e)
 		{
-			if (Mazes.Count == 0)
-				return;
+			RebuildMonsterInterface();
+		}
 
-			Maze maze = Mazes[MazeSelectBox.SelectedIndex];
-			Monster m = maze.Monsters[(int)MonsterIdBox.Value];
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ChangeWorkingDirectoryBox_Click(object sender, EventArgs e)
+		{
+			FolderBrowserDialog fb = new FolderBrowserDialog();
+			fb.SelectedPath = WorkingDirectoryBox.Text;
+			fb.ShowDialog();
 
-			MonsterMoveTime.Text = "0x" + m.TimeDelay.ToString("X2");
-			MonsterLocation.Text = m.Position.ToString();
-			MonsterDirection.Text = "0x" + m.Direction.ToString("X2");
-			MonsterType.Text = "0x" + m.Type.ToString("X2");
-			MonsterPicture.Text = "0x" + m.PictureIndex.ToString("X2");
-			MonsterPhase.Text = "0x" + m.Phase.ToString("X2");
-			MonsterPause.Text = "0x" + m.Pause.ToString("X2");
-			MonsterPocket.Text = "0x" + m.PocketItem.ToString("X4");
-			MonsterWeapon.Text = "0x" + m.Weapon.ToString("X4");
+			WorkingDirectoryBox.Text = fb.SelectedPath;
+		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void WorkingDirectoryBox_TextChanged(object sender, EventArgs e)
+		{
+			WorkingDirectory = WorkingDirectoryBox.Text;
+		}
 
-			MonsterPocketItemTxt.Text = m.PocketItem != 0 ? Items[m.PocketItem].UnidentifiedName : "";
-			MonsterWeaponTxt.Text = m.Weapon != 0 ? Items[m.Weapon].UnidentifiedName : "";
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MazeHeaderNumberBox_ValueChanged(object sender, EventArgs e)
+		{
+			RebuildMazeHeaderInterface();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DoorInfoBox_ValueChanged(object sender, EventArgs e)
+		{
+			RebuildDoorInfoInterface();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DecorationInfoID_ValueChanged(object sender, EventArgs e)
+		{
+			RebuildDecorationInterface();
 		}
 		#endregion
 

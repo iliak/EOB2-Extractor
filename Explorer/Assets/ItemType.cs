@@ -54,7 +54,7 @@ namespace Explorer
 		{
 			List<ItemType> types = new List<ItemType>();
 
-			string filename = basedir + "ITEMTYPE.DAT";
+			string filename = Path.Combine(basedir , "ITEMTYPE.DAT");
 			using (BinaryReader reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 				ushort count = reader.ReadUInt16();

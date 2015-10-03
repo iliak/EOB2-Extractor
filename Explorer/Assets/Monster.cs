@@ -8,7 +8,11 @@ namespace Explorer
 {
 	public class Monster
 	{
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="script"></param>
+		/// <returns></returns>
 		static public Monster FromScript(Script script)
 		{
 			Monster m = new Monster();

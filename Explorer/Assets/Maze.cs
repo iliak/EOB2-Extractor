@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Explorer
 {
@@ -30,10 +30,11 @@ namespace Explorer
 				#region Sub level data
 				for (byte sub = 0; sub < 2; sub++)
 				{
-					Header header = new Header();
 
 					if (reader.BaseStream.Position < maze.Hunks[1])
 					{
+						MazeHeader header = new MazeHeader();
+
 						// Chunk offsets
 						header.NextHunk = reader.ReadUInt16();
 
@@ -41,8 +42,8 @@ namespace Explorer
 						if (b == 0xEC)
 						{
 							#region General informations
-							header.mazeName = ReadString(reader, 13);
-							header.vmpVcnName = ReadString(reader, 13);
+							header.MazeName = ReadString(reader, 13);
+							header.VmpVcnName = ReadString(reader, 13);
 
 							if (reader.ReadByte() != 0xFF)
 								header.paletteName = ReadString(reader, 13);
@@ -54,39 +55,26 @@ namespace Explorer
 							#region Door name & Positions + offset
 							for (byte i = 0; i < 2; i++)
 							{
-								DoorInfo door = header.Doors[i];
 
 								b = reader.ReadByte();
 								if (b == 0xEC || b == 0xEA)
 								{
-									door.gfxfile = ReadString(reader, 13);
-									door.idx = reader.ReadByte();
-									door.type = reader.ReadByte();
+									DoorInfo door = new DoorInfo();
+									door.GfxName = ReadString(reader, 13);
+									door.Id = reader.ReadByte();
+									door.Type = reader.ReadByte();
 									door.knob = reader.ReadByte();
 
 									for (byte t = 0; t < 3; t++)
-									{
-										door.DoorRectangle[t].X = reader.ReadInt16();
-										door.DoorRectangle[t].Y = reader.ReadInt16();
-										door.DoorRectangle[t].Width = reader.ReadInt16();
-										door.DoorRectangle[t].Height = reader.ReadInt16();
-									}
+										door.DoorRectangle[t] = new Rectangle(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
 
 									for (byte t = 0; t < 2; t++)
-									{
-										door.ButtonRectangles[t].X = reader.ReadInt16();
-										door.ButtonRectangles[t].Y = reader.ReadInt16();
-										door.ButtonRectangles[t].Width = reader.ReadInt16();
-										door.ButtonRectangles[t].Height = reader.ReadInt16();
-									}
+										door.ButtonRectangles[t] = new Rectangle(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
 
 									for (byte t = 0; t < 2; t++)
-									{
-										door.ButtonPositions[t].X = reader.ReadInt16();
-										door.ButtonPositions[t].Y = reader.ReadInt16();
-									}
+										door.ButtonPositions[t] = new Point(reader.ReadInt16(), reader.ReadInt16());
+									header.Doors[i] = door;
 								}
-
 							}
 							#endregion
 
@@ -96,15 +84,15 @@ namespace Explorer
 							#region Monsters graphics informations
 							for (byte i = 0; i < 2; i++)
 							{
-								MonsterGFX gfx = header.MonsterGFX[i];
-
 								b = reader.ReadByte();
 								if (b == 0xEC)
 								{
+									MonsterGFX gfx = new MonsterGFX();
 									gfx.LoadProg = reader.ReadByte();
 									gfx.unk0 = reader.ReadByte();
-									gfx.label = ReadString(reader, 13);
+									gfx.Label = ReadString(reader, 13);
 									gfx.unk1 = reader.ReadByte();
+									header.MonsterGFX[i] = gfx;
 								}
 							}
 							#endregion
@@ -125,9 +113,7 @@ namespace Explorer
 								m.numberOfAttacks = reader.ReadByte();
 								for (byte i = 0; i < 3; i++)
 								{
-									m.AttackDice[i].Rolls = reader.ReadByte();
-									m.AttackDice[i].Sides = reader.ReadByte();
-									m.AttackDice[i].Base = reader.ReadByte();
+									m.AttackDice[i] = new Dice(reader);
 								}
 
 								m.specialAttackFlag = reader.ReadUInt16();
@@ -161,7 +147,7 @@ namespace Explorer
 								m.unk5[2] = reader.ReadByte();
 
 
-								header.MonsterTypes.Enqueue(m);
+								header.MonsterTypes.Add(m);
 							}
 							#endregion
 
@@ -177,11 +163,13 @@ namespace Explorer
 									b = reader.ReadByte();
 									if (b == 0xEC)
 									{
+										deco.Files = new DecorationFileName();
 										deco.Files.GFXName = ReadString(reader, 13);
 										deco.Files.DECName = ReadString(reader, 13);
 									}
 									else if (b == 0xFB)
 									{
+										deco.WallMappings = new WallMapping();
 										deco.WallMappings.index = reader.ReadByte();
 										deco.WallMappings.WallType = reader.ReadByte();
 										deco.WallMappings.DecorationID = reader.ReadByte();
@@ -189,7 +177,7 @@ namespace Explorer
 										deco.WallMappings.Flags = reader.ReadByte();
 									}
 
-									header.Decorations.Enqueue(deco);
+									header.Decorations.Add(deco);
 								}
 							}
 							#endregion
@@ -198,9 +186,10 @@ namespace Explorer
 							{
 							}
 						}
+
+						maze.Headers[sub] = header;
 					}
 
-					maze.Headers[sub] = header;
 				}
 				#endregion
 
@@ -339,7 +328,7 @@ namespace Explorer
 		/// <summary>
 		/// 
 		/// </summary>
-		public Header[] Headers = new Header[2];
+		public MazeHeader[] Headers = new MazeHeader[2];
 
 		/// <summary>
 		/// 

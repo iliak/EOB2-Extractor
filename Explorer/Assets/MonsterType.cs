@@ -11,8 +11,8 @@ namespace Explorer
 
 		public MonsterType()
 		{
-			AttackDice = new Dice[] { new Dice(), new Dice(), new Dice() };
-			HPDice = new Dice(); //[] { new Dice(), new Dice() };
+			AttackDice = new Dice[3];
+			HPDice = new Dice();
 			attackList = new byte[5];
 			unk5 = new byte[3];
 

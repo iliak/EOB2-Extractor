@@ -51,13 +51,12 @@
     <Compile Include="Assets\DecorationFileName.cs" />
     <Compile Include="Assets\DecorationInfo.cs" />
     <Compile Include="Assets\DoorInfo.cs" />
-    <Compile Include="Assets\Header.cs" />
+    <Compile Include="Assets\MazeHeader.cs" />
     <Compile Include="Assets\Location.cs" />
     <Compile Include="Assets\Maze.cs" />
     <Compile Include="Assets\Monster.cs" />
     <Compile Include="Assets\MonsterGFX.cs" />
     <Compile Include="Assets\MonsterType.cs" />
-    <Compile Include="Assets\Program.cs" />
     <Compile Include="Assets\Script.cs" />
     <Compile Include="Assets\Trigger.cs" />
     <Compile Include="Assets\WallMapping.cs" />

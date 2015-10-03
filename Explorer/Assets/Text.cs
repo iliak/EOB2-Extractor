@@ -19,11 +19,11 @@ namespace Explorer
 		/// <returns></returns>
 		public static List<string> Decode(string basedir)
 		{
-			string filename = basedir + "TEXT.DAT";
 			List<string> msg = new List<string>();
 
 			StringBuilder sb = new StringBuilder();
 
+			string filename = Path.Combine(basedir, "TEXT.DAT");
 			using (BinaryReader reader = new BinaryReader(File.Open(filename, FileMode.Open)))
 			{
 				// Start offset of the strings

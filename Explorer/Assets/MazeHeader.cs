@@ -7,29 +7,20 @@ using System.Runtime.InteropServices;
 
 namespace Explorer
 {
-	public class Header
+	/// <summary>
+	/// 
+	/// </summary>
+	public class MazeHeader
 	{
 		/// <summary>
 		/// 
 		/// </summary>
-		public Header()
-		{
-			Doors = new DoorInfo[] { new DoorInfo(), new DoorInfo() };
-			MonsterGFX = new MonsterGFX[] { new MonsterGFX(), new MonsterGFX()};
-			MonsterTypes = new Queue<MonsterType>(30);
-			Decorations = new Queue<DecorationInfo>();
-		}
-
+		public string MazeName;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public string mazeName;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public string vmpVcnName;
+		public string VmpVcnName;
 
 		/// <summary>
 		/// 
@@ -45,22 +36,22 @@ namespace Explorer
 		/// <summary>
 		/// 
 		/// </summary>
-		public DoorInfo[] Doors;
+		public DoorInfo[] Doors = new DoorInfo[2];
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public MonsterGFX[] MonsterGFX;
+		public MonsterGFX[] MonsterGFX = new MonsterGFX[2];
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public Queue<MonsterType> MonsterTypes;
+		public List<MonsterType> MonsterTypes = new List<MonsterType>();
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public Queue<DecorationInfo> Decorations;
+		public List<DecorationInfo> Decorations = new List<DecorationInfo>();
 
 
 		/// <summary>
