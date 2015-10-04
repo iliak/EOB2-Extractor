@@ -18,7 +18,7 @@ namespace Explorer
 			Monster m = new Monster();
 			m.Index = script.ReadByte();
 			m.TimeDelay = script.ReadByte();
-			m.Position = Location.FromScript(script);
+			m.Location = Location.FromScript(script);
 			m.SubPosition = script.ReadByte();
 			m.Direction = script.ReadByte();
 			m.Type = script.ReadByte();
@@ -38,14 +38,14 @@ namespace Explorer
 		public override String ToString()
 		{
 			return String.Format("ID {0} @ {1}|{2} [ID: {3}, delay:{4}, type:{5}, picture:{6}, movestate:{7}, pause:{8}, weapon:0x{9:X4}, pocket:0x{10:X4}]",
-			Index, Position, SubPosition, Direction,
+			Index, Location, SubPosition, Direction,
 			TimeDelay, Type, PictureIndex, Phase, Pause, Weapon, PocketItem);
 		}
 
 		#region Properties
 		public byte Index;
 		public byte TimeDelay;
-		public Location Position;
+		public Location Location;
 		public byte SubPosition;
 		public byte Direction;
 		public byte Type;

@@ -207,7 +207,7 @@
 			this.DecorationInfoID = new System.Windows.Forms.NumericUpDown();
 			this.MazeHeaderNumberBox = new System.Windows.Forms.NumericUpDown();
 			this.MazeSelectBox = new System.Windows.Forms.ListBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.MazePictureBox = new System.Windows.Forms.PictureBox();
 			this.TextTab = new System.Windows.Forms.TabPage();
 			this.button1 = new System.Windows.Forms.Button();
 			this.TextIdBox = new System.Windows.Forms.TextBox();
@@ -219,6 +219,8 @@
 			this.WorkingDirectoryBox = new System.Windows.Forms.ToolStripTextBox();
 			this.ChangeWorkingDirectoryBox = new System.Windows.Forms.ToolStripButton();
 			this.DecodeButton = new System.Windows.Forms.ToolStripButton();
+			this.label53 = new System.Windows.Forms.Label();
+			this.MazeMouseLocationBox = new System.Windows.Forms.TextBox();
 			this.tabControl1.SuspendLayout();
 			this.ItemTab.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -248,7 +250,7 @@
 			this.groupBox13.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DecorationInfoID)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.MazeHeaderNumberBox)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MazePictureBox)).BeginInit();
 			this.TextTab.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -1071,13 +1073,15 @@
 			// 
 			// MazeTab
 			// 
+			this.MazeTab.Controls.Add(this.MazeMouseLocationBox);
+			this.MazeTab.Controls.Add(this.label53);
 			this.MazeTab.Controls.Add(this.groupBox7);
 			this.MazeTab.Controls.Add(this.groupBox6);
 			this.MazeTab.Controls.Add(this.groupBox5);
 			this.MazeTab.Controls.Add(this.groupBox4);
 			this.MazeTab.Controls.Add(this.groupBox3);
 			this.MazeTab.Controls.Add(this.MazeSelectBox);
-			this.MazeTab.Controls.Add(this.pictureBox1);
+			this.MazeTab.Controls.Add(this.MazePictureBox);
 			this.MazeTab.Location = new System.Drawing.Point(4, 22);
 			this.MazeTab.Name = "MazeTab";
 			this.MazeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -2100,14 +2104,16 @@
 			this.MazeSelectBox.TabIndex = 1;
 			this.MazeSelectBox.SelectedIndexChanged += new System.EventHandler(this.MazeSelectBox_SelectedIndexChanged);
 			// 
-			// pictureBox1
+			// MazePictureBox
 			// 
-			this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
-			this.pictureBox1.Location = new System.Drawing.Point(89, 6);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(512, 512);
-			this.pictureBox1.TabIndex = 0;
-			this.pictureBox1.TabStop = false;
+			this.MazePictureBox.BackColor = System.Drawing.Color.LightGray;
+			this.MazePictureBox.Location = new System.Drawing.Point(89, 32);
+			this.MazePictureBox.Name = "MazePictureBox";
+			this.MazePictureBox.Size = new System.Drawing.Size(512, 512);
+			this.MazePictureBox.TabIndex = 0;
+			this.MazePictureBox.TabStop = false;
+			this.MazePictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MazePictureBox_Paint);
+			this.MazePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MazePictureBox_MouseMove);
 			// 
 			// TextTab
 			// 
@@ -2220,6 +2226,23 @@
 			this.DecodeButton.Text = "Decode !";
 			this.DecodeButton.Click += new System.EventHandler(this.DecodeButton_Click);
 			// 
+			// label53
+			// 
+			this.label53.AutoSize = true;
+			this.label53.Location = new System.Drawing.Point(86, 9);
+			this.label53.Name = "label53";
+			this.label53.Size = new System.Drawing.Size(54, 13);
+			this.label53.TabIndex = 7;
+			this.label53.Text = "Location :";
+			// 
+			// MazeMouseLocationBox
+			// 
+			this.MazeMouseLocationBox.Location = new System.Drawing.Point(146, 6);
+			this.MazeMouseLocationBox.Name = "MazeMouseLocationBox";
+			this.MazeMouseLocationBox.ReadOnly = true;
+			this.MazeMouseLocationBox.Size = new System.Drawing.Size(82, 20);
+			this.MazeMouseLocationBox.TabIndex = 8;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2241,6 +2264,7 @@
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ItemPictureBox)).EndInit();
 			this.MazeTab.ResumeLayout(false);
+			this.MazeTab.PerformLayout();
 			this.groupBox7.ResumeLayout(false);
 			this.groupBox7.PerformLayout();
 			this.groupBox6.ResumeLayout(false);
@@ -2276,7 +2300,7 @@
 			this.groupBox13.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DecorationInfoID)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.MazeHeaderNumberBox)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MazePictureBox)).EndInit();
 			this.TextTab.ResumeLayout(false);
 			this.TextTab.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
@@ -2377,7 +2401,7 @@
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.CheckBox checkBox1;
 		private System.Windows.Forms.ListBox MazeSelectBox;
-		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.PictureBox MazePictureBox;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.GroupBox groupBox4;
 		private System.Windows.Forms.GroupBox groupBox6;
@@ -2478,6 +2502,8 @@
 		private System.Windows.Forms.TextBox DecorationInfoWallType;
 		private System.Windows.Forms.PictureBox ItemPictureBox;
 		private System.Windows.Forms.TextBox LogBox;
+		private System.Windows.Forms.TextBox MazeMouseLocationBox;
+		private System.Windows.Forms.Label label53;
 	}
 }
 

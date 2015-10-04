@@ -63,7 +63,21 @@ namespace Explorer
 			return string.Format("{0:D2}x{1:D2}", X, Y);
 		}
 
+
 		#region Properties
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public bool IsInvalid
+		{
+			get
+			{
+				return X == 0 && Y == 0;
+			}
+		}
+
 
 		/// <summary>
 		/// 

@@ -216,7 +216,7 @@ namespace Explorer
 						m.Index = reader.ReadByte();
 						m.TimeDelay = reader.ReadByte();
 						s = reader.ReadUInt16();
-						m.Position = Location.FromValue(s); // new Point(s >> 5, s & 0x1F);
+						m.Location = Location.FromValue(s); // new Point(s >> 5, s & 0x1F);
 						m.SubPosition = reader.ReadByte();
 						m.Direction = reader.ReadByte();
 						m.Type = reader.ReadByte();

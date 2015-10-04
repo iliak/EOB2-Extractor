@@ -34,7 +34,7 @@ namespace Explorer
 
 
 		/// <summary>
-		/// 
+		/// Log some text to the window
 		/// </summary>
 		/// <param name="msg"></param>
 		public void Log(string msg)
@@ -224,7 +224,10 @@ namespace Explorer
 			TriggerIdBox.Value = 0;
 			TriggerIdBox.Maximum = Math.Max(maze.Triggers.Count - 1, 0);
 
+			// Script
 			ScriptTextBox.Text = maze.Script.Decompile();
+
+			MazePictureBox.Refresh();
 		}
 
 
@@ -294,7 +297,7 @@ namespace Explorer
 			Monster m = maze.Monsters[id];
 
 			MonsterMoveTime.Text = "0x" + m.TimeDelay.ToString("X2");
-			MonsterLocation.Text = m.Position.ToString();
+			MonsterLocation.Text = m.Location.ToString();
 			MonsterDirection.Text = "0x" + m.Direction.ToString("X2");
 			MonsterType.Text = "0x" + m.Type.ToString("X2");
 			MonsterPicture.Text = "0x" + m.PictureIndex.ToString("X2");
@@ -504,6 +507,31 @@ namespace Explorer
 
 
 
+		private void MazePictureBox_Paint(object sender, PaintEventArgs e)
+		{
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
+				return;
+
+			// Monsters 
+			foreach (Monster monster in maze.Monsters)
+			{
+				if (monster.Location.IsInvalid)
+					continue;
+
+				e.Graphics.FillRectangle(Brushes.Red, new Rectangle(monster.Location.X * 16, monster.Location.Y * 16, 16, 16));
+			}
+
+			// Scripts
+			foreach(Trigger trigger in maze.Triggers)
+			{
+				if (trigger.Location.IsInvalid)
+					continue;
+
+				e.Graphics.FillRectangle(Brushes.Green, new Rectangle(trigger.Location.X * 16, trigger.Location.Y * 16, 16, 16));
+			}
+
+		}
 
 		#region Events
 
@@ -712,6 +740,10 @@ namespace Explorer
 
 		#endregion
 
+		private void MazePictureBox_MouseMove(object sender, MouseEventArgs e)
+		{
+			MazeMouseLocationBox.Text = string.Format("X = {0:D2}, Y = {1:D2}", e.Location.X / 16, e.Location.Y / 16);
+		}
 	}
 
 }
