@@ -33,6 +33,15 @@ namespace Explorer
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="msg"></param>
+		public void Log(string msg)
+		{
+			LogBox.Text += msg + "\n";
+		}
+
 
 		/// <summary>
 		/// 
@@ -40,6 +49,16 @@ namespace Explorer
 		void LoadAssets()
 		{
 			// Items
+			string iconsgfx = Path.Combine(WorkingDirectory, "ITEMICN.PNG");
+			if (File.Exists(iconsgfx))
+			{
+				Image ItemsImage = Image.FromFile(iconsgfx);
+				ItemsBitmap = new Bitmap(ItemsImage);
+				ItemsImage.Dispose();
+			}
+			else
+				Log(string.Format("Failed to find items image \"{0}\"", iconsgfx));
+
 			Items = Item.Decode(WorkingDirectory);
 			ItemListbox.Items.Clear();
 			foreach (Item item in Items)
@@ -60,7 +79,7 @@ namespace Explorer
 			// Mazes
 			for (byte i = 1; i <= 16; i++)
 			{
-				string filename = Path.Combine(WorkingDirectory, string.Format("LEVEL{0}.INF", i));
+				string filename = Path.Combine(WorkingDirectory, string.Format("LEVEL{0}", i));
 				Mazes.Add(Maze.FromFile(filename));
 			}
 			MazeSelectBox.SelectedIndex = 0;
@@ -87,6 +106,12 @@ namespace Explorer
 
 			if (item != null)
 				ItemTypesListbox.SelectedIndex = item.ItemTypeID;
+
+			if (ItemsBitmap!= null && item != null)
+			{
+				Rectangle rect = new Rectangle((item.Picture % 20) * 16, (item.Picture / 20) * 16, 16, 16);
+				ItemPictureBox.Image =  ItemsBitmap.Clone(rect, ItemsBitmap.PixelFormat);
+			}
 		}
 
 
@@ -649,6 +674,12 @@ namespace Explorer
 
 
 		#region Properties
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		Bitmap ItemsBitmap;
 
 		/// <summary>
 		/// Base working directory

@@ -31,6 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.ItemTab = new System.Windows.Forms.TabPage();
+			this.LogBox = new System.Windows.Forms.TextBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.ItemTypeActionDescription = new System.Windows.Forms.TextBox();
 			this.ItemTypeFlag_100 = new System.Windows.Forms.CheckBox();
@@ -82,6 +83,7 @@
 			this.ItemTypesListbox = new System.Windows.Forms.ListBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.ItemPictureBox = new System.Windows.Forms.PictureBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.ItemUnidentifiedName = new System.Windows.Forms.TextBox();
 			this.ItemListbox = new System.Windows.Forms.ListBox();
@@ -188,6 +190,21 @@
 			this.MonsterGFXProgramId1 = new System.Windows.Forms.TextBox();
 			this.label41 = new System.Windows.Forms.Label();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.groupBox14 = new System.Windows.Forms.GroupBox();
+			this.label52 = new System.Windows.Forms.Label();
+			this.label51 = new System.Windows.Forms.Label();
+			this.label50 = new System.Windows.Forms.Label();
+			this.label49 = new System.Windows.Forms.Label();
+			this.DecorationInfoFlags = new System.Windows.Forms.TextBox();
+			this.DecorationInfoEventMask = new System.Windows.Forms.TextBox();
+			this.DecorationInfoDecoID = new System.Windows.Forms.TextBox();
+			this.DecorationInfoWallType = new System.Windows.Forms.TextBox();
+			this.groupBox13 = new System.Windows.Forms.GroupBox();
+			this.label48 = new System.Windows.Forms.Label();
+			this.DecorationInfoDEC = new System.Windows.Forms.TextBox();
+			this.DecorationInfoGFX = new System.Windows.Forms.TextBox();
+			this.label47 = new System.Windows.Forms.Label();
+			this.DecorationInfoID = new System.Windows.Forms.NumericUpDown();
 			this.MazeHeaderNumberBox = new System.Windows.Forms.NumericUpDown();
 			this.MazeSelectBox = new System.Windows.Forms.ListBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -202,25 +219,11 @@
 			this.WorkingDirectoryBox = new System.Windows.Forms.ToolStripTextBox();
 			this.ChangeWorkingDirectoryBox = new System.Windows.Forms.ToolStripButton();
 			this.DecodeButton = new System.Windows.Forms.ToolStripButton();
-			this.DecorationInfoID = new System.Windows.Forms.NumericUpDown();
-			this.groupBox13 = new System.Windows.Forms.GroupBox();
-			this.groupBox14 = new System.Windows.Forms.GroupBox();
-			this.label47 = new System.Windows.Forms.Label();
-			this.DecorationInfoGFX = new System.Windows.Forms.TextBox();
-			this.DecorationInfoDEC = new System.Windows.Forms.TextBox();
-			this.label48 = new System.Windows.Forms.Label();
-			this.DecorationInfoWallType = new System.Windows.Forms.TextBox();
-			this.DecorationInfoDecoID = new System.Windows.Forms.TextBox();
-			this.DecorationInfoEventMask = new System.Windows.Forms.TextBox();
-			this.DecorationInfoFlags = new System.Windows.Forms.TextBox();
-			this.label49 = new System.Windows.Forms.Label();
-			this.label50 = new System.Windows.Forms.Label();
-			this.label51 = new System.Windows.Forms.Label();
-			this.label52 = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.ItemTab.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ItemPictureBox)).BeginInit();
 			this.MazeTab.SuspendLayout();
 			this.groupBox7.SuspendLayout();
 			this.groupBox6.SuspendLayout();
@@ -241,13 +244,13 @@
 			this.groupBox12.SuspendLayout();
 			this.groupBox11.SuspendLayout();
 			this.tabPage3.SuspendLayout();
+			this.groupBox14.SuspendLayout();
+			this.groupBox13.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.DecorationInfoID)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.MazeHeaderNumberBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.TextTab.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.DecorationInfoID)).BeginInit();
-			this.groupBox13.SuspendLayout();
-			this.groupBox14.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -264,6 +267,7 @@
 			// 
 			// ItemTab
 			// 
+			this.ItemTab.Controls.Add(this.LogBox);
 			this.ItemTab.Controls.Add(this.groupBox2);
 			this.ItemTab.Controls.Add(this.groupBox1);
 			this.ItemTab.Location = new System.Drawing.Point(4, 22);
@@ -273,6 +277,18 @@
 			this.ItemTab.TabIndex = 0;
 			this.ItemTab.Text = "Items";
 			this.ItemTab.UseVisualStyleBackColor = true;
+			// 
+			// LogBox
+			// 
+			this.LogBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.LogBox.Location = new System.Drawing.Point(9, 594);
+			this.LogBox.Multiline = true;
+			this.LogBox.Name = "LogBox";
+			this.LogBox.ReadOnly = true;
+			this.LogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.LogBox.Size = new System.Drawing.Size(1059, 75);
+			this.LogBox.TabIndex = 4;
 			// 
 			// groupBox2
 			// 
@@ -802,6 +818,7 @@
 			// 
 			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox1.Controls.Add(this.ItemPictureBox);
 			this.groupBox1.Controls.Add(this.checkBox1);
 			this.groupBox1.Controls.Add(this.ItemUnidentifiedName);
 			this.groupBox1.Controls.Add(this.ItemListbox);
@@ -832,6 +849,16 @@
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Items :";
+			// 
+			// ItemPictureBox
+			// 
+			this.ItemPictureBox.BackColor = System.Drawing.Color.LightGray;
+			this.ItemPictureBox.Location = new System.Drawing.Point(377, 86);
+			this.ItemPictureBox.Name = "ItemPictureBox";
+			this.ItemPictureBox.Size = new System.Drawing.Size(32, 32);
+			this.ItemPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.ItemPictureBox.TabIndex = 5;
+			this.ItemPictureBox.TabStop = false;
 			// 
 			// checkBox1
 			// 
@@ -1892,6 +1919,147 @@
 			this.tabPage3.Text = "Decorations";
 			this.tabPage3.UseVisualStyleBackColor = true;
 			// 
+			// groupBox14
+			// 
+			this.groupBox14.Controls.Add(this.label52);
+			this.groupBox14.Controls.Add(this.label51);
+			this.groupBox14.Controls.Add(this.label50);
+			this.groupBox14.Controls.Add(this.label49);
+			this.groupBox14.Controls.Add(this.DecorationInfoFlags);
+			this.groupBox14.Controls.Add(this.DecorationInfoEventMask);
+			this.groupBox14.Controls.Add(this.DecorationInfoDecoID);
+			this.groupBox14.Controls.Add(this.DecorationInfoWallType);
+			this.groupBox14.Location = new System.Drawing.Point(160, 3);
+			this.groupBox14.Name = "groupBox14";
+			this.groupBox14.Size = new System.Drawing.Size(227, 132);
+			this.groupBox14.TabIndex = 1;
+			this.groupBox14.TabStop = false;
+			this.groupBox14.Text = "Wall mapping";
+			// 
+			// label52
+			// 
+			this.label52.AutoSize = true;
+			this.label52.Location = new System.Drawing.Point(47, 100);
+			this.label52.Name = "label52";
+			this.label52.Size = new System.Drawing.Size(38, 13);
+			this.label52.TabIndex = 2;
+			this.label52.Text = "Flags :";
+			// 
+			// label51
+			// 
+			this.label51.AutoSize = true;
+			this.label51.Location = new System.Drawing.Point(18, 74);
+			this.label51.Name = "label51";
+			this.label51.Size = new System.Drawing.Size(67, 13);
+			this.label51.TabIndex = 2;
+			this.label51.Text = "EventMask :";
+			// 
+			// label50
+			// 
+			this.label50.AutoSize = true;
+			this.label50.Location = new System.Drawing.Point(6, 48);
+			this.label50.Name = "label50";
+			this.label50.Size = new System.Drawing.Size(79, 13);
+			this.label50.TabIndex = 2;
+			this.label50.Text = "Decoration ID :";
+			// 
+			// label49
+			// 
+			this.label49.AutoSize = true;
+			this.label49.Location = new System.Drawing.Point(28, 22);
+			this.label49.Name = "label49";
+			this.label49.Size = new System.Drawing.Size(57, 13);
+			this.label49.TabIndex = 2;
+			this.label49.Text = "Wall type :";
+			// 
+			// DecorationInfoFlags
+			// 
+			this.DecorationInfoFlags.Location = new System.Drawing.Point(91, 97);
+			this.DecorationInfoFlags.Name = "DecorationInfoFlags";
+			this.DecorationInfoFlags.ReadOnly = true;
+			this.DecorationInfoFlags.Size = new System.Drawing.Size(125, 20);
+			this.DecorationInfoFlags.TabIndex = 1;
+			// 
+			// DecorationInfoEventMask
+			// 
+			this.DecorationInfoEventMask.Location = new System.Drawing.Point(91, 71);
+			this.DecorationInfoEventMask.Name = "DecorationInfoEventMask";
+			this.DecorationInfoEventMask.ReadOnly = true;
+			this.DecorationInfoEventMask.Size = new System.Drawing.Size(125, 20);
+			this.DecorationInfoEventMask.TabIndex = 1;
+			// 
+			// DecorationInfoDecoID
+			// 
+			this.DecorationInfoDecoID.Location = new System.Drawing.Point(91, 45);
+			this.DecorationInfoDecoID.Name = "DecorationInfoDecoID";
+			this.DecorationInfoDecoID.ReadOnly = true;
+			this.DecorationInfoDecoID.Size = new System.Drawing.Size(125, 20);
+			this.DecorationInfoDecoID.TabIndex = 1;
+			// 
+			// DecorationInfoWallType
+			// 
+			this.DecorationInfoWallType.Location = new System.Drawing.Point(91, 19);
+			this.DecorationInfoWallType.Name = "DecorationInfoWallType";
+			this.DecorationInfoWallType.ReadOnly = true;
+			this.DecorationInfoWallType.Size = new System.Drawing.Size(125, 20);
+			this.DecorationInfoWallType.TabIndex = 1;
+			// 
+			// groupBox13
+			// 
+			this.groupBox13.Controls.Add(this.label48);
+			this.groupBox13.Controls.Add(this.DecorationInfoDEC);
+			this.groupBox13.Controls.Add(this.DecorationInfoGFX);
+			this.groupBox13.Controls.Add(this.label47);
+			this.groupBox13.Location = new System.Drawing.Point(3, 40);
+			this.groupBox13.Name = "groupBox13";
+			this.groupBox13.Size = new System.Drawing.Size(151, 76);
+			this.groupBox13.TabIndex = 1;
+			this.groupBox13.TabStop = false;
+			this.groupBox13.Text = "Files :";
+			// 
+			// label48
+			// 
+			this.label48.AutoSize = true;
+			this.label48.Location = new System.Drawing.Point(5, 22);
+			this.label48.Name = "label48";
+			this.label48.Size = new System.Drawing.Size(34, 13);
+			this.label48.TabIndex = 2;
+			this.label48.Text = "GFX :";
+			// 
+			// DecorationInfoDEC
+			// 
+			this.DecorationInfoDEC.Location = new System.Drawing.Point(45, 45);
+			this.DecorationInfoDEC.Name = "DecorationInfoDEC";
+			this.DecorationInfoDEC.ReadOnly = true;
+			this.DecorationInfoDEC.Size = new System.Drawing.Size(100, 20);
+			this.DecorationInfoDEC.TabIndex = 1;
+			// 
+			// DecorationInfoGFX
+			// 
+			this.DecorationInfoGFX.Location = new System.Drawing.Point(45, 19);
+			this.DecorationInfoGFX.Name = "DecorationInfoGFX";
+			this.DecorationInfoGFX.ReadOnly = true;
+			this.DecorationInfoGFX.Size = new System.Drawing.Size(100, 20);
+			this.DecorationInfoGFX.TabIndex = 1;
+			// 
+			// label47
+			// 
+			this.label47.AutoSize = true;
+			this.label47.Location = new System.Drawing.Point(4, 48);
+			this.label47.Name = "label47";
+			this.label47.Size = new System.Drawing.Size(35, 13);
+			this.label47.TabIndex = 0;
+			this.label47.Text = "DEC :";
+			// 
+			// DecorationInfoID
+			// 
+			this.DecorationInfoID.Location = new System.Drawing.Point(3, 6);
+			this.DecorationInfoID.Name = "DecorationInfoID";
+			this.DecorationInfoID.Size = new System.Drawing.Size(44, 20);
+			this.DecorationInfoID.TabIndex = 0;
+			this.DecorationInfoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.DecorationInfoID.ValueChanged += new System.EventHandler(this.DecorationInfoID_ValueChanged);
+			// 
 			// MazeHeaderNumberBox
 			// 
 			this.MazeHeaderNumberBox.Location = new System.Drawing.Point(6, 19);
@@ -2052,147 +2220,6 @@
 			this.DecodeButton.Text = "Decode !";
 			this.DecodeButton.Click += new System.EventHandler(this.DecodeButton_Click);
 			// 
-			// DecorationInfoID
-			// 
-			this.DecorationInfoID.Location = new System.Drawing.Point(3, 6);
-			this.DecorationInfoID.Name = "DecorationInfoID";
-			this.DecorationInfoID.Size = new System.Drawing.Size(44, 20);
-			this.DecorationInfoID.TabIndex = 0;
-			this.DecorationInfoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.DecorationInfoID.ValueChanged += new System.EventHandler(this.DecorationInfoID_ValueChanged);
-			// 
-			// groupBox13
-			// 
-			this.groupBox13.Controls.Add(this.label48);
-			this.groupBox13.Controls.Add(this.DecorationInfoDEC);
-			this.groupBox13.Controls.Add(this.DecorationInfoGFX);
-			this.groupBox13.Controls.Add(this.label47);
-			this.groupBox13.Location = new System.Drawing.Point(3, 40);
-			this.groupBox13.Name = "groupBox13";
-			this.groupBox13.Size = new System.Drawing.Size(151, 76);
-			this.groupBox13.TabIndex = 1;
-			this.groupBox13.TabStop = false;
-			this.groupBox13.Text = "Files :";
-			// 
-			// groupBox14
-			// 
-			this.groupBox14.Controls.Add(this.label52);
-			this.groupBox14.Controls.Add(this.label51);
-			this.groupBox14.Controls.Add(this.label50);
-			this.groupBox14.Controls.Add(this.label49);
-			this.groupBox14.Controls.Add(this.DecorationInfoFlags);
-			this.groupBox14.Controls.Add(this.DecorationInfoEventMask);
-			this.groupBox14.Controls.Add(this.DecorationInfoDecoID);
-			this.groupBox14.Controls.Add(this.DecorationInfoWallType);
-			this.groupBox14.Location = new System.Drawing.Point(160, 3);
-			this.groupBox14.Name = "groupBox14";
-			this.groupBox14.Size = new System.Drawing.Size(227, 132);
-			this.groupBox14.TabIndex = 1;
-			this.groupBox14.TabStop = false;
-			this.groupBox14.Text = "Wall mapping";
-			// 
-			// label47
-			// 
-			this.label47.AutoSize = true;
-			this.label47.Location = new System.Drawing.Point(4, 48);
-			this.label47.Name = "label47";
-			this.label47.Size = new System.Drawing.Size(35, 13);
-			this.label47.TabIndex = 0;
-			this.label47.Text = "DEC :";
-			// 
-			// DecorationInfoGFX
-			// 
-			this.DecorationInfoGFX.Location = new System.Drawing.Point(45, 19);
-			this.DecorationInfoGFX.Name = "DecorationInfoGFX";
-			this.DecorationInfoGFX.ReadOnly = true;
-			this.DecorationInfoGFX.Size = new System.Drawing.Size(100, 20);
-			this.DecorationInfoGFX.TabIndex = 1;
-			// 
-			// DecorationInfoDEC
-			// 
-			this.DecorationInfoDEC.Location = new System.Drawing.Point(45, 45);
-			this.DecorationInfoDEC.Name = "DecorationInfoDEC";
-			this.DecorationInfoDEC.ReadOnly = true;
-			this.DecorationInfoDEC.Size = new System.Drawing.Size(100, 20);
-			this.DecorationInfoDEC.TabIndex = 1;
-			// 
-			// label48
-			// 
-			this.label48.AutoSize = true;
-			this.label48.Location = new System.Drawing.Point(5, 22);
-			this.label48.Name = "label48";
-			this.label48.Size = new System.Drawing.Size(34, 13);
-			this.label48.TabIndex = 2;
-			this.label48.Text = "GFX :";
-			// 
-			// DecorationInfoWallType
-			// 
-			this.DecorationInfoWallType.Location = new System.Drawing.Point(91, 19);
-			this.DecorationInfoWallType.Name = "DecorationInfoWallType";
-			this.DecorationInfoWallType.ReadOnly = true;
-			this.DecorationInfoWallType.Size = new System.Drawing.Size(125, 20);
-			this.DecorationInfoWallType.TabIndex = 1;
-			// 
-			// DecorationInfoDecoID
-			// 
-			this.DecorationInfoDecoID.Location = new System.Drawing.Point(91, 45);
-			this.DecorationInfoDecoID.Name = "DecorationInfoDecoID";
-			this.DecorationInfoDecoID.ReadOnly = true;
-			this.DecorationInfoDecoID.Size = new System.Drawing.Size(125, 20);
-			this.DecorationInfoDecoID.TabIndex = 1;
-			// 
-			// DecorationInfoEventMask
-			// 
-			this.DecorationInfoEventMask.Location = new System.Drawing.Point(91, 71);
-			this.DecorationInfoEventMask.Name = "DecorationInfoEventMask";
-			this.DecorationInfoEventMask.ReadOnly = true;
-			this.DecorationInfoEventMask.Size = new System.Drawing.Size(125, 20);
-			this.DecorationInfoEventMask.TabIndex = 1;
-			// 
-			// DecorationInfoFlags
-			// 
-			this.DecorationInfoFlags.Location = new System.Drawing.Point(91, 97);
-			this.DecorationInfoFlags.Name = "DecorationInfoFlags";
-			this.DecorationInfoFlags.ReadOnly = true;
-			this.DecorationInfoFlags.Size = new System.Drawing.Size(125, 20);
-			this.DecorationInfoFlags.TabIndex = 1;
-			// 
-			// label49
-			// 
-			this.label49.AutoSize = true;
-			this.label49.Location = new System.Drawing.Point(28, 22);
-			this.label49.Name = "label49";
-			this.label49.Size = new System.Drawing.Size(57, 13);
-			this.label49.TabIndex = 2;
-			this.label49.Text = "Wall type :";
-			// 
-			// label50
-			// 
-			this.label50.AutoSize = true;
-			this.label50.Location = new System.Drawing.Point(6, 48);
-			this.label50.Name = "label50";
-			this.label50.Size = new System.Drawing.Size(79, 13);
-			this.label50.TabIndex = 2;
-			this.label50.Text = "Decoration ID :";
-			// 
-			// label51
-			// 
-			this.label51.AutoSize = true;
-			this.label51.Location = new System.Drawing.Point(18, 74);
-			this.label51.Name = "label51";
-			this.label51.Size = new System.Drawing.Size(67, 13);
-			this.label51.TabIndex = 2;
-			this.label51.Text = "EventMask :";
-			// 
-			// label52
-			// 
-			this.label52.AutoSize = true;
-			this.label52.Location = new System.Drawing.Point(47, 100);
-			this.label52.Name = "label52";
-			this.label52.Size = new System.Drawing.Size(38, 13);
-			this.label52.TabIndex = 2;
-			this.label52.Text = "Flags :";
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2207,10 +2234,12 @@
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.tabControl1.ResumeLayout(false);
 			this.ItemTab.ResumeLayout(false);
+			this.ItemTab.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ItemPictureBox)).EndInit();
 			this.MazeTab.ResumeLayout(false);
 			this.groupBox7.ResumeLayout(false);
 			this.groupBox7.PerformLayout();
@@ -2241,17 +2270,17 @@
 			this.groupBox11.ResumeLayout(false);
 			this.groupBox11.PerformLayout();
 			this.tabPage3.ResumeLayout(false);
+			this.groupBox14.ResumeLayout(false);
+			this.groupBox14.PerformLayout();
+			this.groupBox13.ResumeLayout(false);
+			this.groupBox13.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.DecorationInfoID)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.MazeHeaderNumberBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.TextTab.ResumeLayout(false);
 			this.TextTab.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.DecorationInfoID)).EndInit();
-			this.groupBox13.ResumeLayout(false);
-			this.groupBox13.PerformLayout();
-			this.groupBox14.ResumeLayout(false);
-			this.groupBox14.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2447,6 +2476,8 @@
 		private System.Windows.Forms.TextBox DecorationInfoEventMask;
 		private System.Windows.Forms.TextBox DecorationInfoDecoID;
 		private System.Windows.Forms.TextBox DecorationInfoWallType;
+		private System.Windows.Forms.PictureBox ItemPictureBox;
+		private System.Windows.Forms.TextBox LogBox;
 	}
 }
 

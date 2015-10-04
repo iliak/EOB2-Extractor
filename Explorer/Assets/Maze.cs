@@ -21,7 +21,8 @@ namespace Explorer
 			byte b;
 			ushort s;
 
-			using (BinaryReader reader = new BinaryReader(File.Open(filename, FileMode.Open)))
+			#region Loading INF file
+			using (BinaryReader reader = new BinaryReader(File.Open(filename + ".inf", FileMode.Open)))
 			{
 
 				// Hunk1 offset
@@ -265,7 +266,28 @@ namespace Explorer
 
 				#endregion
 			}
+			#endregion
 
+			#region Load .MAZ file
+			if (File.Exists(filename + ".maz"))
+			{
+				using (BinaryReader reader = new BinaryReader(File.Open(filename + ".maz", FileMode.Open)))
+				{
+					maze.Size = new Size(reader.ReadUInt16(), reader.ReadUInt16());
+					maze.WallFaces = reader.ReadUInt16();
+
+					maze.Blocks = new MazeBlock[maze.Size.Width, maze.Size.Height];
+
+					for (byte y = 0; y < maze.Size.Height; y++)
+					{
+						for (byte x = 0; x < maze.Size.Width; x++)
+						{
+							maze.Blocks[x, y] = MazeBlock.FromFile(reader);
+						}
+					}
+				}
+			}
+			#endregion
 
 			return maze;
 		}
@@ -349,6 +371,24 @@ namespace Explorer
 		/// 
 		/// </summary>
 		public Script Script;
+
+
+		/// <summary>
+		/// Maze size
+		/// </summary>
+		public Size Size;
+
+
+		/// <summary>
+		/// Number of side for a wall
+		/// </summary>
+		public ushort WallFaces;
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public MazeBlock[,] Blocks;
 
 		#endregion
 	}
