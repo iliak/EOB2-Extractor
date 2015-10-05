@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.ItemTab = new System.Windows.Forms.TabPage();
@@ -221,6 +222,21 @@
 			this.DecodeButton = new System.Windows.Forms.ToolStripButton();
 			this.label53 = new System.Windows.Forms.Label();
 			this.MazeMouseLocationBox = new System.Windows.Forms.TextBox();
+			this.MazeToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.MazeTimer1Box = new System.Windows.Forms.TextBox();
+			this.label54 = new System.Windows.Forms.Label();
+			this.label55 = new System.Windows.Forms.Label();
+			this.MazeTimer2Box = new System.Windows.Forms.TextBox();
+			this.label56 = new System.Windows.Forms.Label();
+			this.label57 = new System.Windows.Forms.Label();
+			this.TriggerFlagsBox = new System.Windows.Forms.TextBox();
+			this.label58 = new System.Windows.Forms.Label();
+			this.MonsterSubPosition = new System.Windows.Forms.TextBox();
+			this.label59 = new System.Windows.Forms.Label();
+			this.MonstersLogBox = new System.Windows.Forms.TextBox();
+			this.groupBox15 = new System.Windows.Forms.GroupBox();
+			this.groupBox16 = new System.Windows.Forms.GroupBox();
+			this.TriggersLogBox = new System.Windows.Forms.TextBox();
 			this.tabControl1.SuspendLayout();
 			this.ItemTab.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -253,12 +269,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.MazePictureBox)).BeginInit();
 			this.TextTab.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
+			this.groupBox15.SuspendLayout();
+			this.groupBox16.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
 			// 
-			this.tabControl1.Controls.Add(this.ItemTab);
 			this.tabControl1.Controls.Add(this.MazeTab);
+			this.tabControl1.Controls.Add(this.ItemTab);
 			this.tabControl1.Controls.Add(this.TextTab);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 25);
@@ -1073,6 +1091,8 @@
 			// 
 			// MazeTab
 			// 
+			this.MazeTab.Controls.Add(this.groupBox16);
+			this.MazeTab.Controls.Add(this.groupBox15);
 			this.MazeTab.Controls.Add(this.MazeMouseLocationBox);
 			this.MazeTab.Controls.Add(this.label53);
 			this.MazeTab.Controls.Add(this.groupBox7);
@@ -1162,6 +1182,8 @@
 			// 
 			this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox5.Controls.Add(this.label58);
+			this.groupBox5.Controls.Add(this.TriggerFlagsBox);
 			this.groupBox5.Controls.Add(this.TriggerOffsetBox);
 			this.groupBox5.Controls.Add(this.TriggerCoordinateBox);
 			this.groupBox5.Controls.Add(this.label24);
@@ -1231,6 +1253,8 @@
 			// 
 			this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox4.Controls.Add(this.MonsterSubPosition);
+			this.groupBox4.Controls.Add(this.label59);
 			this.groupBox4.Controls.Add(this.MonsterPause);
 			this.groupBox4.Controls.Add(this.label33);
 			this.groupBox4.Controls.Add(this.MonsterWeaponTxt);
@@ -1280,7 +1304,7 @@
 			// 
 			this.MonsterWeaponTxt.Location = new System.Drawing.Point(366, 99);
 			this.MonsterWeaponTxt.Name = "MonsterWeaponTxt";
-			this.MonsterWeaponTxt.Size = new System.Drawing.Size(109, 23);
+			this.MonsterWeaponTxt.Size = new System.Drawing.Size(89, 23);
 			this.MonsterWeaponTxt.TabIndex = 22;
 			// 
 			// MonsterPocketItemTxt
@@ -1342,7 +1366,7 @@
 			// 
 			// MonsterType
 			// 
-			this.MonsterType.Location = new System.Drawing.Point(266, 64);
+			this.MonsterType.Location = new System.Drawing.Point(393, 38);
 			this.MonsterType.Name = "MonsterType";
 			this.MonsterType.ReadOnly = true;
 			this.MonsterType.Size = new System.Drawing.Size(56, 20);
@@ -1402,7 +1426,7 @@
 			// label29
 			// 
 			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(223, 67);
+			this.label29.Location = new System.Drawing.Point(350, 41);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(37, 13);
 			this.label29.TabIndex = 5;
@@ -1422,9 +1446,9 @@
 			this.label25.AutoSize = true;
 			this.label25.Location = new System.Drawing.Point(64, 15);
 			this.label25.Name = "label25";
-			this.label25.Size = new System.Drawing.Size(62, 13);
+			this.label25.Size = new System.Drawing.Size(39, 13);
 			this.label25.TabIndex = 1;
-			this.label25.Text = "Move time :";
+			this.label25.Text = "Timer :";
 			// 
 			// MonsterIdBox
 			// 
@@ -1475,6 +1499,12 @@
 			// 
 			// tabPage4
 			// 
+			this.tabPage4.Controls.Add(this.label57);
+			this.tabPage4.Controls.Add(this.label56);
+			this.tabPage4.Controls.Add(this.MazeTimer2Box);
+			this.tabPage4.Controls.Add(this.label55);
+			this.tabPage4.Controls.Add(this.MazeTimer1Box);
+			this.tabPage4.Controls.Add(this.label54);
 			this.tabPage4.Controls.Add(this.MazeNameBox);
 			this.tabPage4.Controls.Add(this.MazeSoundName);
 			this.tabPage4.Controls.Add(this.label28);
@@ -1495,7 +1525,7 @@
 			this.MazeNameBox.Location = new System.Drawing.Point(66, 3);
 			this.MazeNameBox.Name = "MazeNameBox";
 			this.MazeNameBox.ReadOnly = true;
-			this.MazeNameBox.Size = new System.Drawing.Size(100, 20);
+			this.MazeNameBox.Size = new System.Drawing.Size(82, 20);
 			this.MazeNameBox.TabIndex = 3;
 			// 
 			// MazeSoundName
@@ -1503,7 +1533,7 @@
 			this.MazeSoundName.Location = new System.Drawing.Point(66, 79);
 			this.MazeSoundName.Name = "MazeSoundName";
 			this.MazeSoundName.ReadOnly = true;
-			this.MazeSoundName.Size = new System.Drawing.Size(100, 20);
+			this.MazeSoundName.Size = new System.Drawing.Size(82, 20);
 			this.MazeSoundName.TabIndex = 8;
 			// 
 			// label28
@@ -1538,7 +1568,7 @@
 			this.MazePaletteName.Location = new System.Drawing.Point(66, 55);
 			this.MazePaletteName.Name = "MazePaletteName";
 			this.MazePaletteName.ReadOnly = true;
-			this.MazePaletteName.Size = new System.Drawing.Size(100, 20);
+			this.MazePaletteName.Size = new System.Drawing.Size(82, 20);
 			this.MazePaletteName.TabIndex = 6;
 			// 
 			// MazeVMPName
@@ -1546,7 +1576,7 @@
 			this.MazeVMPName.Location = new System.Drawing.Point(66, 29);
 			this.MazeVMPName.Name = "MazeVMPName";
 			this.MazeVMPName.ReadOnly = true;
-			this.MazeVMPName.Size = new System.Drawing.Size(100, 20);
+			this.MazeVMPName.Size = new System.Drawing.Size(82, 20);
 			this.MazeVMPName.TabIndex = 4;
 			// 
 			// label36
@@ -1584,19 +1614,19 @@
 			// 
 			this.groupBox10.Controls.Add(this.DoorInfoPos1);
 			this.groupBox10.Controls.Add(this.DoorInfoPos2);
-			this.groupBox10.Location = new System.Drawing.Point(469, 6);
+			this.groupBox10.Location = new System.Drawing.Point(388, 6);
 			this.groupBox10.Name = "groupBox10";
-			this.groupBox10.Size = new System.Drawing.Size(187, 98);
+			this.groupBox10.Size = new System.Drawing.Size(114, 98);
 			this.groupBox10.TabIndex = 7;
 			this.groupBox10.TabStop = false;
-			this.groupBox10.Text = "Button positions :";
+			this.groupBox10.Text = "Button rectangles :";
 			// 
 			// DoorInfoPos1
 			// 
 			this.DoorInfoPos1.Location = new System.Drawing.Point(6, 19);
 			this.DoorInfoPos1.Name = "DoorInfoPos1";
 			this.DoorInfoPos1.ReadOnly = true;
-			this.DoorInfoPos1.Size = new System.Drawing.Size(175, 20);
+			this.DoorInfoPos1.Size = new System.Drawing.Size(101, 20);
 			this.DoorInfoPos1.TabIndex = 4;
 			// 
 			// DoorInfoPos2
@@ -1604,19 +1634,19 @@
 			this.DoorInfoPos2.Location = new System.Drawing.Point(6, 45);
 			this.DoorInfoPos2.Name = "DoorInfoPos2";
 			this.DoorInfoPos2.ReadOnly = true;
-			this.DoorInfoPos2.Size = new System.Drawing.Size(175, 20);
+			this.DoorInfoPos2.Size = new System.Drawing.Size(101, 20);
 			this.DoorInfoPos2.TabIndex = 4;
 			// 
 			// groupBox9
 			// 
 			this.groupBox9.Controls.Add(this.DoorInfoButton1);
 			this.groupBox9.Controls.Add(this.DoorInfoButton2);
-			this.groupBox9.Location = new System.Drawing.Point(348, 6);
+			this.groupBox9.Location = new System.Drawing.Point(267, 6);
 			this.groupBox9.Name = "groupBox9";
 			this.groupBox9.Size = new System.Drawing.Size(115, 98);
 			this.groupBox9.TabIndex = 6;
 			this.groupBox9.TabStop = false;
-			this.groupBox9.Text = "Button Rectangles :";
+			this.groupBox9.Text = "Button positions :";
 			// 
 			// DoorInfoButton1
 			// 
@@ -1641,7 +1671,7 @@
 			this.groupBox8.Controls.Add(this.DoorInfoRect2);
 			this.groupBox8.Location = new System.Drawing.Point(155, 3);
 			this.groupBox8.Name = "groupBox8";
-			this.groupBox8.Size = new System.Drawing.Size(187, 98);
+			this.groupBox8.Size = new System.Drawing.Size(106, 98);
 			this.groupBox8.TabIndex = 5;
 			this.groupBox8.TabStop = false;
 			this.groupBox8.Text = "Rectangles :";
@@ -1651,7 +1681,7 @@
 			this.DoorInfoRect1.Location = new System.Drawing.Point(6, 19);
 			this.DoorInfoRect1.Name = "DoorInfoRect1";
 			this.DoorInfoRect1.ReadOnly = true;
-			this.DoorInfoRect1.Size = new System.Drawing.Size(175, 20);
+			this.DoorInfoRect1.Size = new System.Drawing.Size(92, 20);
 			this.DoorInfoRect1.TabIndex = 4;
 			// 
 			// DoorInfoRect3
@@ -1659,7 +1689,7 @@
 			this.DoorInfoRect3.Location = new System.Drawing.Point(6, 71);
 			this.DoorInfoRect3.Name = "DoorInfoRect3";
 			this.DoorInfoRect3.ReadOnly = true;
-			this.DoorInfoRect3.Size = new System.Drawing.Size(175, 20);
+			this.DoorInfoRect3.Size = new System.Drawing.Size(92, 20);
 			this.DoorInfoRect3.TabIndex = 4;
 			// 
 			// DoorInfoRect2
@@ -1667,7 +1697,7 @@
 			this.DoorInfoRect2.Location = new System.Drawing.Point(6, 45);
 			this.DoorInfoRect2.Name = "DoorInfoRect2";
 			this.DoorInfoRect2.ReadOnly = true;
-			this.DoorInfoRect2.Size = new System.Drawing.Size(175, 20);
+			this.DoorInfoRect2.Size = new System.Drawing.Size(92, 20);
 			this.DoorInfoRect2.TabIndex = 4;
 			// 
 			// DoorInfoBox
@@ -2112,6 +2142,7 @@
 			this.MazePictureBox.Size = new System.Drawing.Size(512, 512);
 			this.MazePictureBox.TabIndex = 0;
 			this.MazePictureBox.TabStop = false;
+			this.MazePictureBox.Click += new System.EventHandler(this.MazePictureBox_Click);
 			this.MazePictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MazePictureBox_Paint);
 			this.MazePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MazePictureBox_MouseMove);
 			// 
@@ -2240,8 +2271,146 @@
 			this.MazeMouseLocationBox.Location = new System.Drawing.Point(146, 6);
 			this.MazeMouseLocationBox.Name = "MazeMouseLocationBox";
 			this.MazeMouseLocationBox.ReadOnly = true;
-			this.MazeMouseLocationBox.Size = new System.Drawing.Size(82, 20);
+			this.MazeMouseLocationBox.Size = new System.Drawing.Size(272, 20);
 			this.MazeMouseLocationBox.TabIndex = 8;
+			// 
+			// MazeToolTip
+			// 
+			this.MazeToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			// 
+			// MazeTimer1Box
+			// 
+			this.MazeTimer1Box.Location = new System.Drawing.Point(206, 5);
+			this.MazeTimer1Box.Name = "MazeTimer1Box";
+			this.MazeTimer1Box.ReadOnly = true;
+			this.MazeTimer1Box.Size = new System.Drawing.Size(35, 20);
+			this.MazeTimer1Box.TabIndex = 10;
+			// 
+			// label54
+			// 
+			this.label54.AutoSize = true;
+			this.label54.Location = new System.Drawing.Point(154, 8);
+			this.label54.Name = "label54";
+			this.label54.Size = new System.Drawing.Size(48, 13);
+			this.label54.TabIndex = 9;
+			this.label54.Text = "Timer 1 :";
+			// 
+			// label55
+			// 
+			this.label55.AutoSize = true;
+			this.label55.Location = new System.Drawing.Point(154, 32);
+			this.label55.Name = "label55";
+			this.label55.Size = new System.Drawing.Size(48, 13);
+			this.label55.TabIndex = 9;
+			this.label55.Text = "Timer 2 :";
+			// 
+			// MazeTimer2Box
+			// 
+			this.MazeTimer2Box.Location = new System.Drawing.Point(206, 29);
+			this.MazeTimer2Box.Name = "MazeTimer2Box";
+			this.MazeTimer2Box.ReadOnly = true;
+			this.MazeTimer2Box.Size = new System.Drawing.Size(35, 20);
+			this.MazeTimer2Box.TabIndex = 10;
+			// 
+			// label56
+			// 
+			this.label56.AutoSize = true;
+			this.label56.Location = new System.Drawing.Point(247, 32);
+			this.label56.Name = "label56";
+			this.label56.Size = new System.Drawing.Size(29, 13);
+			this.label56.TabIndex = 11;
+			this.label56.Text = "ticks";
+			// 
+			// label57
+			// 
+			this.label57.AutoSize = true;
+			this.label57.Location = new System.Drawing.Point(247, 8);
+			this.label57.Name = "label57";
+			this.label57.Size = new System.Drawing.Size(29, 13);
+			this.label57.TabIndex = 12;
+			this.label57.Text = "ticks";
+			// 
+			// TriggerFlagsBox
+			// 
+			this.TriggerFlagsBox.Location = new System.Drawing.Point(362, 18);
+			this.TriggerFlagsBox.Name = "TriggerFlagsBox";
+			this.TriggerFlagsBox.ReadOnly = true;
+			this.TriggerFlagsBox.Size = new System.Drawing.Size(93, 20);
+			this.TriggerFlagsBox.TabIndex = 8;
+			// 
+			// label58
+			// 
+			this.label58.AutoSize = true;
+			this.label58.Location = new System.Drawing.Point(318, 21);
+			this.label58.Name = "label58";
+			this.label58.Size = new System.Drawing.Size(38, 13);
+			this.label58.TabIndex = 9;
+			this.label58.Text = "Flags :";
+			// 
+			// MonsterSubPosition
+			// 
+			this.MonsterSubPosition.Location = new System.Drawing.Point(266, 64);
+			this.MonsterSubPosition.Name = "MonsterSubPosition";
+			this.MonsterSubPosition.ReadOnly = true;
+			this.MonsterSubPosition.Size = new System.Drawing.Size(56, 20);
+			this.MonsterSubPosition.TabIndex = 24;
+			// 
+			// label59
+			// 
+			this.label59.AutoSize = true;
+			this.label59.Location = new System.Drawing.Point(217, 67);
+			this.label59.Name = "label59";
+			this.label59.Size = new System.Drawing.Size(50, 13);
+			this.label59.TabIndex = 23;
+			this.label59.Text = "Position :";
+			// 
+			// MonstersLogBox
+			// 
+			this.MonstersLogBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+			this.MonstersLogBox.Location = new System.Drawing.Point(6, 19);
+			this.MonstersLogBox.Multiline = true;
+			this.MonstersLogBox.Name = "MonstersLogBox";
+			this.MonstersLogBox.ReadOnly = true;
+			this.MonstersLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.MonstersLogBox.Size = new System.Drawing.Size(247, 94);
+			this.MonstersLogBox.TabIndex = 9;
+			// 
+			// groupBox15
+			// 
+			this.groupBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox15.Controls.Add(this.MonstersLogBox);
+			this.groupBox15.Location = new System.Drawing.Point(89, 550);
+			this.groupBox15.Name = "groupBox15";
+			this.groupBox15.Size = new System.Drawing.Size(259, 119);
+			this.groupBox15.TabIndex = 10;
+			this.groupBox15.TabStop = false;
+			this.groupBox15.Text = "Monsters :";
+			// 
+			// groupBox16
+			// 
+			this.groupBox16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox16.Controls.Add(this.TriggersLogBox);
+			this.groupBox16.Location = new System.Drawing.Point(354, 550);
+			this.groupBox16.Name = "groupBox16";
+			this.groupBox16.Size = new System.Drawing.Size(247, 119);
+			this.groupBox16.TabIndex = 11;
+			this.groupBox16.TabStop = false;
+			this.groupBox16.Text = "Triggers :";
+			// 
+			// TriggersLogBox
+			// 
+			this.TriggersLogBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+			this.TriggersLogBox.Location = new System.Drawing.Point(6, 19);
+			this.TriggersLogBox.Multiline = true;
+			this.TriggersLogBox.Name = "TriggersLogBox";
+			this.TriggersLogBox.ReadOnly = true;
+			this.TriggersLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.TriggersLogBox.Size = new System.Drawing.Size(235, 94);
+			this.TriggersLogBox.TabIndex = 9;
 			// 
 			// Form1
 			// 
@@ -2305,6 +2474,10 @@
 			this.TextTab.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
+			this.groupBox15.ResumeLayout(false);
+			this.groupBox15.PerformLayout();
+			this.groupBox16.ResumeLayout(false);
+			this.groupBox16.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2504,6 +2677,21 @@
 		private System.Windows.Forms.TextBox LogBox;
 		private System.Windows.Forms.TextBox MazeMouseLocationBox;
 		private System.Windows.Forms.Label label53;
+		private System.Windows.Forms.ToolTip MazeToolTip;
+		private System.Windows.Forms.TextBox MazeTimer2Box;
+		private System.Windows.Forms.Label label55;
+		private System.Windows.Forms.TextBox MazeTimer1Box;
+		private System.Windows.Forms.Label label54;
+		private System.Windows.Forms.Label label57;
+		private System.Windows.Forms.Label label56;
+		private System.Windows.Forms.Label label58;
+		private System.Windows.Forms.TextBox TriggerFlagsBox;
+		private System.Windows.Forms.TextBox MonsterSubPosition;
+		private System.Windows.Forms.Label label59;
+		private System.Windows.Forms.GroupBox groupBox16;
+		private System.Windows.Forms.TextBox TriggersLogBox;
+		private System.Windows.Forms.GroupBox groupBox15;
+		private System.Windows.Forms.TextBox MonstersLogBox;
 	}
 }
 

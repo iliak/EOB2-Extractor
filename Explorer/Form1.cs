@@ -107,10 +107,10 @@ namespace Explorer
 			if (item != null)
 				ItemTypesListbox.SelectedIndex = item.ItemTypeID;
 
-			if (ItemsBitmap!= null && item != null)
+			if (ItemsBitmap != null && item != null)
 			{
 				Rectangle rect = new Rectangle((item.Picture % 20) * 16, (item.Picture / 20) * 16, 16, 16);
-				ItemPictureBox.Image =  ItemsBitmap.Clone(rect, ItemsBitmap.PixelFormat);
+				ItemPictureBox.Image = ItemsBitmap.Clone(rect, ItemsBitmap.PixelFormat);
 			}
 		}
 
@@ -219,10 +219,12 @@ namespace Explorer
 			// Strings
 			StringIdBox.Value = 0;
 			StringIdBox.Maximum = Math.Max(maze.Messages.Count - 1, 0);
+			RebuildStringInterface();
 
 			// Triggers
 			TriggerIdBox.Value = 0;
 			TriggerIdBox.Maximum = Math.Max(maze.Triggers.Count - 1, 0);
+			RebuildTriggerInterface();
 
 			// Script
 			ScriptTextBox.Text = maze.Script.Decompile();
@@ -234,10 +236,48 @@ namespace Explorer
 		/// <summary>
 		/// 
 		/// </summary>
+		private void RebuildStringInterface()
+		{
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
+			{
+				StringMessageLabel.Text = "";
+			}
+			else
+			{
+				StringMessageLabel.Text = maze.Messages[(int)StringIdBox.Value];
+			}
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void RebuildTriggerInterface()
+		{
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
+			{
+				TriggerCoordinateBox.Text = "";
+				TriggerOffsetBox.Text = "";
+				TriggerFlagsBox.Text = "";
+			}
+			else
+			{
+				Trigger trigger = maze.Triggers[(int)TriggerIdBox.Value];
+				TriggerCoordinateBox.Text = trigger.Location.ToString();
+				TriggerOffsetBox.Text = "0x" + trigger.Offset.ToString("X4");
+				TriggerFlagsBox.Text = "0x" + ((int)(trigger.Flags)).ToString("X4");
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="header"></param>
 		void RebuildMazeHeaderInterface()
 		{
-
+			Maze maze = GetCurrentMaze();
 			MazeHeader header = GetCurrentMazeHeader();
 			if (header == null)
 			{
@@ -248,6 +288,9 @@ namespace Explorer
 
 				MazeHeaderInformationTab.SelectedIndex = 0;
 				MazeHeaderInformationTab.Enabled = false;
+				MazeTimer1Box.Text = "";
+				MazeTimer2Box.Text = "";
+
 				return;
 			}
 			MazeHeaderInformationTab.Enabled = true;
@@ -256,6 +299,9 @@ namespace Explorer
 			MazeVMPName.Text = header.VmpVcnName;
 			MazePaletteName.Text = header.paletteName;
 			MazeSoundName.Text = header.SoundName;
+			MazeTimer1Box.Text = maze.Timer.Count >= 1 ? maze.Timer[0].ToString() : "";
+			MazeTimer2Box.Text = maze.Timer.Count >= 2 ? maze.Timer[1].ToString() : "";
+
 
 			RebuildDoorInfoInterface();
 			RebuildMonsterGFXInterface();
@@ -291,14 +337,17 @@ namespace Explorer
 				MonsterWeapon.Text = "";
 				MonsterPocketItemTxt.Text = "";
 				MonsterWeaponTxt.Text = "";
+				MonsterSubPosition.Text = "";
+
 				return;
 			}
 
 			Monster m = maze.Monsters[id];
 
-			MonsterMoveTime.Text = "0x" + m.TimeDelay.ToString("X2");
+			MonsterMoveTime.Text = "0x" + m.TimerID.ToString("X2");
 			MonsterLocation.Text = m.Location.ToString();
-			MonsterDirection.Text = "0x" + m.Direction.ToString("X2");
+			MonsterDirection.Text = m.Direction.ToString();
+			MonsterSubPosition.Text = m.SubPosition.ToString();
 			MonsterType.Text = "0x" + m.Type.ToString("X2");
 			MonsterPicture.Text = "0x" + m.PictureIndex.ToString("X2");
 			MonsterPhase.Text = "0x" + m.Phase.ToString("X2");
@@ -506,33 +555,6 @@ namespace Explorer
 		}
 
 
-
-		private void MazePictureBox_Paint(object sender, PaintEventArgs e)
-		{
-			Maze maze = GetCurrentMaze();
-			if (maze == null)
-				return;
-
-			// Monsters 
-			foreach (Monster monster in maze.Monsters)
-			{
-				if (monster.Location.IsInvalid)
-					continue;
-
-				e.Graphics.FillRectangle(Brushes.Red, new Rectangle(monster.Location.X * 16, monster.Location.Y * 16, 16, 16));
-			}
-
-			// Scripts
-			foreach(Trigger trigger in maze.Triggers)
-			{
-				if (trigger.Location.IsInvalid)
-					continue;
-
-				e.Graphics.FillRectangle(Brushes.Green, new Rectangle(trigger.Location.X * 16, trigger.Location.Y * 16, 16, 16));
-			}
-
-		}
-
 		#region Events
 
 		/// <summary>
@@ -615,9 +637,9 @@ namespace Explorer
 			if (Mazes.Count == 0)
 				return;
 
-			Maze maze = Mazes[MazeSelectBox.SelectedIndex];
-			StringMessageLabel.Text = maze.Messages[(int)StringIdBox.Value];
+			RebuildStringInterface();
 		}
+
 
 		/// <summary>
 		/// 
@@ -629,11 +651,9 @@ namespace Explorer
 			if (Mazes.Count == 0)
 				return;
 
-			Maze maze = Mazes[MazeSelectBox.SelectedIndex];
-			Trigger trigger = maze.Triggers[(int)TriggerIdBox.Value];
-			TriggerCoordinateBox.Text = trigger.Location.ToString();
-			TriggerOffsetBox.Text = "0x" + trigger.Offset.ToString("X4");
+			RebuildTriggerInterface();
 		}
+
 
 		/// <summary>
 		/// 
@@ -698,6 +718,139 @@ namespace Explorer
 		{
 			RebuildDecorationInterface();
 		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MazePictureBox_Paint(object sender, PaintEventArgs e)
+		{
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
+				return;
+
+			// Grid
+			for (byte x = 0; x < 32; x++)
+				e.Graphics.DrawLine(Pens.Black, x * 16, 0, x * 16, 512);
+			for (byte y = 0; y < 32; y++)
+				e.Graphics.DrawLine(Pens.Black, 0, y * 16, 512, y * 16);
+
+
+			// Scripts
+			foreach (Trigger trigger in maze.Triggers)
+			{
+				if (trigger.Location.IsInvalid)
+					continue;
+
+				e.Graphics.FillRectangle(Brushes.Green, new Rectangle(trigger.Location.X * 16, trigger.Location.Y * 16, 16, 16));
+			}
+
+			// Monsters 
+			foreach (Monster monster in maze.Monsters)
+			{
+				if (monster.Location.IsInvalid)
+					continue;
+
+				Point loc = new Point(monster.Location.X * 16, monster.Location.Y * 16);
+				Point[] offset =
+				{
+						new Point(0, 0),
+						new Point(8, 0),
+						new Point(0, 8),
+						new Point(8, 8),
+						new Point(4, 4),
+					};
+				loc.Offset(offset[(byte)monster.SubPosition]);
+
+				e.Graphics.FillRectangle(Brushes.Red, new Rectangle(loc.X, loc.Y, 8, 8));
+			}
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MazePictureBox_MouseMove(object sender, MouseEventArgs e)
+		{
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
+				return;
+
+			StringBuilder tooltipmsg = new StringBuilder();
+			Point mazeloc = new Point(e.Location.X / 16, e.Location.Y / 16);
+
+			// Monster under mouse ?
+			MonstersLogBox.Text = "";
+			foreach (Monster monster in maze.Monsters)
+			{
+				if (monster.Location.X != mazeloc.X || monster.Location.Y != mazeloc.Y)
+					continue;
+
+				MonstersLogBox.Text += string.Format("Monster {0}\r\n", monster.Index);
+			}
+
+			// Trigger under mouse ?
+			TriggersLogBox.Text = "";
+			for (int i = 0; i < maze.Triggers.Count; i++)
+			{
+				Trigger trigger = maze.Triggers[i];
+
+				if (trigger.Location.X != mazeloc.X || trigger.Location.Y != mazeloc.Y)
+					continue;
+
+				TriggersLogBox.Text += string.Format("Trigger {0} @ 0x{1:X4}\n", i, trigger.Offset);
+			}
+
+
+			MazeMouseLocationBox.Text = string.Format("X = {0:D2}, Y = {1:D2}", mazeloc.X, mazeloc.Y);
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MazePictureBox_Click(object sender, EventArgs e)
+		{
+			Maze maze = GetCurrentMaze();
+			if (maze == null)
+				return;
+			MouseEventArgs mea = (MouseEventArgs)e;
+			Point mazeloc = new Point(mea.Location.X / 16, mea.Location.Y / 16);
+			Point sub = new Point();
+
+			// Get trigger 
+			for (int i = 0; i < maze.Triggers.Count; i++)
+			{
+				Trigger trigger = maze.Triggers[i];
+
+				if (trigger.Location.X == mazeloc.X && trigger.Location.Y == mazeloc.Y)
+				{
+					TriggerIdBox.Value = i;
+					break;
+				}
+			}
+
+			// Get monster
+			for (int i = 0; i < maze.Monsters.Count; i++)
+			{
+				Monster monster = maze.Monsters[i];
+
+				if (monster.Location.X == mazeloc.X && monster.Location.Y == mazeloc.Y)
+				{
+					
+					break;
+				}
+			}
+
+
+		}
+
 		#endregion
 
 
@@ -740,10 +893,6 @@ namespace Explorer
 
 		#endregion
 
-		private void MazePictureBox_MouseMove(object sender, MouseEventArgs e)
-		{
-			MazeMouseLocationBox.Text = string.Format("X = {0:D2}, Y = {1:D2}", e.Location.X / 16, e.Location.Y / 16);
-		}
 	}
 
 }

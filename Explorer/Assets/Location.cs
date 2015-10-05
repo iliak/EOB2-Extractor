@@ -91,4 +91,17 @@ namespace Explorer
 
 		#endregion
 	}
+
+
+	/// <summary>
+	/// 
+	/// </summary>
+	public enum BlockSubPosition
+	{
+		NorthWest = 0,
+		NorthEast = 1,
+		SouthWest = 2,
+		SouthEast = 3,
+		Center = 4
+	}
 }

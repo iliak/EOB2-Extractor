@@ -17,10 +17,10 @@ namespace Explorer
 		{
 			Monster m = new Monster();
 			m.Index = script.ReadByte();
-			m.TimeDelay = script.ReadByte();
+			m.TimerID = script.ReadByte();
 			m.Location = Location.FromScript(script);
-			m.SubPosition = script.ReadByte();
-			m.Direction = script.ReadByte();
+			m.SubPosition = (BlockSubPosition)script.ReadByte();
+			m.Direction = (Compass)script.ReadByte();
 			m.Type = script.ReadByte();
 			m.PictureIndex = script.ReadByte();
 			m.Phase = script.ReadByte();
@@ -37,17 +37,17 @@ namespace Explorer
 		/// <returns></returns>
 		public override String ToString()
 		{
-			return String.Format("ID {0} @ {1}|{2} [ID: {3}, delay:{4}, type:{5}, picture:{6}, movestate:{7}, pause:{8}, weapon:0x{9:X4}, pocket:0x{10:X4}]",
+			return String.Format("ID {0} @ {1}|{2} [ID: {3}, Timer:{4}, type:{5}, picture:{6}, movestate:{7}, pause:{8}, weapon:0x{9:X4}, pocket:0x{10:X4}]",
 			Index, Location, SubPosition, Direction,
-			TimeDelay, Type, PictureIndex, Phase, Pause, Weapon, PocketItem);
+			TimerID, Type, PictureIndex, Phase, Pause, Weapon, PocketItem);
 		}
 
 		#region Properties
 		public byte Index;
-		public byte TimeDelay;
+		public byte TimerID;
 		public Location Location;
-		public byte SubPosition;
-		public byte Direction;
+		public BlockSubPosition SubPosition;
+		public Compass Direction;
 		public byte Type;
 		public byte PictureIndex;
 		public byte Phase;

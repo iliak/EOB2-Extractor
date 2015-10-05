@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Compass.cs" />
     <Compile Include="Assets\Dice.cs" />
     <Compile Include="Assets\ItemType.cs" />
     <Compile Include="Assets\DecorationFileName.cs" />

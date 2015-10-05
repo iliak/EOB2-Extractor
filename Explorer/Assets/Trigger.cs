@@ -48,7 +48,7 @@ namespace Explorer
 		A = 0x01,
 		B = 0x02,
 		C = 0x04,
-		OnTeamEnter = 0x08,
+		OnPartyEnter = 0x08,
 		D = 0x10,
 		HoleOrPressure = 0x20,
 		F = 0x40,
@@ -61,6 +61,9 @@ namespace Explorer
 		N = 0x2000,
 		O = 0x4000,
 		P = 0x8000,
-
 	}
+	// item drop
+	// item taken
+	// party enter
+	//party leave
 }

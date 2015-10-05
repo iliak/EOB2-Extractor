@@ -205,7 +205,7 @@ namespace Explorer
 					#region Monster timers
 					while ((b = reader.ReadByte()) != 0xff)
 					{
-						maze.Timer.Enqueue(reader.ReadByte());
+						maze.Timer.Add(reader.ReadByte());
 					}
 					#endregion
 
@@ -214,11 +214,11 @@ namespace Explorer
 					{
 						Monster m = new Monster();
 						m.Index = reader.ReadByte();
-						m.TimeDelay = reader.ReadByte();
+						m.TimerID = reader.ReadByte();
 						s = reader.ReadUInt16();
 						m.Location = Location.FromValue(s); // new Point(s >> 5, s & 0x1F);
-						m.SubPosition = reader.ReadByte();
-						m.Direction = reader.ReadByte();
+						m.SubPosition = (BlockSubPosition)reader.ReadByte();
+						m.Direction = (Compass)reader.ReadByte();
 						m.Type = reader.ReadByte();
 						m.PictureIndex = reader.ReadByte();
 						m.Phase = reader.ReadByte();
@@ -340,7 +340,7 @@ namespace Explorer
 		/// <summary>
 		/// 
 		/// </summary>
-		public Queue<byte> Timer = new Queue<byte>();
+		public List<byte> Timer = new List<byte>();
 
 		/// <summary>
 		/// 
