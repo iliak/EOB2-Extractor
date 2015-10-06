@@ -41,6 +41,10 @@ namespace Explorer
 				}
 				break;
 			}
+
+			Item item = Assets.Items[ItemID];
+			if (item != null)
+				ItemName = item.UnidentifiedName;
 		}
 
 		/// <summary>
@@ -53,17 +57,17 @@ namespace Explorer
 			{
 				case 0xffff:
 				{
-					return string.Format("New item 0x{0:X4} (unknown: [0x{1:X2}:0x{2:X2}])", ItemID, Unknown0, Unknown1);
+					return string.Format("New item \"{0}\" (unknown: [0x{1:X2}:0x{2:X2}])", ItemName, Unknown0, Unknown1);
 				}
 
 				case 0xfffe:
                 {
-					return string.Format("New item 0x{0:X4} (unknown: [0x{1:X2}:0x{2:X2}:0x{3:X2}])", ItemID, Unknown0, Unknown1, Unknown2);
+					return string.Format("New item \"{0}\" (unknown: [0x{1:X2}:0x{2:X2}:0x{3:X2}])", ItemName, Unknown0, Unknown1, Unknown2);
 				}
 
 				default:
 				{
-					return string.Format("New item 0x{0:X4} at {1}:{2} (unknown: [0x{3:X2}])", ItemID, Target, SubPos, Unknown0);
+					return string.Format("New item \"{0}\" at {1}:{2} (unknown: [0x{3:X2}])", ItemName, Target, SubPos, Unknown0);
 				}
 			}
 		}
@@ -79,6 +83,7 @@ namespace Explorer
 		byte Unknown1;
 		byte Unknown2;
 
+		string ItemName;
 		#endregion
 	}
 }

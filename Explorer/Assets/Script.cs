@@ -16,8 +16,9 @@ namespace Explorer
 		/// <summary>
 		/// 
 		/// </summary>
-		public Script(byte[] bytecode)
+		public Script(Maze maze, byte[] bytecode)
 		{
+			Maze = maze;
 			ByteCode = bytecode;
 			Tokens = new List<ScriptToken>();
 		}
@@ -49,7 +50,7 @@ namespace Explorer
 					case 0xfb: token = new CreateMonsterToken(this); break;
 					case 0xfa: token = new TeleportToken(this); break;
 					case 0xf9: token = new StealSmallItemToken(this); break;
-					case 0xf8: token = new MessageToken(this); break;
+					case 0xf8: token = new MessageToken(this, Maze); break;
 					case 0xf7: token = new SetFlagToken(this); break;
 					case 0xf6: token = new SoundToken(this); break;
 					case 0xf5: token = new ClearFlagToken(this); break;
@@ -70,7 +71,7 @@ namespace Explorer
 					case 0xe6: token = new EncounterToken(this); break;
 					case 0xe5: token = new WaitToken(this); break;
 					case 0xe4: token = new UpdateScreenToken(this); break;
-					case 0xe3: token = new TextMenuToken(this); break;
+					case 0xe3: token = new TextMenuToken(this, Maze); break;
 					case 0xe2: token = new SpecialWindowToken(this); break; // Special window picture
 																			//case 0xe1: token = null; break;
 																			//case 0xe0: token = new PushEventFlagToken(this); break;
@@ -79,7 +80,7 @@ namespace Explorer
 				if (token != null)
 					sb.AppendLine(token.ToString());
 				else
-					sb.AppendFormat("############# opcode: 0x{0:X2}\n", opcode);
+					sb.AppendFormat("############# opcode: 0x{0:X2}\r\n", opcode);
 
 				Tokens.Add(token);
 
@@ -104,8 +105,6 @@ namespace Explorer
 		}
 
 		#endregion
-
-
 
 
 		#region Helpers
@@ -209,6 +208,10 @@ namespace Explorer
 
 		#region Properties
 
+		/// <summary>
+		/// Maze handle
+		/// </summary>
+		Maze Maze;
 
 		/// <summary>
 		/// 
@@ -219,7 +222,6 @@ namespace Explorer
 		/// 
 		/// </summary>
 		private byte[] ByteCode;
-
 
 		/// <summary>
 		/// 

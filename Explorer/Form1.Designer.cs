@@ -28,9 +28,124 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.MazeTab = new System.Windows.Forms.TabPage();
+			this.groupBox16 = new System.Windows.Forms.GroupBox();
+			this.ItemsLogBox = new System.Windows.Forms.TextBox();
+			this.groupBox15 = new System.Windows.Forms.GroupBox();
+			this.MonstersLogBox = new System.Windows.Forms.TextBox();
+			this.MazeMouseLocationBox = new System.Windows.Forms.TextBox();
+			this.label53 = new System.Windows.Forms.Label();
+			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.ScriptTextBox = new System.Windows.Forms.TextBox();
+			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.StringMessageLabel = new System.Windows.Forms.Label();
+			this.StringIdBox = new System.Windows.Forms.NumericUpDown();
+			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this.label58 = new System.Windows.Forms.Label();
+			this.TriggerFlagsBox = new System.Windows.Forms.TextBox();
+			this.TriggerOffsetBox = new System.Windows.Forms.TextBox();
+			this.TriggerCoordinateBox = new System.Windows.Forms.TextBox();
+			this.label24 = new System.Windows.Forms.Label();
+			this.label23 = new System.Windows.Forms.Label();
+			this.TriggerIdBox = new System.Windows.Forms.NumericUpDown();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.MonsterSubPosition = new System.Windows.Forms.TextBox();
+			this.label59 = new System.Windows.Forms.Label();
+			this.MonsterPause = new System.Windows.Forms.TextBox();
+			this.label33 = new System.Windows.Forms.Label();
+			this.MonsterWeaponTxt = new System.Windows.Forms.Label();
+			this.MonsterPocketItemTxt = new System.Windows.Forms.Label();
+			this.label27 = new System.Windows.Forms.Label();
+			this.MonsterWeapon = new System.Windows.Forms.TextBox();
+			this.label32 = new System.Windows.Forms.Label();
+			this.MonsterPocket = new System.Windows.Forms.TextBox();
+			this.MonsterPhase = new System.Windows.Forms.TextBox();
+			this.MonsterPicture = new System.Windows.Forms.TextBox();
+			this.MonsterType = new System.Windows.Forms.TextBox();
+			this.label34 = new System.Windows.Forms.Label();
+			this.MonsterDirection = new System.Windows.Forms.TextBox();
+			this.MonsterLocation = new System.Windows.Forms.TextBox();
+			this.label31 = new System.Windows.Forms.Label();
+			this.MonsterMoveTime = new System.Windows.Forms.TextBox();
+			this.label30 = new System.Windows.Forms.Label();
+			this.label29 = new System.Windows.Forms.Label();
+			this.label26 = new System.Windows.Forms.Label();
+			this.label25 = new System.Windows.Forms.Label();
+			this.MonsterIdBox = new System.Windows.Forms.NumericUpDown();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.MazeHeaderInformationTab = new System.Windows.Forms.TabControl();
+			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.label57 = new System.Windows.Forms.Label();
+			this.label56 = new System.Windows.Forms.Label();
+			this.MazeTimer2Box = new System.Windows.Forms.TextBox();
+			this.label55 = new System.Windows.Forms.Label();
+			this.MazeTimer1Box = new System.Windows.Forms.TextBox();
+			this.label54 = new System.Windows.Forms.Label();
+			this.MazeNameBox = new System.Windows.Forms.TextBox();
+			this.MazeSoundName = new System.Windows.Forms.TextBox();
+			this.label28 = new System.Windows.Forms.Label();
+			this.label37 = new System.Windows.Forms.Label();
+			this.label35 = new System.Windows.Forms.Label();
+			this.MazePaletteName = new System.Windows.Forms.TextBox();
+			this.MazeVMPName = new System.Windows.Forms.TextBox();
+			this.label36 = new System.Windows.Forms.Label();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.groupBox10 = new System.Windows.Forms.GroupBox();
+			this.DoorInfoPos1 = new System.Windows.Forms.TextBox();
+			this.DoorInfoPos2 = new System.Windows.Forms.TextBox();
+			this.groupBox9 = new System.Windows.Forms.GroupBox();
+			this.DoorInfoButton1 = new System.Windows.Forms.TextBox();
+			this.DoorInfoButton2 = new System.Windows.Forms.TextBox();
+			this.groupBox8 = new System.Windows.Forms.GroupBox();
+			this.DoorInfoRect1 = new System.Windows.Forms.TextBox();
+			this.DoorInfoRect3 = new System.Windows.Forms.TextBox();
+			this.DoorInfoRect2 = new System.Windows.Forms.TextBox();
+			this.DoorInfoBox = new System.Windows.Forms.NumericUpDown();
+			this.DoorInfoTypeBox = new System.Windows.Forms.TextBox();
+			this.DoorInfoGfxBox = new System.Windows.Forms.TextBox();
+			this.DoorInfoIDBox = new System.Windows.Forms.TextBox();
+			this.DoorInfoKnob = new System.Windows.Forms.CheckBox();
+			this.label40 = new System.Windows.Forms.Label();
+			this.label39 = new System.Windows.Forms.Label();
+			this.label38 = new System.Windows.Forms.Label();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.groupBox12 = new System.Windows.Forms.GroupBox();
+			this.MonsterGFXUnknown2 = new System.Windows.Forms.TextBox();
+			this.MonsterGFXUsed2 = new System.Windows.Forms.CheckBox();
+			this.label44 = new System.Windows.Forms.Label();
+			this.MonsterGFXFilename2 = new System.Windows.Forms.TextBox();
+			this.label45 = new System.Windows.Forms.Label();
+			this.MonsterGFXProgramId2 = new System.Windows.Forms.TextBox();
+			this.label46 = new System.Windows.Forms.Label();
+			this.groupBox11 = new System.Windows.Forms.GroupBox();
+			this.MonsterGFXUnknown1 = new System.Windows.Forms.TextBox();
+			this.MonsterGFXUsed1 = new System.Windows.Forms.CheckBox();
+			this.label42 = new System.Windows.Forms.Label();
+			this.MonsterGFXFilename1 = new System.Windows.Forms.TextBox();
+			this.label43 = new System.Windows.Forms.Label();
+			this.MonsterGFXProgramId1 = new System.Windows.Forms.TextBox();
+			this.label41 = new System.Windows.Forms.Label();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.groupBox14 = new System.Windows.Forms.GroupBox();
+			this.label52 = new System.Windows.Forms.Label();
+			this.label51 = new System.Windows.Forms.Label();
+			this.label50 = new System.Windows.Forms.Label();
+			this.label49 = new System.Windows.Forms.Label();
+			this.DecorationInfoFlags = new System.Windows.Forms.TextBox();
+			this.DecorationInfoEventMask = new System.Windows.Forms.TextBox();
+			this.DecorationInfoDecoID = new System.Windows.Forms.TextBox();
+			this.DecorationInfoWallType = new System.Windows.Forms.TextBox();
+			this.groupBox13 = new System.Windows.Forms.GroupBox();
+			this.label48 = new System.Windows.Forms.Label();
+			this.DecorationInfoDEC = new System.Windows.Forms.TextBox();
+			this.DecorationInfoGFX = new System.Windows.Forms.TextBox();
+			this.label47 = new System.Windows.Forms.Label();
+			this.DecorationInfoID = new System.Windows.Forms.NumericUpDown();
+			this.MazeHeaderNumberBox = new System.Windows.Forms.NumericUpDown();
+			this.MazeSelectBox = new System.Windows.Forms.ListBox();
+			this.MazePictureBox = new System.Windows.Forms.PictureBox();
 			this.ItemTab = new System.Windows.Forms.TabPage();
 			this.LogBox = new System.Windows.Forms.TextBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -109,106 +224,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.ItemIdentifiedName = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.MazeTab = new System.Windows.Forms.TabPage();
-			this.groupBox7 = new System.Windows.Forms.GroupBox();
-			this.ScriptTextBox = new System.Windows.Forms.TextBox();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this.StringMessageLabel = new System.Windows.Forms.Label();
-			this.StringIdBox = new System.Windows.Forms.NumericUpDown();
-			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this.TriggerOffsetBox = new System.Windows.Forms.TextBox();
-			this.TriggerCoordinateBox = new System.Windows.Forms.TextBox();
-			this.label24 = new System.Windows.Forms.Label();
-			this.label23 = new System.Windows.Forms.Label();
-			this.TriggerIdBox = new System.Windows.Forms.NumericUpDown();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.MonsterPause = new System.Windows.Forms.TextBox();
-			this.label33 = new System.Windows.Forms.Label();
-			this.MonsterWeaponTxt = new System.Windows.Forms.Label();
-			this.MonsterPocketItemTxt = new System.Windows.Forms.Label();
-			this.label27 = new System.Windows.Forms.Label();
-			this.MonsterWeapon = new System.Windows.Forms.TextBox();
-			this.label32 = new System.Windows.Forms.Label();
-			this.MonsterPocket = new System.Windows.Forms.TextBox();
-			this.MonsterPhase = new System.Windows.Forms.TextBox();
-			this.MonsterPicture = new System.Windows.Forms.TextBox();
-			this.MonsterType = new System.Windows.Forms.TextBox();
-			this.label34 = new System.Windows.Forms.Label();
-			this.MonsterDirection = new System.Windows.Forms.TextBox();
-			this.MonsterLocation = new System.Windows.Forms.TextBox();
-			this.label31 = new System.Windows.Forms.Label();
-			this.MonsterMoveTime = new System.Windows.Forms.TextBox();
-			this.label30 = new System.Windows.Forms.Label();
-			this.label29 = new System.Windows.Forms.Label();
-			this.label26 = new System.Windows.Forms.Label();
-			this.label25 = new System.Windows.Forms.Label();
-			this.MonsterIdBox = new System.Windows.Forms.NumericUpDown();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.MazeHeaderInformationTab = new System.Windows.Forms.TabControl();
-			this.tabPage4 = new System.Windows.Forms.TabPage();
-			this.MazeNameBox = new System.Windows.Forms.TextBox();
-			this.MazeSoundName = new System.Windows.Forms.TextBox();
-			this.label28 = new System.Windows.Forms.Label();
-			this.label37 = new System.Windows.Forms.Label();
-			this.label35 = new System.Windows.Forms.Label();
-			this.MazePaletteName = new System.Windows.Forms.TextBox();
-			this.MazeVMPName = new System.Windows.Forms.TextBox();
-			this.label36 = new System.Windows.Forms.Label();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.groupBox10 = new System.Windows.Forms.GroupBox();
-			this.DoorInfoPos1 = new System.Windows.Forms.TextBox();
-			this.DoorInfoPos2 = new System.Windows.Forms.TextBox();
-			this.groupBox9 = new System.Windows.Forms.GroupBox();
-			this.DoorInfoButton1 = new System.Windows.Forms.TextBox();
-			this.DoorInfoButton2 = new System.Windows.Forms.TextBox();
-			this.groupBox8 = new System.Windows.Forms.GroupBox();
-			this.DoorInfoRect1 = new System.Windows.Forms.TextBox();
-			this.DoorInfoRect3 = new System.Windows.Forms.TextBox();
-			this.DoorInfoRect2 = new System.Windows.Forms.TextBox();
-			this.DoorInfoBox = new System.Windows.Forms.NumericUpDown();
-			this.DoorInfoTypeBox = new System.Windows.Forms.TextBox();
-			this.DoorInfoGfxBox = new System.Windows.Forms.TextBox();
-			this.DoorInfoIDBox = new System.Windows.Forms.TextBox();
-			this.DoorInfoKnob = new System.Windows.Forms.CheckBox();
-			this.label40 = new System.Windows.Forms.Label();
-			this.label39 = new System.Windows.Forms.Label();
-			this.label38 = new System.Windows.Forms.Label();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.groupBox12 = new System.Windows.Forms.GroupBox();
-			this.MonsterGFXUnknown2 = new System.Windows.Forms.TextBox();
-			this.MonsterGFXUsed2 = new System.Windows.Forms.CheckBox();
-			this.label44 = new System.Windows.Forms.Label();
-			this.MonsterGFXFilename2 = new System.Windows.Forms.TextBox();
-			this.label45 = new System.Windows.Forms.Label();
-			this.MonsterGFXProgramId2 = new System.Windows.Forms.TextBox();
-			this.label46 = new System.Windows.Forms.Label();
-			this.groupBox11 = new System.Windows.Forms.GroupBox();
-			this.MonsterGFXUnknown1 = new System.Windows.Forms.TextBox();
-			this.MonsterGFXUsed1 = new System.Windows.Forms.CheckBox();
-			this.label42 = new System.Windows.Forms.Label();
-			this.MonsterGFXFilename1 = new System.Windows.Forms.TextBox();
-			this.label43 = new System.Windows.Forms.Label();
-			this.MonsterGFXProgramId1 = new System.Windows.Forms.TextBox();
-			this.label41 = new System.Windows.Forms.Label();
-			this.tabPage3 = new System.Windows.Forms.TabPage();
-			this.groupBox14 = new System.Windows.Forms.GroupBox();
-			this.label52 = new System.Windows.Forms.Label();
-			this.label51 = new System.Windows.Forms.Label();
-			this.label50 = new System.Windows.Forms.Label();
-			this.label49 = new System.Windows.Forms.Label();
-			this.DecorationInfoFlags = new System.Windows.Forms.TextBox();
-			this.DecorationInfoEventMask = new System.Windows.Forms.TextBox();
-			this.DecorationInfoDecoID = new System.Windows.Forms.TextBox();
-			this.DecorationInfoWallType = new System.Windows.Forms.TextBox();
-			this.groupBox13 = new System.Windows.Forms.GroupBox();
-			this.label48 = new System.Windows.Forms.Label();
-			this.DecorationInfoDEC = new System.Windows.Forms.TextBox();
-			this.DecorationInfoGFX = new System.Windows.Forms.TextBox();
-			this.label47 = new System.Windows.Forms.Label();
-			this.DecorationInfoID = new System.Windows.Forms.NumericUpDown();
-			this.MazeHeaderNumberBox = new System.Windows.Forms.NumericUpDown();
-			this.MazeSelectBox = new System.Windows.Forms.ListBox();
-			this.MazePictureBox = new System.Windows.Forms.PictureBox();
 			this.TextTab = new System.Windows.Forms.TabPage();
 			this.button1 = new System.Windows.Forms.Button();
 			this.TextIdBox = new System.Windows.Forms.TextBox();
@@ -220,29 +235,12 @@
 			this.WorkingDirectoryBox = new System.Windows.Forms.ToolStripTextBox();
 			this.ChangeWorkingDirectoryBox = new System.Windows.Forms.ToolStripButton();
 			this.DecodeButton = new System.Windows.Forms.ToolStripButton();
-			this.label53 = new System.Windows.Forms.Label();
-			this.MazeMouseLocationBox = new System.Windows.Forms.TextBox();
-			this.MazeToolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.MazeTimer1Box = new System.Windows.Forms.TextBox();
-			this.label54 = new System.Windows.Forms.Label();
-			this.label55 = new System.Windows.Forms.Label();
-			this.MazeTimer2Box = new System.Windows.Forms.TextBox();
-			this.label56 = new System.Windows.Forms.Label();
-			this.label57 = new System.Windows.Forms.Label();
-			this.TriggerFlagsBox = new System.Windows.Forms.TextBox();
-			this.label58 = new System.Windows.Forms.Label();
-			this.MonsterSubPosition = new System.Windows.Forms.TextBox();
-			this.label59 = new System.Windows.Forms.Label();
-			this.MonstersLogBox = new System.Windows.Forms.TextBox();
-			this.groupBox15 = new System.Windows.Forms.GroupBox();
-			this.groupBox16 = new System.Windows.Forms.GroupBox();
-			this.TriggersLogBox = new System.Windows.Forms.TextBox();
+			this.groupBox17 = new System.Windows.Forms.GroupBox();
+			this.TriggerLogBox = new System.Windows.Forms.TextBox();
 			this.tabControl1.SuspendLayout();
-			this.ItemTab.SuspendLayout();
-			this.groupBox2.SuspendLayout();
-			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.ItemPictureBox)).BeginInit();
 			this.MazeTab.SuspendLayout();
+			this.groupBox16.SuspendLayout();
+			this.groupBox15.SuspendLayout();
 			this.groupBox7.SuspendLayout();
 			this.groupBox6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.StringIdBox)).BeginInit();
@@ -267,10 +265,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.DecorationInfoID)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.MazeHeaderNumberBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.MazePictureBox)).BeginInit();
+			this.ItemTab.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ItemPictureBox)).BeginInit();
 			this.TextTab.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
-			this.groupBox15.SuspendLayout();
-			this.groupBox16.SuspendLayout();
+			this.groupBox17.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -284,6 +285,1217 @@
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(1084, 701);
 			this.tabControl1.TabIndex = 0;
+			// 
+			// MazeTab
+			// 
+			this.MazeTab.Controls.Add(this.groupBox17);
+			this.MazeTab.Controls.Add(this.groupBox16);
+			this.MazeTab.Controls.Add(this.groupBox15);
+			this.MazeTab.Controls.Add(this.MazeMouseLocationBox);
+			this.MazeTab.Controls.Add(this.label53);
+			this.MazeTab.Controls.Add(this.groupBox7);
+			this.MazeTab.Controls.Add(this.groupBox6);
+			this.MazeTab.Controls.Add(this.groupBox5);
+			this.MazeTab.Controls.Add(this.groupBox4);
+			this.MazeTab.Controls.Add(this.groupBox3);
+			this.MazeTab.Controls.Add(this.MazeSelectBox);
+			this.MazeTab.Controls.Add(this.MazePictureBox);
+			this.MazeTab.Location = new System.Drawing.Point(4, 22);
+			this.MazeTab.Name = "MazeTab";
+			this.MazeTab.Padding = new System.Windows.Forms.Padding(3);
+			this.MazeTab.Size = new System.Drawing.Size(1076, 675);
+			this.MazeTab.TabIndex = 1;
+			this.MazeTab.Text = "Mazes";
+			this.MazeTab.UseVisualStyleBackColor = true;
+			// 
+			// groupBox16
+			// 
+			this.groupBox16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox16.Controls.Add(this.ItemsLogBox);
+			this.groupBox16.Location = new System.Drawing.Point(470, 550);
+			this.groupBox16.Name = "groupBox16";
+			this.groupBox16.Size = new System.Drawing.Size(131, 119);
+			this.groupBox16.TabIndex = 11;
+			this.groupBox16.TabStop = false;
+			this.groupBox16.Text = "Items :";
+			// 
+			// ItemsLogBox
+			// 
+			this.ItemsLogBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ItemsLogBox.Location = new System.Drawing.Point(6, 19);
+			this.ItemsLogBox.Multiline = true;
+			this.ItemsLogBox.Name = "ItemsLogBox";
+			this.ItemsLogBox.ReadOnly = true;
+			this.ItemsLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.ItemsLogBox.Size = new System.Drawing.Size(119, 94);
+			this.ItemsLogBox.TabIndex = 9;
+			// 
+			// groupBox15
+			// 
+			this.groupBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox15.Controls.Add(this.MonstersLogBox);
+			this.groupBox15.Location = new System.Drawing.Point(89, 550);
+			this.groupBox15.Name = "groupBox15";
+			this.groupBox15.Size = new System.Drawing.Size(160, 119);
+			this.groupBox15.TabIndex = 10;
+			this.groupBox15.TabStop = false;
+			this.groupBox15.Text = "Monsters :";
+			// 
+			// MonstersLogBox
+			// 
+			this.MonstersLogBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.MonstersLogBox.Location = new System.Drawing.Point(6, 19);
+			this.MonstersLogBox.Multiline = true;
+			this.MonstersLogBox.Name = "MonstersLogBox";
+			this.MonstersLogBox.ReadOnly = true;
+			this.MonstersLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.MonstersLogBox.Size = new System.Drawing.Size(148, 94);
+			this.MonstersLogBox.TabIndex = 9;
+			// 
+			// MazeMouseLocationBox
+			// 
+			this.MazeMouseLocationBox.Location = new System.Drawing.Point(146, 6);
+			this.MazeMouseLocationBox.Name = "MazeMouseLocationBox";
+			this.MazeMouseLocationBox.ReadOnly = true;
+			this.MazeMouseLocationBox.Size = new System.Drawing.Size(272, 20);
+			this.MazeMouseLocationBox.TabIndex = 8;
+			// 
+			// label53
+			// 
+			this.label53.AutoSize = true;
+			this.label53.Location = new System.Drawing.Point(86, 9);
+			this.label53.Name = "label53";
+			this.label53.Size = new System.Drawing.Size(54, 13);
+			this.label53.TabIndex = 7;
+			this.label53.Text = "Location :";
+			// 
+			// groupBox7
+			// 
+			this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox7.Controls.Add(this.ScriptTextBox);
+			this.groupBox7.Location = new System.Drawing.Point(607, 445);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(455, 224);
+			this.groupBox7.TabIndex = 6;
+			this.groupBox7.TabStop = false;
+			this.groupBox7.Text = "Script :";
+			// 
+			// ScriptTextBox
+			// 
+			this.ScriptTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ScriptTextBox.Location = new System.Drawing.Point(6, 19);
+			this.ScriptTextBox.Multiline = true;
+			this.ScriptTextBox.Name = "ScriptTextBox";
+			this.ScriptTextBox.ReadOnly = true;
+			this.ScriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.ScriptTextBox.Size = new System.Drawing.Size(443, 199);
+			this.ScriptTextBox.TabIndex = 0;
+			// 
+			// groupBox6
+			// 
+			this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox6.Controls.Add(this.StringMessageLabel);
+			this.groupBox6.Controls.Add(this.StringIdBox);
+			this.groupBox6.Location = new System.Drawing.Point(607, 329);
+			this.groupBox6.Name = "groupBox6";
+			this.groupBox6.Size = new System.Drawing.Size(461, 58);
+			this.groupBox6.TabIndex = 5;
+			this.groupBox6.TabStop = false;
+			this.groupBox6.Text = "Strings :";
+			// 
+			// StringMessageLabel
+			// 
+			this.StringMessageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.StringMessageLabel.Location = new System.Drawing.Point(57, 21);
+			this.StringMessageLabel.Name = "StringMessageLabel";
+			this.StringMessageLabel.Size = new System.Drawing.Size(398, 34);
+			this.StringMessageLabel.TabIndex = 3;
+			// 
+			// StringIdBox
+			// 
+			this.StringIdBox.Location = new System.Drawing.Point(6, 21);
+			this.StringIdBox.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+			this.StringIdBox.Name = "StringIdBox";
+			this.StringIdBox.Size = new System.Drawing.Size(45, 20);
+			this.StringIdBox.TabIndex = 2;
+			this.StringIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.StringIdBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.StringIdBox.ValueChanged += new System.EventHandler(this.StringIdBox_ValueChanged);
+			// 
+			// groupBox5
+			// 
+			this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox5.Controls.Add(this.label58);
+			this.groupBox5.Controls.Add(this.TriggerFlagsBox);
+			this.groupBox5.Controls.Add(this.TriggerOffsetBox);
+			this.groupBox5.Controls.Add(this.TriggerCoordinateBox);
+			this.groupBox5.Controls.Add(this.label24);
+			this.groupBox5.Controls.Add(this.label23);
+			this.groupBox5.Controls.Add(this.TriggerIdBox);
+			this.groupBox5.Location = new System.Drawing.Point(607, 393);
+			this.groupBox5.Name = "groupBox5";
+			this.groupBox5.Size = new System.Drawing.Size(461, 46);
+			this.groupBox5.TabIndex = 4;
+			this.groupBox5.TabStop = false;
+			this.groupBox5.Text = "Triggers :";
+			// 
+			// label58
+			// 
+			this.label58.AutoSize = true;
+			this.label58.Location = new System.Drawing.Point(318, 21);
+			this.label58.Name = "label58";
+			this.label58.Size = new System.Drawing.Size(38, 13);
+			this.label58.TabIndex = 9;
+			this.label58.Text = "Flags :";
+			// 
+			// TriggerFlagsBox
+			// 
+			this.TriggerFlagsBox.Location = new System.Drawing.Point(362, 18);
+			this.TriggerFlagsBox.Name = "TriggerFlagsBox";
+			this.TriggerFlagsBox.ReadOnly = true;
+			this.TriggerFlagsBox.Size = new System.Drawing.Size(93, 20);
+			this.TriggerFlagsBox.TabIndex = 8;
+			// 
+			// TriggerOffsetBox
+			// 
+			this.TriggerOffsetBox.Location = new System.Drawing.Point(254, 18);
+			this.TriggerOffsetBox.Name = "TriggerOffsetBox";
+			this.TriggerOffsetBox.ReadOnly = true;
+			this.TriggerOffsetBox.Size = new System.Drawing.Size(44, 20);
+			this.TriggerOffsetBox.TabIndex = 7;
+			// 
+			// TriggerCoordinateBox
+			// 
+			this.TriggerCoordinateBox.Location = new System.Drawing.Point(127, 18);
+			this.TriggerCoordinateBox.Name = "TriggerCoordinateBox";
+			this.TriggerCoordinateBox.ReadOnly = true;
+			this.TriggerCoordinateBox.Size = new System.Drawing.Size(46, 20);
+			this.TriggerCoordinateBox.TabIndex = 6;
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.Location = new System.Drawing.Point(179, 22);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(69, 13);
+			this.label24.TabIndex = 5;
+			this.label24.Text = "Script offset :";
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.Location = new System.Drawing.Point(57, 21);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(64, 13);
+			this.label23.TabIndex = 4;
+			this.label23.Text = "Coordinate :";
+			// 
+			// TriggerIdBox
+			// 
+			this.TriggerIdBox.Location = new System.Drawing.Point(6, 19);
+			this.TriggerIdBox.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+			this.TriggerIdBox.Name = "TriggerIdBox";
+			this.TriggerIdBox.Size = new System.Drawing.Size(45, 20);
+			this.TriggerIdBox.TabIndex = 1;
+			this.TriggerIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.TriggerIdBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.TriggerIdBox.ValueChanged += new System.EventHandler(this.TriggerIdBox_ValueChanged);
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox4.Controls.Add(this.MonsterSubPosition);
+			this.groupBox4.Controls.Add(this.label59);
+			this.groupBox4.Controls.Add(this.MonsterPause);
+			this.groupBox4.Controls.Add(this.label33);
+			this.groupBox4.Controls.Add(this.MonsterWeaponTxt);
+			this.groupBox4.Controls.Add(this.MonsterPocketItemTxt);
+			this.groupBox4.Controls.Add(this.label27);
+			this.groupBox4.Controls.Add(this.MonsterWeapon);
+			this.groupBox4.Controls.Add(this.label32);
+			this.groupBox4.Controls.Add(this.MonsterPocket);
+			this.groupBox4.Controls.Add(this.MonsterPhase);
+			this.groupBox4.Controls.Add(this.MonsterPicture);
+			this.groupBox4.Controls.Add(this.MonsterType);
+			this.groupBox4.Controls.Add(this.label34);
+			this.groupBox4.Controls.Add(this.MonsterDirection);
+			this.groupBox4.Controls.Add(this.MonsterLocation);
+			this.groupBox4.Controls.Add(this.label31);
+			this.groupBox4.Controls.Add(this.MonsterMoveTime);
+			this.groupBox4.Controls.Add(this.label30);
+			this.groupBox4.Controls.Add(this.label29);
+			this.groupBox4.Controls.Add(this.label26);
+			this.groupBox4.Controls.Add(this.label25);
+			this.groupBox4.Controls.Add(this.MonsterIdBox);
+			this.groupBox4.Location = new System.Drawing.Point(607, 201);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(461, 122);
+			this.groupBox4.TabIndex = 3;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "Monsters :";
+			// 
+			// MonsterSubPosition
+			// 
+			this.MonsterSubPosition.Location = new System.Drawing.Point(266, 64);
+			this.MonsterSubPosition.Name = "MonsterSubPosition";
+			this.MonsterSubPosition.ReadOnly = true;
+			this.MonsterSubPosition.Size = new System.Drawing.Size(56, 20);
+			this.MonsterSubPosition.TabIndex = 24;
+			// 
+			// label59
+			// 
+			this.label59.AutoSize = true;
+			this.label59.Location = new System.Drawing.Point(217, 67);
+			this.label59.Name = "label59";
+			this.label59.Size = new System.Drawing.Size(50, 13);
+			this.label59.TabIndex = 23;
+			this.label59.Text = "Position :";
+			// 
+			// MonsterPause
+			// 
+			this.MonsterPause.Location = new System.Drawing.Point(393, 12);
+			this.MonsterPause.Name = "MonsterPause";
+			this.MonsterPause.ReadOnly = true;
+			this.MonsterPause.Size = new System.Drawing.Size(56, 20);
+			this.MonsterPause.TabIndex = 18;
+			// 
+			// label33
+			// 
+			this.label33.AutoSize = true;
+			this.label33.Location = new System.Drawing.Point(344, 15);
+			this.label33.Name = "label33";
+			this.label33.Size = new System.Drawing.Size(43, 13);
+			this.label33.TabIndex = 8;
+			this.label33.Text = "Pause :";
+			// 
+			// MonsterWeaponTxt
+			// 
+			this.MonsterWeaponTxt.Location = new System.Drawing.Point(366, 99);
+			this.MonsterWeaponTxt.Name = "MonsterWeaponTxt";
+			this.MonsterWeaponTxt.Size = new System.Drawing.Size(89, 23);
+			this.MonsterWeaponTxt.TabIndex = 22;
+			// 
+			// MonsterPocketItemTxt
+			// 
+			this.MonsterPocketItemTxt.Location = new System.Drawing.Point(129, 99);
+			this.MonsterPocketItemTxt.Name = "MonsterPocketItemTxt";
+			this.MonsterPocketItemTxt.Size = new System.Drawing.Size(109, 23);
+			this.MonsterPocketItemTxt.TabIndex = 21;
+			// 
+			// label27
+			// 
+			this.label27.AutoSize = true;
+			this.label27.Location = new System.Drawing.Point(14, 99);
+			this.label27.Name = "label27";
+			this.label27.Size = new System.Drawing.Size(47, 13);
+			this.label27.TabIndex = 11;
+			this.label27.Text = "Pocket :";
+			// 
+			// MonsterWeapon
+			// 
+			this.MonsterWeapon.Location = new System.Drawing.Point(304, 96);
+			this.MonsterWeapon.Name = "MonsterWeapon";
+			this.MonsterWeapon.ReadOnly = true;
+			this.MonsterWeapon.Size = new System.Drawing.Size(56, 20);
+			this.MonsterWeapon.TabIndex = 19;
+			// 
+			// label32
+			// 
+			this.label32.AutoSize = true;
+			this.label32.Location = new System.Drawing.Point(244, 99);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(54, 13);
+			this.label32.TabIndex = 9;
+			this.label32.Text = "Weapon :";
+			// 
+			// MonsterPocket
+			// 
+			this.MonsterPocket.Location = new System.Drawing.Point(67, 96);
+			this.MonsterPocket.Name = "MonsterPocket";
+			this.MonsterPocket.ReadOnly = true;
+			this.MonsterPocket.Size = new System.Drawing.Size(56, 20);
+			this.MonsterPocket.TabIndex = 20;
+			// 
+			// MonsterPhase
+			// 
+			this.MonsterPhase.Location = new System.Drawing.Point(266, 38);
+			this.MonsterPhase.Name = "MonsterPhase";
+			this.MonsterPhase.ReadOnly = true;
+			this.MonsterPhase.Size = new System.Drawing.Size(56, 20);
+			this.MonsterPhase.TabIndex = 17;
+			// 
+			// MonsterPicture
+			// 
+			this.MonsterPicture.Location = new System.Drawing.Point(266, 12);
+			this.MonsterPicture.Name = "MonsterPicture";
+			this.MonsterPicture.ReadOnly = true;
+			this.MonsterPicture.Size = new System.Drawing.Size(56, 20);
+			this.MonsterPicture.TabIndex = 16;
+			// 
+			// MonsterType
+			// 
+			this.MonsterType.Location = new System.Drawing.Point(393, 38);
+			this.MonsterType.Name = "MonsterType";
+			this.MonsterType.ReadOnly = true;
+			this.MonsterType.Size = new System.Drawing.Size(56, 20);
+			this.MonsterType.TabIndex = 15;
+			// 
+			// label34
+			// 
+			this.label34.AutoSize = true;
+			this.label34.Location = new System.Drawing.Point(214, 15);
+			this.label34.Name = "label34";
+			this.label34.Size = new System.Drawing.Size(46, 13);
+			this.label34.TabIndex = 7;
+			this.label34.Text = "Picture :";
+			// 
+			// MonsterDirection
+			// 
+			this.MonsterDirection.Location = new System.Drawing.Point(127, 64);
+			this.MonsterDirection.Name = "MonsterDirection";
+			this.MonsterDirection.ReadOnly = true;
+			this.MonsterDirection.Size = new System.Drawing.Size(56, 20);
+			this.MonsterDirection.TabIndex = 14;
+			// 
+			// MonsterLocation
+			// 
+			this.MonsterLocation.Location = new System.Drawing.Point(127, 38);
+			this.MonsterLocation.Name = "MonsterLocation";
+			this.MonsterLocation.ReadOnly = true;
+			this.MonsterLocation.Size = new System.Drawing.Size(56, 20);
+			this.MonsterLocation.TabIndex = 13;
+			// 
+			// label31
+			// 
+			this.label31.AutoSize = true;
+			this.label31.Location = new System.Drawing.Point(217, 41);
+			this.label31.Name = "label31";
+			this.label31.Size = new System.Drawing.Size(43, 13);
+			this.label31.TabIndex = 10;
+			this.label31.Text = "Phase :";
+			// 
+			// MonsterMoveTime
+			// 
+			this.MonsterMoveTime.Location = new System.Drawing.Point(127, 12);
+			this.MonsterMoveTime.Name = "MonsterMoveTime";
+			this.MonsterMoveTime.ReadOnly = true;
+			this.MonsterMoveTime.Size = new System.Drawing.Size(56, 20);
+			this.MonsterMoveTime.TabIndex = 12;
+			// 
+			// label30
+			// 
+			this.label30.AutoSize = true;
+			this.label30.Location = new System.Drawing.Point(67, 41);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(54, 13);
+			this.label30.TabIndex = 6;
+			this.label30.Text = "Location :";
+			// 
+			// label29
+			// 
+			this.label29.AutoSize = true;
+			this.label29.Location = new System.Drawing.Point(350, 41);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(37, 13);
+			this.label29.TabIndex = 5;
+			this.label29.Text = "Type :";
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.Location = new System.Drawing.Point(71, 67);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(55, 13);
+			this.label26.TabIndex = 2;
+			this.label26.Text = "Direction :";
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.Location = new System.Drawing.Point(64, 15);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(39, 13);
+			this.label25.TabIndex = 1;
+			this.label25.Text = "Timer :";
+			// 
+			// MonsterIdBox
+			// 
+			this.MonsterIdBox.Location = new System.Drawing.Point(6, 19);
+			this.MonsterIdBox.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+			this.MonsterIdBox.Name = "MonsterIdBox";
+			this.MonsterIdBox.Size = new System.Drawing.Size(45, 20);
+			this.MonsterIdBox.TabIndex = 0;
+			this.MonsterIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.MonsterIdBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.MonsterIdBox.ValueChanged += new System.EventHandler(this.MonsterIdBox_ValueChanged);
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox3.Controls.Add(this.MazeHeaderInformationTab);
+			this.groupBox3.Controls.Add(this.MazeHeaderNumberBox);
+			this.groupBox3.Location = new System.Drawing.Point(607, 6);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(461, 189);
+			this.groupBox3.TabIndex = 2;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Informations :";
+			// 
+			// MazeHeaderInformationTab
+			// 
+			this.MazeHeaderInformationTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.MazeHeaderInformationTab.Controls.Add(this.tabPage4);
+			this.MazeHeaderInformationTab.Controls.Add(this.tabPage1);
+			this.MazeHeaderInformationTab.Controls.Add(this.tabPage2);
+			this.MazeHeaderInformationTab.Controls.Add(this.tabPage3);
+			this.MazeHeaderInformationTab.Location = new System.Drawing.Point(57, 19);
+			this.MazeHeaderInformationTab.Name = "MazeHeaderInformationTab";
+			this.MazeHeaderInformationTab.SelectedIndex = 0;
+			this.MazeHeaderInformationTab.Size = new System.Drawing.Size(398, 164);
+			this.MazeHeaderInformationTab.TabIndex = 9;
+			// 
+			// tabPage4
+			// 
+			this.tabPage4.Controls.Add(this.label57);
+			this.tabPage4.Controls.Add(this.label56);
+			this.tabPage4.Controls.Add(this.MazeTimer2Box);
+			this.tabPage4.Controls.Add(this.label55);
+			this.tabPage4.Controls.Add(this.MazeTimer1Box);
+			this.tabPage4.Controls.Add(this.label54);
+			this.tabPage4.Controls.Add(this.MazeNameBox);
+			this.tabPage4.Controls.Add(this.MazeSoundName);
+			this.tabPage4.Controls.Add(this.label28);
+			this.tabPage4.Controls.Add(this.label37);
+			this.tabPage4.Controls.Add(this.label35);
+			this.tabPage4.Controls.Add(this.MazePaletteName);
+			this.tabPage4.Controls.Add(this.MazeVMPName);
+			this.tabPage4.Controls.Add(this.label36);
+			this.tabPage4.Location = new System.Drawing.Point(4, 22);
+			this.tabPage4.Name = "tabPage4";
+			this.tabPage4.Size = new System.Drawing.Size(390, 138);
+			this.tabPage4.TabIndex = 3;
+			this.tabPage4.Text = "Informations";
+			this.tabPage4.UseVisualStyleBackColor = true;
+			// 
+			// label57
+			// 
+			this.label57.AutoSize = true;
+			this.label57.Location = new System.Drawing.Point(247, 8);
+			this.label57.Name = "label57";
+			this.label57.Size = new System.Drawing.Size(29, 13);
+			this.label57.TabIndex = 12;
+			this.label57.Text = "ticks";
+			// 
+			// label56
+			// 
+			this.label56.AutoSize = true;
+			this.label56.Location = new System.Drawing.Point(247, 32);
+			this.label56.Name = "label56";
+			this.label56.Size = new System.Drawing.Size(29, 13);
+			this.label56.TabIndex = 11;
+			this.label56.Text = "ticks";
+			// 
+			// MazeTimer2Box
+			// 
+			this.MazeTimer2Box.Location = new System.Drawing.Point(206, 29);
+			this.MazeTimer2Box.Name = "MazeTimer2Box";
+			this.MazeTimer2Box.ReadOnly = true;
+			this.MazeTimer2Box.Size = new System.Drawing.Size(35, 20);
+			this.MazeTimer2Box.TabIndex = 10;
+			// 
+			// label55
+			// 
+			this.label55.AutoSize = true;
+			this.label55.Location = new System.Drawing.Point(154, 32);
+			this.label55.Name = "label55";
+			this.label55.Size = new System.Drawing.Size(48, 13);
+			this.label55.TabIndex = 9;
+			this.label55.Text = "Timer 2 :";
+			// 
+			// MazeTimer1Box
+			// 
+			this.MazeTimer1Box.Location = new System.Drawing.Point(206, 5);
+			this.MazeTimer1Box.Name = "MazeTimer1Box";
+			this.MazeTimer1Box.ReadOnly = true;
+			this.MazeTimer1Box.Size = new System.Drawing.Size(35, 20);
+			this.MazeTimer1Box.TabIndex = 10;
+			// 
+			// label54
+			// 
+			this.label54.AutoSize = true;
+			this.label54.Location = new System.Drawing.Point(154, 8);
+			this.label54.Name = "label54";
+			this.label54.Size = new System.Drawing.Size(48, 13);
+			this.label54.TabIndex = 9;
+			this.label54.Text = "Timer 1 :";
+			// 
+			// MazeNameBox
+			// 
+			this.MazeNameBox.Location = new System.Drawing.Point(66, 3);
+			this.MazeNameBox.Name = "MazeNameBox";
+			this.MazeNameBox.ReadOnly = true;
+			this.MazeNameBox.Size = new System.Drawing.Size(82, 20);
+			this.MazeNameBox.TabIndex = 3;
+			// 
+			// MazeSoundName
+			// 
+			this.MazeSoundName.Location = new System.Drawing.Point(66, 79);
+			this.MazeSoundName.Name = "MazeSoundName";
+			this.MazeSoundName.ReadOnly = true;
+			this.MazeSoundName.Size = new System.Drawing.Size(82, 20);
+			this.MazeSoundName.TabIndex = 8;
+			// 
+			// label28
+			// 
+			this.label28.AutoSize = true;
+			this.label28.Location = new System.Drawing.Point(19, 8);
+			this.label28.Name = "label28";
+			this.label28.Size = new System.Drawing.Size(41, 13);
+			this.label28.TabIndex = 1;
+			this.label28.Text = "Name :";
+			// 
+			// label37
+			// 
+			this.label37.AutoSize = true;
+			this.label37.Location = new System.Drawing.Point(14, 82);
+			this.label37.Name = "label37";
+			this.label37.Size = new System.Drawing.Size(44, 13);
+			this.label37.TabIndex = 7;
+			this.label37.Text = "Sound :";
+			// 
+			// label35
+			// 
+			this.label35.AutoSize = true;
+			this.label35.Location = new System.Drawing.Point(24, 32);
+			this.label35.Name = "label35";
+			this.label35.Size = new System.Drawing.Size(36, 13);
+			this.label35.TabIndex = 2;
+			this.label35.Text = "VMP :";
+			// 
+			// MazePaletteName
+			// 
+			this.MazePaletteName.Location = new System.Drawing.Point(66, 55);
+			this.MazePaletteName.Name = "MazePaletteName";
+			this.MazePaletteName.ReadOnly = true;
+			this.MazePaletteName.Size = new System.Drawing.Size(82, 20);
+			this.MazePaletteName.TabIndex = 6;
+			// 
+			// MazeVMPName
+			// 
+			this.MazeVMPName.Location = new System.Drawing.Point(66, 29);
+			this.MazeVMPName.Name = "MazeVMPName";
+			this.MazeVMPName.ReadOnly = true;
+			this.MazeVMPName.Size = new System.Drawing.Size(82, 20);
+			this.MazeVMPName.TabIndex = 4;
+			// 
+			// label36
+			// 
+			this.label36.AutoSize = true;
+			this.label36.Location = new System.Drawing.Point(14, 58);
+			this.label36.Name = "label36";
+			this.label36.Size = new System.Drawing.Size(46, 13);
+			this.label36.TabIndex = 5;
+			this.label36.Text = "Palette :";
+			// 
+			// tabPage1
+			// 
+			this.tabPage1.AutoScroll = true;
+			this.tabPage1.Controls.Add(this.groupBox10);
+			this.tabPage1.Controls.Add(this.groupBox9);
+			this.tabPage1.Controls.Add(this.groupBox8);
+			this.tabPage1.Controls.Add(this.DoorInfoBox);
+			this.tabPage1.Controls.Add(this.DoorInfoTypeBox);
+			this.tabPage1.Controls.Add(this.DoorInfoGfxBox);
+			this.tabPage1.Controls.Add(this.DoorInfoIDBox);
+			this.tabPage1.Controls.Add(this.DoorInfoKnob);
+			this.tabPage1.Controls.Add(this.label40);
+			this.tabPage1.Controls.Add(this.label39);
+			this.tabPage1.Controls.Add(this.label38);
+			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(390, 138);
+			this.tabPage1.TabIndex = 0;
+			this.tabPage1.Text = "Doors";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// groupBox10
+			// 
+			this.groupBox10.Controls.Add(this.DoorInfoPos1);
+			this.groupBox10.Controls.Add(this.DoorInfoPos2);
+			this.groupBox10.Location = new System.Drawing.Point(388, 6);
+			this.groupBox10.Name = "groupBox10";
+			this.groupBox10.Size = new System.Drawing.Size(114, 98);
+			this.groupBox10.TabIndex = 7;
+			this.groupBox10.TabStop = false;
+			this.groupBox10.Text = "Button rectangles :";
+			// 
+			// DoorInfoPos1
+			// 
+			this.DoorInfoPos1.Location = new System.Drawing.Point(6, 19);
+			this.DoorInfoPos1.Name = "DoorInfoPos1";
+			this.DoorInfoPos1.ReadOnly = true;
+			this.DoorInfoPos1.Size = new System.Drawing.Size(101, 20);
+			this.DoorInfoPos1.TabIndex = 4;
+			// 
+			// DoorInfoPos2
+			// 
+			this.DoorInfoPos2.Location = new System.Drawing.Point(6, 45);
+			this.DoorInfoPos2.Name = "DoorInfoPos2";
+			this.DoorInfoPos2.ReadOnly = true;
+			this.DoorInfoPos2.Size = new System.Drawing.Size(101, 20);
+			this.DoorInfoPos2.TabIndex = 4;
+			// 
+			// groupBox9
+			// 
+			this.groupBox9.Controls.Add(this.DoorInfoButton1);
+			this.groupBox9.Controls.Add(this.DoorInfoButton2);
+			this.groupBox9.Location = new System.Drawing.Point(267, 6);
+			this.groupBox9.Name = "groupBox9";
+			this.groupBox9.Size = new System.Drawing.Size(115, 98);
+			this.groupBox9.TabIndex = 6;
+			this.groupBox9.TabStop = false;
+			this.groupBox9.Text = "Button positions :";
+			// 
+			// DoorInfoButton1
+			// 
+			this.DoorInfoButton1.Location = new System.Drawing.Point(6, 19);
+			this.DoorInfoButton1.Name = "DoorInfoButton1";
+			this.DoorInfoButton1.ReadOnly = true;
+			this.DoorInfoButton1.Size = new System.Drawing.Size(99, 20);
+			this.DoorInfoButton1.TabIndex = 4;
+			// 
+			// DoorInfoButton2
+			// 
+			this.DoorInfoButton2.Location = new System.Drawing.Point(6, 45);
+			this.DoorInfoButton2.Name = "DoorInfoButton2";
+			this.DoorInfoButton2.ReadOnly = true;
+			this.DoorInfoButton2.Size = new System.Drawing.Size(99, 20);
+			this.DoorInfoButton2.TabIndex = 4;
+			// 
+			// groupBox8
+			// 
+			this.groupBox8.Controls.Add(this.DoorInfoRect1);
+			this.groupBox8.Controls.Add(this.DoorInfoRect3);
+			this.groupBox8.Controls.Add(this.DoorInfoRect2);
+			this.groupBox8.Location = new System.Drawing.Point(155, 3);
+			this.groupBox8.Name = "groupBox8";
+			this.groupBox8.Size = new System.Drawing.Size(106, 98);
+			this.groupBox8.TabIndex = 5;
+			this.groupBox8.TabStop = false;
+			this.groupBox8.Text = "Rectangles :";
+			// 
+			// DoorInfoRect1
+			// 
+			this.DoorInfoRect1.Location = new System.Drawing.Point(6, 19);
+			this.DoorInfoRect1.Name = "DoorInfoRect1";
+			this.DoorInfoRect1.ReadOnly = true;
+			this.DoorInfoRect1.Size = new System.Drawing.Size(92, 20);
+			this.DoorInfoRect1.TabIndex = 4;
+			// 
+			// DoorInfoRect3
+			// 
+			this.DoorInfoRect3.Location = new System.Drawing.Point(6, 71);
+			this.DoorInfoRect3.Name = "DoorInfoRect3";
+			this.DoorInfoRect3.ReadOnly = true;
+			this.DoorInfoRect3.Size = new System.Drawing.Size(92, 20);
+			this.DoorInfoRect3.TabIndex = 4;
+			// 
+			// DoorInfoRect2
+			// 
+			this.DoorInfoRect2.Location = new System.Drawing.Point(6, 45);
+			this.DoorInfoRect2.Name = "DoorInfoRect2";
+			this.DoorInfoRect2.ReadOnly = true;
+			this.DoorInfoRect2.Size = new System.Drawing.Size(92, 20);
+			this.DoorInfoRect2.TabIndex = 4;
+			// 
+			// DoorInfoBox
+			// 
+			this.DoorInfoBox.Location = new System.Drawing.Point(3, 6);
+			this.DoorInfoBox.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.DoorInfoBox.Name = "DoorInfoBox";
+			this.DoorInfoBox.Size = new System.Drawing.Size(44, 20);
+			this.DoorInfoBox.TabIndex = 3;
+			this.DoorInfoBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.DoorInfoBox.ValueChanged += new System.EventHandler(this.DoorInfoBox_ValueChanged);
+			// 
+			// DoorInfoTypeBox
+			// 
+			this.DoorInfoTypeBox.Location = new System.Drawing.Point(87, 58);
+			this.DoorInfoTypeBox.Name = "DoorInfoTypeBox";
+			this.DoorInfoTypeBox.ReadOnly = true;
+			this.DoorInfoTypeBox.Size = new System.Drawing.Size(62, 20);
+			this.DoorInfoTypeBox.TabIndex = 2;
+			// 
+			// DoorInfoGfxBox
+			// 
+			this.DoorInfoGfxBox.Location = new System.Drawing.Point(87, 32);
+			this.DoorInfoGfxBox.Name = "DoorInfoGfxBox";
+			this.DoorInfoGfxBox.ReadOnly = true;
+			this.DoorInfoGfxBox.Size = new System.Drawing.Size(62, 20);
+			this.DoorInfoGfxBox.TabIndex = 2;
+			// 
+			// DoorInfoIDBox
+			// 
+			this.DoorInfoIDBox.Location = new System.Drawing.Point(87, 6);
+			this.DoorInfoIDBox.Name = "DoorInfoIDBox";
+			this.DoorInfoIDBox.ReadOnly = true;
+			this.DoorInfoIDBox.Size = new System.Drawing.Size(62, 20);
+			this.DoorInfoIDBox.TabIndex = 2;
+			// 
+			// DoorInfoKnob
+			// 
+			this.DoorInfoKnob.AutoSize = true;
+			this.DoorInfoKnob.Location = new System.Drawing.Point(87, 84);
+			this.DoorInfoKnob.Name = "DoorInfoKnob";
+			this.DoorInfoKnob.Size = new System.Drawing.Size(51, 17);
+			this.DoorInfoKnob.TabIndex = 1;
+			this.DoorInfoKnob.Text = "Knob";
+			this.DoorInfoKnob.UseVisualStyleBackColor = true;
+			// 
+			// label40
+			// 
+			this.label40.AutoSize = true;
+			this.label40.Location = new System.Drawing.Point(50, 61);
+			this.label40.Name = "label40";
+			this.label40.Size = new System.Drawing.Size(31, 13);
+			this.label40.TabIndex = 0;
+			this.label40.Text = "Type";
+			// 
+			// label39
+			// 
+			this.label39.AutoSize = true;
+			this.label39.Location = new System.Drawing.Point(63, 9);
+			this.label39.Name = "label39";
+			this.label39.Size = new System.Drawing.Size(18, 13);
+			this.label39.TabIndex = 0;
+			this.label39.Text = "ID";
+			// 
+			// label38
+			// 
+			this.label38.AutoSize = true;
+			this.label38.Location = new System.Drawing.Point(42, 35);
+			this.label38.Name = "label38";
+			this.label38.Size = new System.Drawing.Size(39, 13);
+			this.label38.TabIndex = 0;
+			this.label38.Text = "GfxFile";
+			// 
+			// tabPage2
+			// 
+			this.tabPage2.Controls.Add(this.groupBox12);
+			this.tabPage2.Controls.Add(this.groupBox11);
+			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(390, 138);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Monsters";
+			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// groupBox12
+			// 
+			this.groupBox12.Controls.Add(this.MonsterGFXUnknown2);
+			this.groupBox12.Controls.Add(this.MonsterGFXUsed2);
+			this.groupBox12.Controls.Add(this.label44);
+			this.groupBox12.Controls.Add(this.MonsterGFXFilename2);
+			this.groupBox12.Controls.Add(this.label45);
+			this.groupBox12.Controls.Add(this.MonsterGFXProgramId2);
+			this.groupBox12.Controls.Add(this.label46);
+			this.groupBox12.Location = new System.Drawing.Point(205, 6);
+			this.groupBox12.Name = "groupBox12";
+			this.groupBox12.Size = new System.Drawing.Size(193, 126);
+			this.groupBox12.TabIndex = 7;
+			this.groupBox12.TabStop = false;
+			this.groupBox12.Text = "Second :";
+			// 
+			// MonsterGFXUnknown2
+			// 
+			this.MonsterGFXUnknown2.Location = new System.Drawing.Point(78, 71);
+			this.MonsterGFXUnknown2.Name = "MonsterGFXUnknown2";
+			this.MonsterGFXUnknown2.ReadOnly = true;
+			this.MonsterGFXUnknown2.Size = new System.Drawing.Size(100, 20);
+			this.MonsterGFXUnknown2.TabIndex = 4;
+			// 
+			// MonsterGFXUsed2
+			// 
+			this.MonsterGFXUsed2.AutoSize = true;
+			this.MonsterGFXUsed2.Location = new System.Drawing.Point(78, 97);
+			this.MonsterGFXUsed2.Name = "MonsterGFXUsed2";
+			this.MonsterGFXUsed2.Size = new System.Drawing.Size(51, 17);
+			this.MonsterGFXUsed2.TabIndex = 0;
+			this.MonsterGFXUsed2.Text = "Used";
+			this.MonsterGFXUsed2.UseVisualStyleBackColor = true;
+			// 
+			// label44
+			// 
+			this.label44.AutoSize = true;
+			this.label44.Location = new System.Drawing.Point(17, 48);
+			this.label44.Name = "label44";
+			this.label44.Size = new System.Drawing.Size(55, 13);
+			this.label44.TabIndex = 5;
+			this.label44.Text = "Filename :";
+			// 
+			// MonsterGFXFilename2
+			// 
+			this.MonsterGFXFilename2.Location = new System.Drawing.Point(78, 45);
+			this.MonsterGFXFilename2.Name = "MonsterGFXFilename2";
+			this.MonsterGFXFilename2.ReadOnly = true;
+			this.MonsterGFXFilename2.Size = new System.Drawing.Size(100, 20);
+			this.MonsterGFXFilename2.TabIndex = 3;
+			// 
+			// label45
+			// 
+			this.label45.AutoSize = true;
+			this.label45.Location = new System.Drawing.Point(10, 74);
+			this.label45.Name = "label45";
+			this.label45.Size = new System.Drawing.Size(62, 13);
+			this.label45.TabIndex = 4;
+			this.label45.Text = "Unknown : ";
+			// 
+			// MonsterGFXProgramId2
+			// 
+			this.MonsterGFXProgramId2.Location = new System.Drawing.Point(78, 19);
+			this.MonsterGFXProgramId2.Name = "MonsterGFXProgramId2";
+			this.MonsterGFXProgramId2.ReadOnly = true;
+			this.MonsterGFXProgramId2.Size = new System.Drawing.Size(100, 20);
+			this.MonsterGFXProgramId2.TabIndex = 0;
+			// 
+			// label46
+			// 
+			this.label46.AutoSize = true;
+			this.label46.Location = new System.Drawing.Point(6, 22);
+			this.label46.Name = "label46";
+			this.label46.Size = new System.Drawing.Size(66, 13);
+			this.label46.TabIndex = 2;
+			this.label46.Text = "Program ID :";
+			// 
+			// groupBox11
+			// 
+			this.groupBox11.Controls.Add(this.MonsterGFXUnknown1);
+			this.groupBox11.Controls.Add(this.MonsterGFXUsed1);
+			this.groupBox11.Controls.Add(this.label42);
+			this.groupBox11.Controls.Add(this.MonsterGFXFilename1);
+			this.groupBox11.Controls.Add(this.label43);
+			this.groupBox11.Controls.Add(this.MonsterGFXProgramId1);
+			this.groupBox11.Controls.Add(this.label41);
+			this.groupBox11.Location = new System.Drawing.Point(6, 6);
+			this.groupBox11.Name = "groupBox11";
+			this.groupBox11.Size = new System.Drawing.Size(193, 126);
+			this.groupBox11.TabIndex = 6;
+			this.groupBox11.TabStop = false;
+			this.groupBox11.Text = "First :";
+			// 
+			// MonsterGFXUnknown1
+			// 
+			this.MonsterGFXUnknown1.Location = new System.Drawing.Point(78, 71);
+			this.MonsterGFXUnknown1.Name = "MonsterGFXUnknown1";
+			this.MonsterGFXUnknown1.ReadOnly = true;
+			this.MonsterGFXUnknown1.Size = new System.Drawing.Size(100, 20);
+			this.MonsterGFXUnknown1.TabIndex = 4;
+			// 
+			// MonsterGFXUsed1
+			// 
+			this.MonsterGFXUsed1.AutoSize = true;
+			this.MonsterGFXUsed1.Location = new System.Drawing.Point(78, 97);
+			this.MonsterGFXUsed1.Name = "MonsterGFXUsed1";
+			this.MonsterGFXUsed1.Size = new System.Drawing.Size(51, 17);
+			this.MonsterGFXUsed1.TabIndex = 0;
+			this.MonsterGFXUsed1.Text = "Used";
+			this.MonsterGFXUsed1.UseVisualStyleBackColor = true;
+			// 
+			// label42
+			// 
+			this.label42.AutoSize = true;
+			this.label42.Location = new System.Drawing.Point(17, 48);
+			this.label42.Name = "label42";
+			this.label42.Size = new System.Drawing.Size(55, 13);
+			this.label42.TabIndex = 5;
+			this.label42.Text = "Filename :";
+			// 
+			// MonsterGFXFilename1
+			// 
+			this.MonsterGFXFilename1.Location = new System.Drawing.Point(78, 45);
+			this.MonsterGFXFilename1.Name = "MonsterGFXFilename1";
+			this.MonsterGFXFilename1.ReadOnly = true;
+			this.MonsterGFXFilename1.Size = new System.Drawing.Size(100, 20);
+			this.MonsterGFXFilename1.TabIndex = 3;
+			// 
+			// label43
+			// 
+			this.label43.AutoSize = true;
+			this.label43.Location = new System.Drawing.Point(10, 74);
+			this.label43.Name = "label43";
+			this.label43.Size = new System.Drawing.Size(62, 13);
+			this.label43.TabIndex = 4;
+			this.label43.Text = "Unknown : ";
+			// 
+			// MonsterGFXProgramId1
+			// 
+			this.MonsterGFXProgramId1.Location = new System.Drawing.Point(78, 19);
+			this.MonsterGFXProgramId1.Name = "MonsterGFXProgramId1";
+			this.MonsterGFXProgramId1.ReadOnly = true;
+			this.MonsterGFXProgramId1.Size = new System.Drawing.Size(100, 20);
+			this.MonsterGFXProgramId1.TabIndex = 0;
+			// 
+			// label41
+			// 
+			this.label41.AutoSize = true;
+			this.label41.Location = new System.Drawing.Point(6, 22);
+			this.label41.Name = "label41";
+			this.label41.Size = new System.Drawing.Size(66, 13);
+			this.label41.TabIndex = 2;
+			this.label41.Text = "Program ID :";
+			// 
+			// tabPage3
+			// 
+			this.tabPage3.Controls.Add(this.groupBox14);
+			this.tabPage3.Controls.Add(this.groupBox13);
+			this.tabPage3.Controls.Add(this.DecorationInfoID);
+			this.tabPage3.Location = new System.Drawing.Point(4, 22);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Size = new System.Drawing.Size(390, 138);
+			this.tabPage3.TabIndex = 2;
+			this.tabPage3.Text = "Decorations";
+			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// groupBox14
+			// 
+			this.groupBox14.Controls.Add(this.label52);
+			this.groupBox14.Controls.Add(this.label51);
+			this.groupBox14.Controls.Add(this.label50);
+			this.groupBox14.Controls.Add(this.label49);
+			this.groupBox14.Controls.Add(this.DecorationInfoFlags);
+			this.groupBox14.Controls.Add(this.DecorationInfoEventMask);
+			this.groupBox14.Controls.Add(this.DecorationInfoDecoID);
+			this.groupBox14.Controls.Add(this.DecorationInfoWallType);
+			this.groupBox14.Location = new System.Drawing.Point(160, 3);
+			this.groupBox14.Name = "groupBox14";
+			this.groupBox14.Size = new System.Drawing.Size(227, 132);
+			this.groupBox14.TabIndex = 1;
+			this.groupBox14.TabStop = false;
+			this.groupBox14.Text = "Wall mapping";
+			// 
+			// label52
+			// 
+			this.label52.AutoSize = true;
+			this.label52.Location = new System.Drawing.Point(47, 100);
+			this.label52.Name = "label52";
+			this.label52.Size = new System.Drawing.Size(38, 13);
+			this.label52.TabIndex = 2;
+			this.label52.Text = "Flags :";
+			// 
+			// label51
+			// 
+			this.label51.AutoSize = true;
+			this.label51.Location = new System.Drawing.Point(18, 74);
+			this.label51.Name = "label51";
+			this.label51.Size = new System.Drawing.Size(67, 13);
+			this.label51.TabIndex = 2;
+			this.label51.Text = "EventMask :";
+			// 
+			// label50
+			// 
+			this.label50.AutoSize = true;
+			this.label50.Location = new System.Drawing.Point(6, 48);
+			this.label50.Name = "label50";
+			this.label50.Size = new System.Drawing.Size(79, 13);
+			this.label50.TabIndex = 2;
+			this.label50.Text = "Decoration ID :";
+			// 
+			// label49
+			// 
+			this.label49.AutoSize = true;
+			this.label49.Location = new System.Drawing.Point(28, 22);
+			this.label49.Name = "label49";
+			this.label49.Size = new System.Drawing.Size(57, 13);
+			this.label49.TabIndex = 2;
+			this.label49.Text = "Wall type :";
+			// 
+			// DecorationInfoFlags
+			// 
+			this.DecorationInfoFlags.Location = new System.Drawing.Point(91, 97);
+			this.DecorationInfoFlags.Name = "DecorationInfoFlags";
+			this.DecorationInfoFlags.ReadOnly = true;
+			this.DecorationInfoFlags.Size = new System.Drawing.Size(125, 20);
+			this.DecorationInfoFlags.TabIndex = 1;
+			// 
+			// DecorationInfoEventMask
+			// 
+			this.DecorationInfoEventMask.Location = new System.Drawing.Point(91, 71);
+			this.DecorationInfoEventMask.Name = "DecorationInfoEventMask";
+			this.DecorationInfoEventMask.ReadOnly = true;
+			this.DecorationInfoEventMask.Size = new System.Drawing.Size(125, 20);
+			this.DecorationInfoEventMask.TabIndex = 1;
+			// 
+			// DecorationInfoDecoID
+			// 
+			this.DecorationInfoDecoID.Location = new System.Drawing.Point(91, 45);
+			this.DecorationInfoDecoID.Name = "DecorationInfoDecoID";
+			this.DecorationInfoDecoID.ReadOnly = true;
+			this.DecorationInfoDecoID.Size = new System.Drawing.Size(125, 20);
+			this.DecorationInfoDecoID.TabIndex = 1;
+			// 
+			// DecorationInfoWallType
+			// 
+			this.DecorationInfoWallType.Location = new System.Drawing.Point(91, 19);
+			this.DecorationInfoWallType.Name = "DecorationInfoWallType";
+			this.DecorationInfoWallType.ReadOnly = true;
+			this.DecorationInfoWallType.Size = new System.Drawing.Size(125, 20);
+			this.DecorationInfoWallType.TabIndex = 1;
+			// 
+			// groupBox13
+			// 
+			this.groupBox13.Controls.Add(this.label48);
+			this.groupBox13.Controls.Add(this.DecorationInfoDEC);
+			this.groupBox13.Controls.Add(this.DecorationInfoGFX);
+			this.groupBox13.Controls.Add(this.label47);
+			this.groupBox13.Location = new System.Drawing.Point(3, 40);
+			this.groupBox13.Name = "groupBox13";
+			this.groupBox13.Size = new System.Drawing.Size(151, 76);
+			this.groupBox13.TabIndex = 1;
+			this.groupBox13.TabStop = false;
+			this.groupBox13.Text = "Files :";
+			// 
+			// label48
+			// 
+			this.label48.AutoSize = true;
+			this.label48.Location = new System.Drawing.Point(5, 22);
+			this.label48.Name = "label48";
+			this.label48.Size = new System.Drawing.Size(34, 13);
+			this.label48.TabIndex = 2;
+			this.label48.Text = "GFX :";
+			// 
+			// DecorationInfoDEC
+			// 
+			this.DecorationInfoDEC.Location = new System.Drawing.Point(45, 45);
+			this.DecorationInfoDEC.Name = "DecorationInfoDEC";
+			this.DecorationInfoDEC.ReadOnly = true;
+			this.DecorationInfoDEC.Size = new System.Drawing.Size(100, 20);
+			this.DecorationInfoDEC.TabIndex = 1;
+			// 
+			// DecorationInfoGFX
+			// 
+			this.DecorationInfoGFX.Location = new System.Drawing.Point(45, 19);
+			this.DecorationInfoGFX.Name = "DecorationInfoGFX";
+			this.DecorationInfoGFX.ReadOnly = true;
+			this.DecorationInfoGFX.Size = new System.Drawing.Size(100, 20);
+			this.DecorationInfoGFX.TabIndex = 1;
+			// 
+			// label47
+			// 
+			this.label47.AutoSize = true;
+			this.label47.Location = new System.Drawing.Point(4, 48);
+			this.label47.Name = "label47";
+			this.label47.Size = new System.Drawing.Size(35, 13);
+			this.label47.TabIndex = 0;
+			this.label47.Text = "DEC :";
+			// 
+			// DecorationInfoID
+			// 
+			this.DecorationInfoID.Location = new System.Drawing.Point(3, 6);
+			this.DecorationInfoID.Name = "DecorationInfoID";
+			this.DecorationInfoID.Size = new System.Drawing.Size(44, 20);
+			this.DecorationInfoID.TabIndex = 0;
+			this.DecorationInfoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.DecorationInfoID.ValueChanged += new System.EventHandler(this.DecorationInfoID_ValueChanged);
+			// 
+			// MazeHeaderNumberBox
+			// 
+			this.MazeHeaderNumberBox.Location = new System.Drawing.Point(6, 19);
+			this.MazeHeaderNumberBox.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.MazeHeaderNumberBox.Name = "MazeHeaderNumberBox";
+			this.MazeHeaderNumberBox.Size = new System.Drawing.Size(44, 20);
+			this.MazeHeaderNumberBox.TabIndex = 0;
+			this.MazeHeaderNumberBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.MazeHeaderNumberBox.ValueChanged += new System.EventHandler(this.MazeHeaderNumberBox_ValueChanged);
+			// 
+			// MazeSelectBox
+			// 
+			this.MazeSelectBox.FormattingEnabled = true;
+			this.MazeSelectBox.Items.AddRange(new object[] {
+            "Level 01",
+            "Level 02",
+            "Level 03",
+            "Level 04",
+            "Level 05",
+            "Level 06",
+            "Level 07",
+            "Level 08",
+            "Level 09",
+            "Level 10",
+            "Level 11",
+            "Level 12",
+            "Level 13",
+            "Level 14",
+            "Level 15",
+            "Level 16"});
+			this.MazeSelectBox.Location = new System.Drawing.Point(8, 3);
+			this.MazeSelectBox.Name = "MazeSelectBox";
+			this.MazeSelectBox.Size = new System.Drawing.Size(75, 212);
+			this.MazeSelectBox.TabIndex = 1;
+			this.MazeSelectBox.SelectedIndexChanged += new System.EventHandler(this.MazeSelectBox_SelectedIndexChanged);
+			// 
+			// MazePictureBox
+			// 
+			this.MazePictureBox.BackColor = System.Drawing.Color.LightGray;
+			this.MazePictureBox.Location = new System.Drawing.Point(89, 32);
+			this.MazePictureBox.Name = "MazePictureBox";
+			this.MazePictureBox.Size = new System.Drawing.Size(512, 512);
+			this.MazePictureBox.TabIndex = 0;
+			this.MazePictureBox.TabStop = false;
+			this.MazePictureBox.Click += new System.EventHandler(this.MazePictureBox_Click);
+			this.MazePictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MazePictureBox_Paint);
+			this.MazePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MazePictureBox_MouseMove);
 			// 
 			// ItemTab
 			// 
@@ -1089,1063 +2301,6 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Identified name :";
 			// 
-			// MazeTab
-			// 
-			this.MazeTab.Controls.Add(this.groupBox16);
-			this.MazeTab.Controls.Add(this.groupBox15);
-			this.MazeTab.Controls.Add(this.MazeMouseLocationBox);
-			this.MazeTab.Controls.Add(this.label53);
-			this.MazeTab.Controls.Add(this.groupBox7);
-			this.MazeTab.Controls.Add(this.groupBox6);
-			this.MazeTab.Controls.Add(this.groupBox5);
-			this.MazeTab.Controls.Add(this.groupBox4);
-			this.MazeTab.Controls.Add(this.groupBox3);
-			this.MazeTab.Controls.Add(this.MazeSelectBox);
-			this.MazeTab.Controls.Add(this.MazePictureBox);
-			this.MazeTab.Location = new System.Drawing.Point(4, 22);
-			this.MazeTab.Name = "MazeTab";
-			this.MazeTab.Padding = new System.Windows.Forms.Padding(3);
-			this.MazeTab.Size = new System.Drawing.Size(1076, 675);
-			this.MazeTab.TabIndex = 1;
-			this.MazeTab.Text = "Mazes";
-			this.MazeTab.UseVisualStyleBackColor = true;
-			// 
-			// groupBox7
-			// 
-			this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox7.Controls.Add(this.ScriptTextBox);
-			this.groupBox7.Location = new System.Drawing.Point(607, 445);
-			this.groupBox7.Name = "groupBox7";
-			this.groupBox7.Size = new System.Drawing.Size(455, 224);
-			this.groupBox7.TabIndex = 6;
-			this.groupBox7.TabStop = false;
-			this.groupBox7.Text = "Script :";
-			// 
-			// ScriptTextBox
-			// 
-			this.ScriptTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ScriptTextBox.Location = new System.Drawing.Point(6, 19);
-			this.ScriptTextBox.Multiline = true;
-			this.ScriptTextBox.Name = "ScriptTextBox";
-			this.ScriptTextBox.ReadOnly = true;
-			this.ScriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.ScriptTextBox.Size = new System.Drawing.Size(443, 199);
-			this.ScriptTextBox.TabIndex = 0;
-			// 
-			// groupBox6
-			// 
-			this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox6.Controls.Add(this.StringMessageLabel);
-			this.groupBox6.Controls.Add(this.StringIdBox);
-			this.groupBox6.Location = new System.Drawing.Point(607, 329);
-			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(461, 58);
-			this.groupBox6.TabIndex = 5;
-			this.groupBox6.TabStop = false;
-			this.groupBox6.Text = "Strings :";
-			// 
-			// StringMessageLabel
-			// 
-			this.StringMessageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.StringMessageLabel.Location = new System.Drawing.Point(57, 21);
-			this.StringMessageLabel.Name = "StringMessageLabel";
-			this.StringMessageLabel.Size = new System.Drawing.Size(398, 34);
-			this.StringMessageLabel.TabIndex = 3;
-			// 
-			// StringIdBox
-			// 
-			this.StringIdBox.Location = new System.Drawing.Point(6, 21);
-			this.StringIdBox.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-			this.StringIdBox.Name = "StringIdBox";
-			this.StringIdBox.Size = new System.Drawing.Size(45, 20);
-			this.StringIdBox.TabIndex = 2;
-			this.StringIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.StringIdBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.StringIdBox.ValueChanged += new System.EventHandler(this.StringIdBox_ValueChanged);
-			// 
-			// groupBox5
-			// 
-			this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox5.Controls.Add(this.label58);
-			this.groupBox5.Controls.Add(this.TriggerFlagsBox);
-			this.groupBox5.Controls.Add(this.TriggerOffsetBox);
-			this.groupBox5.Controls.Add(this.TriggerCoordinateBox);
-			this.groupBox5.Controls.Add(this.label24);
-			this.groupBox5.Controls.Add(this.label23);
-			this.groupBox5.Controls.Add(this.TriggerIdBox);
-			this.groupBox5.Location = new System.Drawing.Point(607, 393);
-			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(461, 46);
-			this.groupBox5.TabIndex = 4;
-			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "Triggers :";
-			// 
-			// TriggerOffsetBox
-			// 
-			this.TriggerOffsetBox.Location = new System.Drawing.Point(254, 18);
-			this.TriggerOffsetBox.Name = "TriggerOffsetBox";
-			this.TriggerOffsetBox.ReadOnly = true;
-			this.TriggerOffsetBox.Size = new System.Drawing.Size(44, 20);
-			this.TriggerOffsetBox.TabIndex = 7;
-			// 
-			// TriggerCoordinateBox
-			// 
-			this.TriggerCoordinateBox.Location = new System.Drawing.Point(127, 18);
-			this.TriggerCoordinateBox.Name = "TriggerCoordinateBox";
-			this.TriggerCoordinateBox.ReadOnly = true;
-			this.TriggerCoordinateBox.Size = new System.Drawing.Size(46, 20);
-			this.TriggerCoordinateBox.TabIndex = 6;
-			// 
-			// label24
-			// 
-			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(179, 22);
-			this.label24.Name = "label24";
-			this.label24.Size = new System.Drawing.Size(69, 13);
-			this.label24.TabIndex = 5;
-			this.label24.Text = "Script offset :";
-			// 
-			// label23
-			// 
-			this.label23.AutoSize = true;
-			this.label23.Location = new System.Drawing.Point(57, 21);
-			this.label23.Name = "label23";
-			this.label23.Size = new System.Drawing.Size(64, 13);
-			this.label23.TabIndex = 4;
-			this.label23.Text = "Coordinate :";
-			// 
-			// TriggerIdBox
-			// 
-			this.TriggerIdBox.Location = new System.Drawing.Point(6, 19);
-			this.TriggerIdBox.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-			this.TriggerIdBox.Name = "TriggerIdBox";
-			this.TriggerIdBox.Size = new System.Drawing.Size(45, 20);
-			this.TriggerIdBox.TabIndex = 1;
-			this.TriggerIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.TriggerIdBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.TriggerIdBox.ValueChanged += new System.EventHandler(this.TriggerIdBox_ValueChanged);
-			// 
-			// groupBox4
-			// 
-			this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox4.Controls.Add(this.MonsterSubPosition);
-			this.groupBox4.Controls.Add(this.label59);
-			this.groupBox4.Controls.Add(this.MonsterPause);
-			this.groupBox4.Controls.Add(this.label33);
-			this.groupBox4.Controls.Add(this.MonsterWeaponTxt);
-			this.groupBox4.Controls.Add(this.MonsterPocketItemTxt);
-			this.groupBox4.Controls.Add(this.label27);
-			this.groupBox4.Controls.Add(this.MonsterWeapon);
-			this.groupBox4.Controls.Add(this.label32);
-			this.groupBox4.Controls.Add(this.MonsterPocket);
-			this.groupBox4.Controls.Add(this.MonsterPhase);
-			this.groupBox4.Controls.Add(this.MonsterPicture);
-			this.groupBox4.Controls.Add(this.MonsterType);
-			this.groupBox4.Controls.Add(this.label34);
-			this.groupBox4.Controls.Add(this.MonsterDirection);
-			this.groupBox4.Controls.Add(this.MonsterLocation);
-			this.groupBox4.Controls.Add(this.label31);
-			this.groupBox4.Controls.Add(this.MonsterMoveTime);
-			this.groupBox4.Controls.Add(this.label30);
-			this.groupBox4.Controls.Add(this.label29);
-			this.groupBox4.Controls.Add(this.label26);
-			this.groupBox4.Controls.Add(this.label25);
-			this.groupBox4.Controls.Add(this.MonsterIdBox);
-			this.groupBox4.Location = new System.Drawing.Point(607, 201);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(461, 122);
-			this.groupBox4.TabIndex = 3;
-			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "Monsters :";
-			// 
-			// MonsterPause
-			// 
-			this.MonsterPause.Location = new System.Drawing.Point(393, 12);
-			this.MonsterPause.Name = "MonsterPause";
-			this.MonsterPause.ReadOnly = true;
-			this.MonsterPause.Size = new System.Drawing.Size(56, 20);
-			this.MonsterPause.TabIndex = 18;
-			// 
-			// label33
-			// 
-			this.label33.AutoSize = true;
-			this.label33.Location = new System.Drawing.Point(344, 15);
-			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(43, 13);
-			this.label33.TabIndex = 8;
-			this.label33.Text = "Pause :";
-			// 
-			// MonsterWeaponTxt
-			// 
-			this.MonsterWeaponTxt.Location = new System.Drawing.Point(366, 99);
-			this.MonsterWeaponTxt.Name = "MonsterWeaponTxt";
-			this.MonsterWeaponTxt.Size = new System.Drawing.Size(89, 23);
-			this.MonsterWeaponTxt.TabIndex = 22;
-			// 
-			// MonsterPocketItemTxt
-			// 
-			this.MonsterPocketItemTxt.Location = new System.Drawing.Point(129, 99);
-			this.MonsterPocketItemTxt.Name = "MonsterPocketItemTxt";
-			this.MonsterPocketItemTxt.Size = new System.Drawing.Size(109, 23);
-			this.MonsterPocketItemTxt.TabIndex = 21;
-			// 
-			// label27
-			// 
-			this.label27.AutoSize = true;
-			this.label27.Location = new System.Drawing.Point(14, 99);
-			this.label27.Name = "label27";
-			this.label27.Size = new System.Drawing.Size(47, 13);
-			this.label27.TabIndex = 11;
-			this.label27.Text = "Pocket :";
-			// 
-			// MonsterWeapon
-			// 
-			this.MonsterWeapon.Location = new System.Drawing.Point(304, 96);
-			this.MonsterWeapon.Name = "MonsterWeapon";
-			this.MonsterWeapon.ReadOnly = true;
-			this.MonsterWeapon.Size = new System.Drawing.Size(56, 20);
-			this.MonsterWeapon.TabIndex = 19;
-			// 
-			// label32
-			// 
-			this.label32.AutoSize = true;
-			this.label32.Location = new System.Drawing.Point(244, 99);
-			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(54, 13);
-			this.label32.TabIndex = 9;
-			this.label32.Text = "Weapon :";
-			// 
-			// MonsterPocket
-			// 
-			this.MonsterPocket.Location = new System.Drawing.Point(67, 96);
-			this.MonsterPocket.Name = "MonsterPocket";
-			this.MonsterPocket.ReadOnly = true;
-			this.MonsterPocket.Size = new System.Drawing.Size(56, 20);
-			this.MonsterPocket.TabIndex = 20;
-			// 
-			// MonsterPhase
-			// 
-			this.MonsterPhase.Location = new System.Drawing.Point(266, 38);
-			this.MonsterPhase.Name = "MonsterPhase";
-			this.MonsterPhase.ReadOnly = true;
-			this.MonsterPhase.Size = new System.Drawing.Size(56, 20);
-			this.MonsterPhase.TabIndex = 17;
-			// 
-			// MonsterPicture
-			// 
-			this.MonsterPicture.Location = new System.Drawing.Point(266, 12);
-			this.MonsterPicture.Name = "MonsterPicture";
-			this.MonsterPicture.ReadOnly = true;
-			this.MonsterPicture.Size = new System.Drawing.Size(56, 20);
-			this.MonsterPicture.TabIndex = 16;
-			// 
-			// MonsterType
-			// 
-			this.MonsterType.Location = new System.Drawing.Point(393, 38);
-			this.MonsterType.Name = "MonsterType";
-			this.MonsterType.ReadOnly = true;
-			this.MonsterType.Size = new System.Drawing.Size(56, 20);
-			this.MonsterType.TabIndex = 15;
-			// 
-			// label34
-			// 
-			this.label34.AutoSize = true;
-			this.label34.Location = new System.Drawing.Point(214, 15);
-			this.label34.Name = "label34";
-			this.label34.Size = new System.Drawing.Size(46, 13);
-			this.label34.TabIndex = 7;
-			this.label34.Text = "Picture :";
-			// 
-			// MonsterDirection
-			// 
-			this.MonsterDirection.Location = new System.Drawing.Point(127, 64);
-			this.MonsterDirection.Name = "MonsterDirection";
-			this.MonsterDirection.ReadOnly = true;
-			this.MonsterDirection.Size = new System.Drawing.Size(56, 20);
-			this.MonsterDirection.TabIndex = 14;
-			// 
-			// MonsterLocation
-			// 
-			this.MonsterLocation.Location = new System.Drawing.Point(127, 38);
-			this.MonsterLocation.Name = "MonsterLocation";
-			this.MonsterLocation.ReadOnly = true;
-			this.MonsterLocation.Size = new System.Drawing.Size(56, 20);
-			this.MonsterLocation.TabIndex = 13;
-			// 
-			// label31
-			// 
-			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(217, 41);
-			this.label31.Name = "label31";
-			this.label31.Size = new System.Drawing.Size(43, 13);
-			this.label31.TabIndex = 10;
-			this.label31.Text = "Phase :";
-			// 
-			// MonsterMoveTime
-			// 
-			this.MonsterMoveTime.Location = new System.Drawing.Point(127, 12);
-			this.MonsterMoveTime.Name = "MonsterMoveTime";
-			this.MonsterMoveTime.ReadOnly = true;
-			this.MonsterMoveTime.Size = new System.Drawing.Size(56, 20);
-			this.MonsterMoveTime.TabIndex = 12;
-			// 
-			// label30
-			// 
-			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(67, 41);
-			this.label30.Name = "label30";
-			this.label30.Size = new System.Drawing.Size(54, 13);
-			this.label30.TabIndex = 6;
-			this.label30.Text = "Location :";
-			// 
-			// label29
-			// 
-			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(350, 41);
-			this.label29.Name = "label29";
-			this.label29.Size = new System.Drawing.Size(37, 13);
-			this.label29.TabIndex = 5;
-			this.label29.Text = "Type :";
-			// 
-			// label26
-			// 
-			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(71, 67);
-			this.label26.Name = "label26";
-			this.label26.Size = new System.Drawing.Size(55, 13);
-			this.label26.TabIndex = 2;
-			this.label26.Text = "Direction :";
-			// 
-			// label25
-			// 
-			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(64, 15);
-			this.label25.Name = "label25";
-			this.label25.Size = new System.Drawing.Size(39, 13);
-			this.label25.TabIndex = 1;
-			this.label25.Text = "Timer :";
-			// 
-			// MonsterIdBox
-			// 
-			this.MonsterIdBox.Location = new System.Drawing.Point(6, 19);
-			this.MonsterIdBox.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-			this.MonsterIdBox.Name = "MonsterIdBox";
-			this.MonsterIdBox.Size = new System.Drawing.Size(45, 20);
-			this.MonsterIdBox.TabIndex = 0;
-			this.MonsterIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.MonsterIdBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.MonsterIdBox.ValueChanged += new System.EventHandler(this.MonsterIdBox_ValueChanged);
-			// 
-			// groupBox3
-			// 
-			this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox3.Controls.Add(this.MazeHeaderInformationTab);
-			this.groupBox3.Controls.Add(this.MazeHeaderNumberBox);
-			this.groupBox3.Location = new System.Drawing.Point(607, 6);
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(461, 189);
-			this.groupBox3.TabIndex = 2;
-			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Informations :";
-			// 
-			// MazeHeaderInformationTab
-			// 
-			this.MazeHeaderInformationTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.MazeHeaderInformationTab.Controls.Add(this.tabPage4);
-			this.MazeHeaderInformationTab.Controls.Add(this.tabPage1);
-			this.MazeHeaderInformationTab.Controls.Add(this.tabPage2);
-			this.MazeHeaderInformationTab.Controls.Add(this.tabPage3);
-			this.MazeHeaderInformationTab.Location = new System.Drawing.Point(57, 19);
-			this.MazeHeaderInformationTab.Name = "MazeHeaderInformationTab";
-			this.MazeHeaderInformationTab.SelectedIndex = 0;
-			this.MazeHeaderInformationTab.Size = new System.Drawing.Size(398, 164);
-			this.MazeHeaderInformationTab.TabIndex = 9;
-			// 
-			// tabPage4
-			// 
-			this.tabPage4.Controls.Add(this.label57);
-			this.tabPage4.Controls.Add(this.label56);
-			this.tabPage4.Controls.Add(this.MazeTimer2Box);
-			this.tabPage4.Controls.Add(this.label55);
-			this.tabPage4.Controls.Add(this.MazeTimer1Box);
-			this.tabPage4.Controls.Add(this.label54);
-			this.tabPage4.Controls.Add(this.MazeNameBox);
-			this.tabPage4.Controls.Add(this.MazeSoundName);
-			this.tabPage4.Controls.Add(this.label28);
-			this.tabPage4.Controls.Add(this.label37);
-			this.tabPage4.Controls.Add(this.label35);
-			this.tabPage4.Controls.Add(this.MazePaletteName);
-			this.tabPage4.Controls.Add(this.MazeVMPName);
-			this.tabPage4.Controls.Add(this.label36);
-			this.tabPage4.Location = new System.Drawing.Point(4, 22);
-			this.tabPage4.Name = "tabPage4";
-			this.tabPage4.Size = new System.Drawing.Size(390, 138);
-			this.tabPage4.TabIndex = 3;
-			this.tabPage4.Text = "Informations";
-			this.tabPage4.UseVisualStyleBackColor = true;
-			// 
-			// MazeNameBox
-			// 
-			this.MazeNameBox.Location = new System.Drawing.Point(66, 3);
-			this.MazeNameBox.Name = "MazeNameBox";
-			this.MazeNameBox.ReadOnly = true;
-			this.MazeNameBox.Size = new System.Drawing.Size(82, 20);
-			this.MazeNameBox.TabIndex = 3;
-			// 
-			// MazeSoundName
-			// 
-			this.MazeSoundName.Location = new System.Drawing.Point(66, 79);
-			this.MazeSoundName.Name = "MazeSoundName";
-			this.MazeSoundName.ReadOnly = true;
-			this.MazeSoundName.Size = new System.Drawing.Size(82, 20);
-			this.MazeSoundName.TabIndex = 8;
-			// 
-			// label28
-			// 
-			this.label28.AutoSize = true;
-			this.label28.Location = new System.Drawing.Point(19, 8);
-			this.label28.Name = "label28";
-			this.label28.Size = new System.Drawing.Size(41, 13);
-			this.label28.TabIndex = 1;
-			this.label28.Text = "Name :";
-			// 
-			// label37
-			// 
-			this.label37.AutoSize = true;
-			this.label37.Location = new System.Drawing.Point(14, 82);
-			this.label37.Name = "label37";
-			this.label37.Size = new System.Drawing.Size(44, 13);
-			this.label37.TabIndex = 7;
-			this.label37.Text = "Sound :";
-			// 
-			// label35
-			// 
-			this.label35.AutoSize = true;
-			this.label35.Location = new System.Drawing.Point(24, 32);
-			this.label35.Name = "label35";
-			this.label35.Size = new System.Drawing.Size(36, 13);
-			this.label35.TabIndex = 2;
-			this.label35.Text = "VMP :";
-			// 
-			// MazePaletteName
-			// 
-			this.MazePaletteName.Location = new System.Drawing.Point(66, 55);
-			this.MazePaletteName.Name = "MazePaletteName";
-			this.MazePaletteName.ReadOnly = true;
-			this.MazePaletteName.Size = new System.Drawing.Size(82, 20);
-			this.MazePaletteName.TabIndex = 6;
-			// 
-			// MazeVMPName
-			// 
-			this.MazeVMPName.Location = new System.Drawing.Point(66, 29);
-			this.MazeVMPName.Name = "MazeVMPName";
-			this.MazeVMPName.ReadOnly = true;
-			this.MazeVMPName.Size = new System.Drawing.Size(82, 20);
-			this.MazeVMPName.TabIndex = 4;
-			// 
-			// label36
-			// 
-			this.label36.AutoSize = true;
-			this.label36.Location = new System.Drawing.Point(14, 58);
-			this.label36.Name = "label36";
-			this.label36.Size = new System.Drawing.Size(46, 13);
-			this.label36.TabIndex = 5;
-			this.label36.Text = "Palette :";
-			// 
-			// tabPage1
-			// 
-			this.tabPage1.AutoScroll = true;
-			this.tabPage1.Controls.Add(this.groupBox10);
-			this.tabPage1.Controls.Add(this.groupBox9);
-			this.tabPage1.Controls.Add(this.groupBox8);
-			this.tabPage1.Controls.Add(this.DoorInfoBox);
-			this.tabPage1.Controls.Add(this.DoorInfoTypeBox);
-			this.tabPage1.Controls.Add(this.DoorInfoGfxBox);
-			this.tabPage1.Controls.Add(this.DoorInfoIDBox);
-			this.tabPage1.Controls.Add(this.DoorInfoKnob);
-			this.tabPage1.Controls.Add(this.label40);
-			this.tabPage1.Controls.Add(this.label39);
-			this.tabPage1.Controls.Add(this.label38);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(390, 138);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Doors";
-			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// groupBox10
-			// 
-			this.groupBox10.Controls.Add(this.DoorInfoPos1);
-			this.groupBox10.Controls.Add(this.DoorInfoPos2);
-			this.groupBox10.Location = new System.Drawing.Point(388, 6);
-			this.groupBox10.Name = "groupBox10";
-			this.groupBox10.Size = new System.Drawing.Size(114, 98);
-			this.groupBox10.TabIndex = 7;
-			this.groupBox10.TabStop = false;
-			this.groupBox10.Text = "Button rectangles :";
-			// 
-			// DoorInfoPos1
-			// 
-			this.DoorInfoPos1.Location = new System.Drawing.Point(6, 19);
-			this.DoorInfoPos1.Name = "DoorInfoPos1";
-			this.DoorInfoPos1.ReadOnly = true;
-			this.DoorInfoPos1.Size = new System.Drawing.Size(101, 20);
-			this.DoorInfoPos1.TabIndex = 4;
-			// 
-			// DoorInfoPos2
-			// 
-			this.DoorInfoPos2.Location = new System.Drawing.Point(6, 45);
-			this.DoorInfoPos2.Name = "DoorInfoPos2";
-			this.DoorInfoPos2.ReadOnly = true;
-			this.DoorInfoPos2.Size = new System.Drawing.Size(101, 20);
-			this.DoorInfoPos2.TabIndex = 4;
-			// 
-			// groupBox9
-			// 
-			this.groupBox9.Controls.Add(this.DoorInfoButton1);
-			this.groupBox9.Controls.Add(this.DoorInfoButton2);
-			this.groupBox9.Location = new System.Drawing.Point(267, 6);
-			this.groupBox9.Name = "groupBox9";
-			this.groupBox9.Size = new System.Drawing.Size(115, 98);
-			this.groupBox9.TabIndex = 6;
-			this.groupBox9.TabStop = false;
-			this.groupBox9.Text = "Button positions :";
-			// 
-			// DoorInfoButton1
-			// 
-			this.DoorInfoButton1.Location = new System.Drawing.Point(6, 19);
-			this.DoorInfoButton1.Name = "DoorInfoButton1";
-			this.DoorInfoButton1.ReadOnly = true;
-			this.DoorInfoButton1.Size = new System.Drawing.Size(99, 20);
-			this.DoorInfoButton1.TabIndex = 4;
-			// 
-			// DoorInfoButton2
-			// 
-			this.DoorInfoButton2.Location = new System.Drawing.Point(6, 45);
-			this.DoorInfoButton2.Name = "DoorInfoButton2";
-			this.DoorInfoButton2.ReadOnly = true;
-			this.DoorInfoButton2.Size = new System.Drawing.Size(99, 20);
-			this.DoorInfoButton2.TabIndex = 4;
-			// 
-			// groupBox8
-			// 
-			this.groupBox8.Controls.Add(this.DoorInfoRect1);
-			this.groupBox8.Controls.Add(this.DoorInfoRect3);
-			this.groupBox8.Controls.Add(this.DoorInfoRect2);
-			this.groupBox8.Location = new System.Drawing.Point(155, 3);
-			this.groupBox8.Name = "groupBox8";
-			this.groupBox8.Size = new System.Drawing.Size(106, 98);
-			this.groupBox8.TabIndex = 5;
-			this.groupBox8.TabStop = false;
-			this.groupBox8.Text = "Rectangles :";
-			// 
-			// DoorInfoRect1
-			// 
-			this.DoorInfoRect1.Location = new System.Drawing.Point(6, 19);
-			this.DoorInfoRect1.Name = "DoorInfoRect1";
-			this.DoorInfoRect1.ReadOnly = true;
-			this.DoorInfoRect1.Size = new System.Drawing.Size(92, 20);
-			this.DoorInfoRect1.TabIndex = 4;
-			// 
-			// DoorInfoRect3
-			// 
-			this.DoorInfoRect3.Location = new System.Drawing.Point(6, 71);
-			this.DoorInfoRect3.Name = "DoorInfoRect3";
-			this.DoorInfoRect3.ReadOnly = true;
-			this.DoorInfoRect3.Size = new System.Drawing.Size(92, 20);
-			this.DoorInfoRect3.TabIndex = 4;
-			// 
-			// DoorInfoRect2
-			// 
-			this.DoorInfoRect2.Location = new System.Drawing.Point(6, 45);
-			this.DoorInfoRect2.Name = "DoorInfoRect2";
-			this.DoorInfoRect2.ReadOnly = true;
-			this.DoorInfoRect2.Size = new System.Drawing.Size(92, 20);
-			this.DoorInfoRect2.TabIndex = 4;
-			// 
-			// DoorInfoBox
-			// 
-			this.DoorInfoBox.Location = new System.Drawing.Point(3, 6);
-			this.DoorInfoBox.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.DoorInfoBox.Name = "DoorInfoBox";
-			this.DoorInfoBox.Size = new System.Drawing.Size(44, 20);
-			this.DoorInfoBox.TabIndex = 3;
-			this.DoorInfoBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.DoorInfoBox.ValueChanged += new System.EventHandler(this.DoorInfoBox_ValueChanged);
-			// 
-			// DoorInfoTypeBox
-			// 
-			this.DoorInfoTypeBox.Location = new System.Drawing.Point(87, 58);
-			this.DoorInfoTypeBox.Name = "DoorInfoTypeBox";
-			this.DoorInfoTypeBox.ReadOnly = true;
-			this.DoorInfoTypeBox.Size = new System.Drawing.Size(62, 20);
-			this.DoorInfoTypeBox.TabIndex = 2;
-			// 
-			// DoorInfoGfxBox
-			// 
-			this.DoorInfoGfxBox.Location = new System.Drawing.Point(87, 32);
-			this.DoorInfoGfxBox.Name = "DoorInfoGfxBox";
-			this.DoorInfoGfxBox.ReadOnly = true;
-			this.DoorInfoGfxBox.Size = new System.Drawing.Size(62, 20);
-			this.DoorInfoGfxBox.TabIndex = 2;
-			// 
-			// DoorInfoIDBox
-			// 
-			this.DoorInfoIDBox.Location = new System.Drawing.Point(87, 6);
-			this.DoorInfoIDBox.Name = "DoorInfoIDBox";
-			this.DoorInfoIDBox.ReadOnly = true;
-			this.DoorInfoIDBox.Size = new System.Drawing.Size(62, 20);
-			this.DoorInfoIDBox.TabIndex = 2;
-			// 
-			// DoorInfoKnob
-			// 
-			this.DoorInfoKnob.AutoSize = true;
-			this.DoorInfoKnob.Location = new System.Drawing.Point(87, 84);
-			this.DoorInfoKnob.Name = "DoorInfoKnob";
-			this.DoorInfoKnob.Size = new System.Drawing.Size(51, 17);
-			this.DoorInfoKnob.TabIndex = 1;
-			this.DoorInfoKnob.Text = "Knob";
-			this.DoorInfoKnob.UseVisualStyleBackColor = true;
-			// 
-			// label40
-			// 
-			this.label40.AutoSize = true;
-			this.label40.Location = new System.Drawing.Point(50, 61);
-			this.label40.Name = "label40";
-			this.label40.Size = new System.Drawing.Size(31, 13);
-			this.label40.TabIndex = 0;
-			this.label40.Text = "Type";
-			// 
-			// label39
-			// 
-			this.label39.AutoSize = true;
-			this.label39.Location = new System.Drawing.Point(63, 9);
-			this.label39.Name = "label39";
-			this.label39.Size = new System.Drawing.Size(18, 13);
-			this.label39.TabIndex = 0;
-			this.label39.Text = "ID";
-			// 
-			// label38
-			// 
-			this.label38.AutoSize = true;
-			this.label38.Location = new System.Drawing.Point(42, 35);
-			this.label38.Name = "label38";
-			this.label38.Size = new System.Drawing.Size(39, 13);
-			this.label38.TabIndex = 0;
-			this.label38.Text = "GfxFile";
-			// 
-			// tabPage2
-			// 
-			this.tabPage2.Controls.Add(this.groupBox12);
-			this.tabPage2.Controls.Add(this.groupBox11);
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(390, 138);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Monsters";
-			this.tabPage2.UseVisualStyleBackColor = true;
-			// 
-			// groupBox12
-			// 
-			this.groupBox12.Controls.Add(this.MonsterGFXUnknown2);
-			this.groupBox12.Controls.Add(this.MonsterGFXUsed2);
-			this.groupBox12.Controls.Add(this.label44);
-			this.groupBox12.Controls.Add(this.MonsterGFXFilename2);
-			this.groupBox12.Controls.Add(this.label45);
-			this.groupBox12.Controls.Add(this.MonsterGFXProgramId2);
-			this.groupBox12.Controls.Add(this.label46);
-			this.groupBox12.Location = new System.Drawing.Point(205, 6);
-			this.groupBox12.Name = "groupBox12";
-			this.groupBox12.Size = new System.Drawing.Size(193, 126);
-			this.groupBox12.TabIndex = 7;
-			this.groupBox12.TabStop = false;
-			this.groupBox12.Text = "Second :";
-			// 
-			// MonsterGFXUnknown2
-			// 
-			this.MonsterGFXUnknown2.Location = new System.Drawing.Point(78, 71);
-			this.MonsterGFXUnknown2.Name = "MonsterGFXUnknown2";
-			this.MonsterGFXUnknown2.ReadOnly = true;
-			this.MonsterGFXUnknown2.Size = new System.Drawing.Size(100, 20);
-			this.MonsterGFXUnknown2.TabIndex = 4;
-			// 
-			// MonsterGFXUsed2
-			// 
-			this.MonsterGFXUsed2.AutoSize = true;
-			this.MonsterGFXUsed2.Location = new System.Drawing.Point(78, 97);
-			this.MonsterGFXUsed2.Name = "MonsterGFXUsed2";
-			this.MonsterGFXUsed2.Size = new System.Drawing.Size(51, 17);
-			this.MonsterGFXUsed2.TabIndex = 0;
-			this.MonsterGFXUsed2.Text = "Used";
-			this.MonsterGFXUsed2.UseVisualStyleBackColor = true;
-			// 
-			// label44
-			// 
-			this.label44.AutoSize = true;
-			this.label44.Location = new System.Drawing.Point(17, 48);
-			this.label44.Name = "label44";
-			this.label44.Size = new System.Drawing.Size(55, 13);
-			this.label44.TabIndex = 5;
-			this.label44.Text = "Filename :";
-			// 
-			// MonsterGFXFilename2
-			// 
-			this.MonsterGFXFilename2.Location = new System.Drawing.Point(78, 45);
-			this.MonsterGFXFilename2.Name = "MonsterGFXFilename2";
-			this.MonsterGFXFilename2.ReadOnly = true;
-			this.MonsterGFXFilename2.Size = new System.Drawing.Size(100, 20);
-			this.MonsterGFXFilename2.TabIndex = 3;
-			// 
-			// label45
-			// 
-			this.label45.AutoSize = true;
-			this.label45.Location = new System.Drawing.Point(10, 74);
-			this.label45.Name = "label45";
-			this.label45.Size = new System.Drawing.Size(62, 13);
-			this.label45.TabIndex = 4;
-			this.label45.Text = "Unknown : ";
-			// 
-			// MonsterGFXProgramId2
-			// 
-			this.MonsterGFXProgramId2.Location = new System.Drawing.Point(78, 19);
-			this.MonsterGFXProgramId2.Name = "MonsterGFXProgramId2";
-			this.MonsterGFXProgramId2.ReadOnly = true;
-			this.MonsterGFXProgramId2.Size = new System.Drawing.Size(100, 20);
-			this.MonsterGFXProgramId2.TabIndex = 0;
-			// 
-			// label46
-			// 
-			this.label46.AutoSize = true;
-			this.label46.Location = new System.Drawing.Point(6, 22);
-			this.label46.Name = "label46";
-			this.label46.Size = new System.Drawing.Size(66, 13);
-			this.label46.TabIndex = 2;
-			this.label46.Text = "Program ID :";
-			// 
-			// groupBox11
-			// 
-			this.groupBox11.Controls.Add(this.MonsterGFXUnknown1);
-			this.groupBox11.Controls.Add(this.MonsterGFXUsed1);
-			this.groupBox11.Controls.Add(this.label42);
-			this.groupBox11.Controls.Add(this.MonsterGFXFilename1);
-			this.groupBox11.Controls.Add(this.label43);
-			this.groupBox11.Controls.Add(this.MonsterGFXProgramId1);
-			this.groupBox11.Controls.Add(this.label41);
-			this.groupBox11.Location = new System.Drawing.Point(6, 6);
-			this.groupBox11.Name = "groupBox11";
-			this.groupBox11.Size = new System.Drawing.Size(193, 126);
-			this.groupBox11.TabIndex = 6;
-			this.groupBox11.TabStop = false;
-			this.groupBox11.Text = "First :";
-			// 
-			// MonsterGFXUnknown1
-			// 
-			this.MonsterGFXUnknown1.Location = new System.Drawing.Point(78, 71);
-			this.MonsterGFXUnknown1.Name = "MonsterGFXUnknown1";
-			this.MonsterGFXUnknown1.ReadOnly = true;
-			this.MonsterGFXUnknown1.Size = new System.Drawing.Size(100, 20);
-			this.MonsterGFXUnknown1.TabIndex = 4;
-			// 
-			// MonsterGFXUsed1
-			// 
-			this.MonsterGFXUsed1.AutoSize = true;
-			this.MonsterGFXUsed1.Location = new System.Drawing.Point(78, 97);
-			this.MonsterGFXUsed1.Name = "MonsterGFXUsed1";
-			this.MonsterGFXUsed1.Size = new System.Drawing.Size(51, 17);
-			this.MonsterGFXUsed1.TabIndex = 0;
-			this.MonsterGFXUsed1.Text = "Used";
-			this.MonsterGFXUsed1.UseVisualStyleBackColor = true;
-			// 
-			// label42
-			// 
-			this.label42.AutoSize = true;
-			this.label42.Location = new System.Drawing.Point(17, 48);
-			this.label42.Name = "label42";
-			this.label42.Size = new System.Drawing.Size(55, 13);
-			this.label42.TabIndex = 5;
-			this.label42.Text = "Filename :";
-			// 
-			// MonsterGFXFilename1
-			// 
-			this.MonsterGFXFilename1.Location = new System.Drawing.Point(78, 45);
-			this.MonsterGFXFilename1.Name = "MonsterGFXFilename1";
-			this.MonsterGFXFilename1.ReadOnly = true;
-			this.MonsterGFXFilename1.Size = new System.Drawing.Size(100, 20);
-			this.MonsterGFXFilename1.TabIndex = 3;
-			// 
-			// label43
-			// 
-			this.label43.AutoSize = true;
-			this.label43.Location = new System.Drawing.Point(10, 74);
-			this.label43.Name = "label43";
-			this.label43.Size = new System.Drawing.Size(62, 13);
-			this.label43.TabIndex = 4;
-			this.label43.Text = "Unknown : ";
-			// 
-			// MonsterGFXProgramId1
-			// 
-			this.MonsterGFXProgramId1.Location = new System.Drawing.Point(78, 19);
-			this.MonsterGFXProgramId1.Name = "MonsterGFXProgramId1";
-			this.MonsterGFXProgramId1.ReadOnly = true;
-			this.MonsterGFXProgramId1.Size = new System.Drawing.Size(100, 20);
-			this.MonsterGFXProgramId1.TabIndex = 0;
-			// 
-			// label41
-			// 
-			this.label41.AutoSize = true;
-			this.label41.Location = new System.Drawing.Point(6, 22);
-			this.label41.Name = "label41";
-			this.label41.Size = new System.Drawing.Size(66, 13);
-			this.label41.TabIndex = 2;
-			this.label41.Text = "Program ID :";
-			// 
-			// tabPage3
-			// 
-			this.tabPage3.Controls.Add(this.groupBox14);
-			this.tabPage3.Controls.Add(this.groupBox13);
-			this.tabPage3.Controls.Add(this.DecorationInfoID);
-			this.tabPage3.Location = new System.Drawing.Point(4, 22);
-			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Size = new System.Drawing.Size(390, 138);
-			this.tabPage3.TabIndex = 2;
-			this.tabPage3.Text = "Decorations";
-			this.tabPage3.UseVisualStyleBackColor = true;
-			// 
-			// groupBox14
-			// 
-			this.groupBox14.Controls.Add(this.label52);
-			this.groupBox14.Controls.Add(this.label51);
-			this.groupBox14.Controls.Add(this.label50);
-			this.groupBox14.Controls.Add(this.label49);
-			this.groupBox14.Controls.Add(this.DecorationInfoFlags);
-			this.groupBox14.Controls.Add(this.DecorationInfoEventMask);
-			this.groupBox14.Controls.Add(this.DecorationInfoDecoID);
-			this.groupBox14.Controls.Add(this.DecorationInfoWallType);
-			this.groupBox14.Location = new System.Drawing.Point(160, 3);
-			this.groupBox14.Name = "groupBox14";
-			this.groupBox14.Size = new System.Drawing.Size(227, 132);
-			this.groupBox14.TabIndex = 1;
-			this.groupBox14.TabStop = false;
-			this.groupBox14.Text = "Wall mapping";
-			// 
-			// label52
-			// 
-			this.label52.AutoSize = true;
-			this.label52.Location = new System.Drawing.Point(47, 100);
-			this.label52.Name = "label52";
-			this.label52.Size = new System.Drawing.Size(38, 13);
-			this.label52.TabIndex = 2;
-			this.label52.Text = "Flags :";
-			// 
-			// label51
-			// 
-			this.label51.AutoSize = true;
-			this.label51.Location = new System.Drawing.Point(18, 74);
-			this.label51.Name = "label51";
-			this.label51.Size = new System.Drawing.Size(67, 13);
-			this.label51.TabIndex = 2;
-			this.label51.Text = "EventMask :";
-			// 
-			// label50
-			// 
-			this.label50.AutoSize = true;
-			this.label50.Location = new System.Drawing.Point(6, 48);
-			this.label50.Name = "label50";
-			this.label50.Size = new System.Drawing.Size(79, 13);
-			this.label50.TabIndex = 2;
-			this.label50.Text = "Decoration ID :";
-			// 
-			// label49
-			// 
-			this.label49.AutoSize = true;
-			this.label49.Location = new System.Drawing.Point(28, 22);
-			this.label49.Name = "label49";
-			this.label49.Size = new System.Drawing.Size(57, 13);
-			this.label49.TabIndex = 2;
-			this.label49.Text = "Wall type :";
-			// 
-			// DecorationInfoFlags
-			// 
-			this.DecorationInfoFlags.Location = new System.Drawing.Point(91, 97);
-			this.DecorationInfoFlags.Name = "DecorationInfoFlags";
-			this.DecorationInfoFlags.ReadOnly = true;
-			this.DecorationInfoFlags.Size = new System.Drawing.Size(125, 20);
-			this.DecorationInfoFlags.TabIndex = 1;
-			// 
-			// DecorationInfoEventMask
-			// 
-			this.DecorationInfoEventMask.Location = new System.Drawing.Point(91, 71);
-			this.DecorationInfoEventMask.Name = "DecorationInfoEventMask";
-			this.DecorationInfoEventMask.ReadOnly = true;
-			this.DecorationInfoEventMask.Size = new System.Drawing.Size(125, 20);
-			this.DecorationInfoEventMask.TabIndex = 1;
-			// 
-			// DecorationInfoDecoID
-			// 
-			this.DecorationInfoDecoID.Location = new System.Drawing.Point(91, 45);
-			this.DecorationInfoDecoID.Name = "DecorationInfoDecoID";
-			this.DecorationInfoDecoID.ReadOnly = true;
-			this.DecorationInfoDecoID.Size = new System.Drawing.Size(125, 20);
-			this.DecorationInfoDecoID.TabIndex = 1;
-			// 
-			// DecorationInfoWallType
-			// 
-			this.DecorationInfoWallType.Location = new System.Drawing.Point(91, 19);
-			this.DecorationInfoWallType.Name = "DecorationInfoWallType";
-			this.DecorationInfoWallType.ReadOnly = true;
-			this.DecorationInfoWallType.Size = new System.Drawing.Size(125, 20);
-			this.DecorationInfoWallType.TabIndex = 1;
-			// 
-			// groupBox13
-			// 
-			this.groupBox13.Controls.Add(this.label48);
-			this.groupBox13.Controls.Add(this.DecorationInfoDEC);
-			this.groupBox13.Controls.Add(this.DecorationInfoGFX);
-			this.groupBox13.Controls.Add(this.label47);
-			this.groupBox13.Location = new System.Drawing.Point(3, 40);
-			this.groupBox13.Name = "groupBox13";
-			this.groupBox13.Size = new System.Drawing.Size(151, 76);
-			this.groupBox13.TabIndex = 1;
-			this.groupBox13.TabStop = false;
-			this.groupBox13.Text = "Files :";
-			// 
-			// label48
-			// 
-			this.label48.AutoSize = true;
-			this.label48.Location = new System.Drawing.Point(5, 22);
-			this.label48.Name = "label48";
-			this.label48.Size = new System.Drawing.Size(34, 13);
-			this.label48.TabIndex = 2;
-			this.label48.Text = "GFX :";
-			// 
-			// DecorationInfoDEC
-			// 
-			this.DecorationInfoDEC.Location = new System.Drawing.Point(45, 45);
-			this.DecorationInfoDEC.Name = "DecorationInfoDEC";
-			this.DecorationInfoDEC.ReadOnly = true;
-			this.DecorationInfoDEC.Size = new System.Drawing.Size(100, 20);
-			this.DecorationInfoDEC.TabIndex = 1;
-			// 
-			// DecorationInfoGFX
-			// 
-			this.DecorationInfoGFX.Location = new System.Drawing.Point(45, 19);
-			this.DecorationInfoGFX.Name = "DecorationInfoGFX";
-			this.DecorationInfoGFX.ReadOnly = true;
-			this.DecorationInfoGFX.Size = new System.Drawing.Size(100, 20);
-			this.DecorationInfoGFX.TabIndex = 1;
-			// 
-			// label47
-			// 
-			this.label47.AutoSize = true;
-			this.label47.Location = new System.Drawing.Point(4, 48);
-			this.label47.Name = "label47";
-			this.label47.Size = new System.Drawing.Size(35, 13);
-			this.label47.TabIndex = 0;
-			this.label47.Text = "DEC :";
-			// 
-			// DecorationInfoID
-			// 
-			this.DecorationInfoID.Location = new System.Drawing.Point(3, 6);
-			this.DecorationInfoID.Name = "DecorationInfoID";
-			this.DecorationInfoID.Size = new System.Drawing.Size(44, 20);
-			this.DecorationInfoID.TabIndex = 0;
-			this.DecorationInfoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.DecorationInfoID.ValueChanged += new System.EventHandler(this.DecorationInfoID_ValueChanged);
-			// 
-			// MazeHeaderNumberBox
-			// 
-			this.MazeHeaderNumberBox.Location = new System.Drawing.Point(6, 19);
-			this.MazeHeaderNumberBox.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.MazeHeaderNumberBox.Name = "MazeHeaderNumberBox";
-			this.MazeHeaderNumberBox.Size = new System.Drawing.Size(44, 20);
-			this.MazeHeaderNumberBox.TabIndex = 0;
-			this.MazeHeaderNumberBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.MazeHeaderNumberBox.ValueChanged += new System.EventHandler(this.MazeHeaderNumberBox_ValueChanged);
-			// 
-			// MazeSelectBox
-			// 
-			this.MazeSelectBox.FormattingEnabled = true;
-			this.MazeSelectBox.Items.AddRange(new object[] {
-            "Level 01",
-            "Level 02",
-            "Level 03",
-            "Level 04",
-            "Level 05",
-            "Level 06",
-            "Level 07",
-            "Level 08",
-            "Level 09",
-            "Level 10",
-            "Level 11",
-            "Level 12",
-            "Level 13",
-            "Level 14",
-            "Level 15",
-            "Level 16"});
-			this.MazeSelectBox.Location = new System.Drawing.Point(8, 3);
-			this.MazeSelectBox.Name = "MazeSelectBox";
-			this.MazeSelectBox.Size = new System.Drawing.Size(75, 212);
-			this.MazeSelectBox.TabIndex = 1;
-			this.MazeSelectBox.SelectedIndexChanged += new System.EventHandler(this.MazeSelectBox_SelectedIndexChanged);
-			// 
-			// MazePictureBox
-			// 
-			this.MazePictureBox.BackColor = System.Drawing.Color.LightGray;
-			this.MazePictureBox.Location = new System.Drawing.Point(89, 32);
-			this.MazePictureBox.Name = "MazePictureBox";
-			this.MazePictureBox.Size = new System.Drawing.Size(512, 512);
-			this.MazePictureBox.TabIndex = 0;
-			this.MazePictureBox.TabStop = false;
-			this.MazePictureBox.Click += new System.EventHandler(this.MazePictureBox_Click);
-			this.MazePictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MazePictureBox_Paint);
-			this.MazePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MazePictureBox_MouseMove);
-			// 
 			// TextTab
 			// 
 			this.TextTab.Controls.Add(this.button1);
@@ -2257,160 +2412,30 @@
 			this.DecodeButton.Text = "Decode !";
 			this.DecodeButton.Click += new System.EventHandler(this.DecodeButton_Click);
 			// 
-			// label53
+			// groupBox17
 			// 
-			this.label53.AutoSize = true;
-			this.label53.Location = new System.Drawing.Point(86, 9);
-			this.label53.Name = "label53";
-			this.label53.Size = new System.Drawing.Size(54, 13);
-			this.label53.TabIndex = 7;
-			this.label53.Text = "Location :";
-			// 
-			// MazeMouseLocationBox
-			// 
-			this.MazeMouseLocationBox.Location = new System.Drawing.Point(146, 6);
-			this.MazeMouseLocationBox.Name = "MazeMouseLocationBox";
-			this.MazeMouseLocationBox.ReadOnly = true;
-			this.MazeMouseLocationBox.Size = new System.Drawing.Size(272, 20);
-			this.MazeMouseLocationBox.TabIndex = 8;
-			// 
-			// MazeToolTip
-			// 
-			this.MazeToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			// 
-			// MazeTimer1Box
-			// 
-			this.MazeTimer1Box.Location = new System.Drawing.Point(206, 5);
-			this.MazeTimer1Box.Name = "MazeTimer1Box";
-			this.MazeTimer1Box.ReadOnly = true;
-			this.MazeTimer1Box.Size = new System.Drawing.Size(35, 20);
-			this.MazeTimer1Box.TabIndex = 10;
-			// 
-			// label54
-			// 
-			this.label54.AutoSize = true;
-			this.label54.Location = new System.Drawing.Point(154, 8);
-			this.label54.Name = "label54";
-			this.label54.Size = new System.Drawing.Size(48, 13);
-			this.label54.TabIndex = 9;
-			this.label54.Text = "Timer 1 :";
-			// 
-			// label55
-			// 
-			this.label55.AutoSize = true;
-			this.label55.Location = new System.Drawing.Point(154, 32);
-			this.label55.Name = "label55";
-			this.label55.Size = new System.Drawing.Size(48, 13);
-			this.label55.TabIndex = 9;
-			this.label55.Text = "Timer 2 :";
-			// 
-			// MazeTimer2Box
-			// 
-			this.MazeTimer2Box.Location = new System.Drawing.Point(206, 29);
-			this.MazeTimer2Box.Name = "MazeTimer2Box";
-			this.MazeTimer2Box.ReadOnly = true;
-			this.MazeTimer2Box.Size = new System.Drawing.Size(35, 20);
-			this.MazeTimer2Box.TabIndex = 10;
-			// 
-			// label56
-			// 
-			this.label56.AutoSize = true;
-			this.label56.Location = new System.Drawing.Point(247, 32);
-			this.label56.Name = "label56";
-			this.label56.Size = new System.Drawing.Size(29, 13);
-			this.label56.TabIndex = 11;
-			this.label56.Text = "ticks";
-			// 
-			// label57
-			// 
-			this.label57.AutoSize = true;
-			this.label57.Location = new System.Drawing.Point(247, 8);
-			this.label57.Name = "label57";
-			this.label57.Size = new System.Drawing.Size(29, 13);
-			this.label57.TabIndex = 12;
-			this.label57.Text = "ticks";
-			// 
-			// TriggerFlagsBox
-			// 
-			this.TriggerFlagsBox.Location = new System.Drawing.Point(362, 18);
-			this.TriggerFlagsBox.Name = "TriggerFlagsBox";
-			this.TriggerFlagsBox.ReadOnly = true;
-			this.TriggerFlagsBox.Size = new System.Drawing.Size(93, 20);
-			this.TriggerFlagsBox.TabIndex = 8;
-			// 
-			// label58
-			// 
-			this.label58.AutoSize = true;
-			this.label58.Location = new System.Drawing.Point(318, 21);
-			this.label58.Name = "label58";
-			this.label58.Size = new System.Drawing.Size(38, 13);
-			this.label58.TabIndex = 9;
-			this.label58.Text = "Flags :";
-			// 
-			// MonsterSubPosition
-			// 
-			this.MonsterSubPosition.Location = new System.Drawing.Point(266, 64);
-			this.MonsterSubPosition.Name = "MonsterSubPosition";
-			this.MonsterSubPosition.ReadOnly = true;
-			this.MonsterSubPosition.Size = new System.Drawing.Size(56, 20);
-			this.MonsterSubPosition.TabIndex = 24;
-			// 
-			// label59
-			// 
-			this.label59.AutoSize = true;
-			this.label59.Location = new System.Drawing.Point(217, 67);
-			this.label59.Name = "label59";
-			this.label59.Size = new System.Drawing.Size(50, 13);
-			this.label59.TabIndex = 23;
-			this.label59.Text = "Position :";
-			// 
-			// MonstersLogBox
-			// 
-			this.MonstersLogBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.groupBox17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-			this.MonstersLogBox.Location = new System.Drawing.Point(6, 19);
-			this.MonstersLogBox.Multiline = true;
-			this.MonstersLogBox.Name = "MonstersLogBox";
-			this.MonstersLogBox.ReadOnly = true;
-			this.MonstersLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.MonstersLogBox.Size = new System.Drawing.Size(247, 94);
-			this.MonstersLogBox.TabIndex = 9;
+			this.groupBox17.Controls.Add(this.TriggerLogBox);
+			this.groupBox17.Location = new System.Drawing.Point(255, 550);
+			this.groupBox17.Name = "groupBox17";
+			this.groupBox17.Size = new System.Drawing.Size(209, 119);
+			this.groupBox17.TabIndex = 11;
+			this.groupBox17.TabStop = false;
+			this.groupBox17.Text = "Trigger :";
 			// 
-			// groupBox15
+			// TriggerLogBox
 			// 
-			this.groupBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-			this.groupBox15.Controls.Add(this.MonstersLogBox);
-			this.groupBox15.Location = new System.Drawing.Point(89, 550);
-			this.groupBox15.Name = "groupBox15";
-			this.groupBox15.Size = new System.Drawing.Size(259, 119);
-			this.groupBox15.TabIndex = 10;
-			this.groupBox15.TabStop = false;
-			this.groupBox15.Text = "Monsters :";
-			// 
-			// groupBox16
-			// 
-			this.groupBox16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-			this.groupBox16.Controls.Add(this.TriggersLogBox);
-			this.groupBox16.Location = new System.Drawing.Point(354, 550);
-			this.groupBox16.Name = "groupBox16";
-			this.groupBox16.Size = new System.Drawing.Size(247, 119);
-			this.groupBox16.TabIndex = 11;
-			this.groupBox16.TabStop = false;
-			this.groupBox16.Text = "Triggers :";
-			// 
-			// TriggersLogBox
-			// 
-			this.TriggersLogBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-			this.TriggersLogBox.Location = new System.Drawing.Point(6, 19);
-			this.TriggersLogBox.Multiline = true;
-			this.TriggersLogBox.Name = "TriggersLogBox";
-			this.TriggersLogBox.ReadOnly = true;
-			this.TriggersLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.TriggersLogBox.Size = new System.Drawing.Size(235, 94);
-			this.TriggersLogBox.TabIndex = 9;
+			this.TriggerLogBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.TriggerLogBox.Location = new System.Drawing.Point(6, 19);
+			this.TriggerLogBox.Multiline = true;
+			this.TriggerLogBox.Name = "TriggerLogBox";
+			this.TriggerLogBox.ReadOnly = true;
+			this.TriggerLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.TriggerLogBox.Size = new System.Drawing.Size(197, 94);
+			this.TriggerLogBox.TabIndex = 9;
 			// 
 			// Form1
 			// 
@@ -2425,15 +2450,12 @@
 			this.Text = "EOB2 Inspector";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.tabControl1.ResumeLayout(false);
-			this.ItemTab.ResumeLayout(false);
-			this.ItemTab.PerformLayout();
-			this.groupBox2.ResumeLayout(false);
-			this.groupBox2.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.ItemPictureBox)).EndInit();
 			this.MazeTab.ResumeLayout(false);
 			this.MazeTab.PerformLayout();
+			this.groupBox16.ResumeLayout(false);
+			this.groupBox16.PerformLayout();
+			this.groupBox15.ResumeLayout(false);
+			this.groupBox15.PerformLayout();
 			this.groupBox7.ResumeLayout(false);
 			this.groupBox7.PerformLayout();
 			this.groupBox6.ResumeLayout(false);
@@ -2470,14 +2492,19 @@
 			((System.ComponentModel.ISupportInitialize)(this.DecorationInfoID)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.MazeHeaderNumberBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.MazePictureBox)).EndInit();
+			this.ItemTab.ResumeLayout(false);
+			this.ItemTab.PerformLayout();
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ItemPictureBox)).EndInit();
 			this.TextTab.ResumeLayout(false);
 			this.TextTab.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
-			this.groupBox15.ResumeLayout(false);
-			this.groupBox15.PerformLayout();
-			this.groupBox16.ResumeLayout(false);
-			this.groupBox16.PerformLayout();
+			this.groupBox17.ResumeLayout(false);
+			this.groupBox17.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2677,7 +2704,6 @@
 		private System.Windows.Forms.TextBox LogBox;
 		private System.Windows.Forms.TextBox MazeMouseLocationBox;
 		private System.Windows.Forms.Label label53;
-		private System.Windows.Forms.ToolTip MazeToolTip;
 		private System.Windows.Forms.TextBox MazeTimer2Box;
 		private System.Windows.Forms.Label label55;
 		private System.Windows.Forms.TextBox MazeTimer1Box;
@@ -2689,9 +2715,11 @@
 		private System.Windows.Forms.TextBox MonsterSubPosition;
 		private System.Windows.Forms.Label label59;
 		private System.Windows.Forms.GroupBox groupBox16;
-		private System.Windows.Forms.TextBox TriggersLogBox;
+		private System.Windows.Forms.TextBox ItemsLogBox;
 		private System.Windows.Forms.GroupBox groupBox15;
 		private System.Windows.Forms.TextBox MonstersLogBox;
+		private System.Windows.Forms.GroupBox groupBox17;
+		private System.Windows.Forms.TextBox TriggerLogBox;
 	}
 }
 

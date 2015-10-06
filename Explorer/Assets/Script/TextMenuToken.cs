@@ -12,7 +12,7 @@ namespace Explorer
 		/// 
 		/// </summary>
 		/// <param name="script"></param>
-		public TextMenuToken(Script script) : base(script)
+		public TextMenuToken(Script script, Maze maze) : base(script)
 		{
 			Type = script.ReadByte();
 			switch (Type)
@@ -54,16 +54,28 @@ namespace Explorer
 				case 0xd8:
 				{
 					TextID = script.ReadAddr();
-					Buttons[0] = script.ReadAddr();
-					Buttons[1] = script.ReadAddr();
-					Buttons[2] = script.ReadAddr();
+
+					D8_Text = Assets.Text[TextID];
+					D8_Buttons[0] = script.ReadAddr();
+					D8_Buttons[1] = script.ReadAddr();
+					D8_Buttons[2] = script.ReadAddr();
+
+					D8_Strings[0] = maze.GetString(D8_Buttons[0]);
+					D8_Strings[1] = maze.GetString(D8_Buttons[1]);
+					D8_Strings[2] = maze.GetString(D8_Buttons[2]);
 				}
 				break;
 
 				case 0xf8:
 				{
-					X = script.ReadAddr();
+					TextID = script.ReadAddr();
 					Y = script.ReadAddr();
+
+					//F8_Text = maze.GetString(TextID);
+					//if (F8_Text == null)
+						F8_Text= Assets.Text[TextID - 1];
+					F8_Button = maze.GetString(Y);
+
 				}
 				break;
 
@@ -86,41 +98,41 @@ namespace Explorer
 				// Display a picture from a CPS file
 				case 0xd3:
 				{
-					return string.Format("Text menu 0x{0:X2} Display picture : (\"{1}\", X: {2}, Y: {3}, 0x{4:X2}, 0x{5:X2}, 0x{6:X2})", Type, PictureName, X * 8, Y, unk0, unk1, unk2);
+					return string.Format("Text menu 0xD3 Display picture : (\"{0}\", X: {1}, Y: {2}, 0x{3:X2}, 0x{4:X2}, 0x{5:X2})", PictureName, X * 8, Y, unk0, unk1, unk2);
 				}
 
 
 				// Close dialog
 				case 0xd4:
 				{
-					return string.Format("Text menu Display text background off");
+					return string.Format("Text menu : background off");
 				}
 
 				//Display background ?
 				case 0xd5:
 				{
-					return string.Format("Text menu Display text background on");
+					return string.Format("Text menu : background on");
 
 				}
 
 				// Fade in 
 				case 0xd6:
 				{
-					return string.Format("Text menuFade in");
+					return string.Format("Text menu Fade in");
 
 				}
 
 				// Message and 3 buttons
 				case 0xd8:
 				{
-					return string.Format("Text menu 0x{0:X2} Message with 3 buttons : (Msg ID: 0x{1:X2}, Button 1: 0x{2:X2}, Button 2: 0x{3:X2}, Button 3: 0x{4:X2})", Type, TextID, Buttons[0], Buttons[1], Buttons[2]);
+					return string.Format("Text menu 0xD8 : \"{0}\" with buttons [\"{1}\"], [\"{2}\"], [\"{3}\"]", D8_Text, D8_Strings[0], D8_Strings[1], D8_Strings[2]);
 				}
 
 
 				// Message and 1 button
 				case 0xf8:
 				{
-					return string.Format("Text menu 0x{0:X2} Message with 1 button : (Msg ID: 0x{1:X4}, Text ID: 0x{2:X4})", Type, X, Y);
+					return string.Format("Text menu 0xF8 : \"{0}\" with button [\"{1}\"]", F8_Text, F8_Button);
 				}
 			}
 
@@ -157,10 +169,39 @@ namespace Explorer
 		/// </summary>
 		ushort TextID;
 
+
+		#region 0xD8
+
 		/// <summary>
 		/// 
 		/// </summary>
-		ushort[] Buttons = new ushort[6];
+		string D8_Text;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		ushort[] D8_Buttons = new ushort[3];
+
+		/// <summary>
+		/// 
+		/// </summary>
+		string[] D8_Strings = new string[3];
+
+		#endregion
+
+
+		#region 0xF8
+
+		/// <summary>
+		/// 
+		/// </summary>
+		string F8_Text;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		string F8_Button;
+		#endregion
 
 		#endregion
 	}

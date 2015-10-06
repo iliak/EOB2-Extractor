@@ -34,10 +34,22 @@ namespace Explorer
 
 				// Monster
 				case 0xf3:
+				{
+					script.ReadByte();
+					script.ReadByte();
+					script.ReadByte();
+					script.ReadByte();
+					//Source = Location.FromScript(script);
+					//Destination = Location.FromScript(script);
+				}
+				break;
+
 				// Item
 				case 0xf5:
 				{
-
+					Source = Location.FromScript(script);
+					Destination = Location.FromScript(script);
+					script.ReadShort();
 				}
 				break;
 
@@ -60,7 +72,7 @@ namespace Explorer
 			{
 				case 0xe8: return string.Format("Teleport team to {0}", Destination);
 				case 0xf3: return string.Format("Teleport monster from {0} to {1}", Source, Destination);
-				case 0xf5: return string.Format("Teleport unknown");
+				case 0xf5: return string.Format("Teleport item from {0} to {1}", Source, Destination);
 				case 0xe1: return string.Format("Teleport unknown to {0}", Destination);
 				default: return string.Format("Teleport unknow type 0x{0:X2} from {1} to {2}", Type, Source, Destination);
 			}

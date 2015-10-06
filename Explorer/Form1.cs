@@ -59,28 +59,28 @@ namespace Explorer
 			else
 				Log(string.Format("Failed to find items image \"{0}\"", iconsgfx));
 
-			Items = Item.Decode(WorkingDirectory);
+			Assets.Items = Item.Decode(WorkingDirectory);
 			ItemListbox.Items.Clear();
-			foreach (Item item in Items)
+			foreach (Item item in Assets.Items)
 				ItemListbox.Items.Add(item);
 
 			// Item types
-			ItemTypes = ItemType.Decode(WorkingDirectory);
+			Assets.ItemTypes = ItemType.Decode(WorkingDirectory);
 			ItemTypesListbox.Items.Clear();
-			foreach (ItemType type in ItemTypes)
+			foreach (ItemType type in Assets.ItemTypes)
 				ItemTypesListbox.Items.Add(type);
 
 			// Text data
-			TextData = Explorer.Text.Decode(WorkingDirectory);
+			Assets.Text = Explorer.Text.Decode(WorkingDirectory);
 			SelectTextIDBox.Items.Clear();
-			for (int i = 0; i < TextData.Count; i++)
+			for (int i = 0; i < Assets.Text.Count; i++)
 				SelectTextIDBox.Items.Add("0x" + i.ToString("X2"));
 
 			// Mazes
 			for (byte i = 1; i <= 16; i++)
 			{
 				string filename = Path.Combine(WorkingDirectory, string.Format("LEVEL{0}", i));
-				Mazes.Add(Maze.FromFile(filename));
+				Assets.Mazes.Add(Maze.FromFile(i, filename));
 			}
 			MazeSelectBox.SelectedIndex = 0;
 		}
@@ -98,7 +98,7 @@ namespace Explorer
 			ItemCharges.Text = item != null ? item.Charges.ToString() : "";
 			ItemPicture.Text = item != null ? "0x" + item.Picture.ToString("X2") : "";
 			ItemTypeTxt.Text = item != null ? "0x" + item.ItemTypeID.ToString("X2") : "";
-			ItemSubPos.Text = item != null ? "0x" + item.SubPos.ToString("X2") : "";
+			ItemSubPos.Text = item != null ? "0x" + item.SubPosition.ToString("X2") : "";
 			ItemLocation.Text = item != null ? item.Location.ToString() : "";
 			ItemLevel.Text = item != null ? item.Level.ToString() : "";
 			ItemValue.Text = item != null ? item.Value.ToString() : "";
@@ -177,8 +177,8 @@ namespace Explorer
 		/// <param name="text"></param>
 		void RebuildTextInterface(int id)
 		{
-			TextIdBox.Text = TextData.Count > id ? "0x" + id.ToString("X2") : "";
-			TextMsgBox.Text = TextData.Count > id ? TextData[id] : "";
+			TextIdBox.Text = Assets.Text.Count > id ? "0x" + id.ToString("X2") : "";
+			TextMsgBox.Text = Assets.Text.Count > id ? Assets.Text[id] : "";
 		}
 
 
@@ -189,9 +189,9 @@ namespace Explorer
 		{
 			using (TextWriter writer = File.CreateText(WorkingDirectory + "textdata.txt"))
 			{
-				for (int i = 0; i < TextData.Count; i++)
+				for (int i = 0; i < Assets.Text.Count; i++)
 				{
-					writer.WriteLine("0x{0:X2}:	'{1}'", i + 1, TextData[i]);
+					writer.WriteLine("0x{0:X2}:	'{1}'", i + 1, Assets.Text[i]);
 				}
 			}
 		}
@@ -354,8 +354,8 @@ namespace Explorer
 			MonsterPause.Text = "0x" + m.Pause.ToString("X2");
 			MonsterPocket.Text = "0x" + m.PocketItem.ToString("X4");
 			MonsterWeapon.Text = "0x" + m.Weapon.ToString("X4");
-			MonsterPocketItemTxt.Text = m.PocketItem != 0 ? Items[m.PocketItem].UnidentifiedName : "";
-			MonsterWeaponTxt.Text = m.Weapon != 0 ? Items[m.Weapon].UnidentifiedName : "";
+			MonsterPocketItemTxt.Text = m.PocketItem != 0 ? Assets.Items[m.PocketItem].UnidentifiedName : "";
+			MonsterWeaponTxt.Text = m.Weapon != 0 ? Assets.Items[m.Weapon].UnidentifiedName : "";
 		}
 
 
@@ -534,10 +534,10 @@ namespace Explorer
 		/// </summary>
 		Maze GetCurrentMaze()
 		{
-			if (Mazes.Count == 0)
+			if (Assets.Mazes.Count == 0)
 				return null;
 
-			return Mazes[MazeSelectBox.SelectedIndex];
+			return Assets.Mazes[MazeSelectBox.SelectedIndex];
 		}
 
 
@@ -634,7 +634,7 @@ namespace Explorer
 		/// <param name="e"></param>
 		private void StringIdBox_ValueChanged(object sender, EventArgs e)
 		{
-			if (Mazes.Count == 0)
+			if (Assets.Mazes.Count == 0)
 				return;
 
 			RebuildStringInterface();
@@ -648,7 +648,7 @@ namespace Explorer
 		/// <param name="e"></param>
 		private void TriggerIdBox_ValueChanged(object sender, EventArgs e)
 		{
-			if (Mazes.Count == 0)
+			if (Assets.Mazes.Count == 0)
 				return;
 
 			RebuildTriggerInterface();
@@ -767,6 +767,30 @@ namespace Explorer
 				e.Graphics.FillRectangle(Brushes.Red, new Rectangle(loc.X, loc.Y, 8, 8));
 			}
 
+			// Items
+			foreach (Item item in Assets.Items)
+			{
+				if (item.Level != maze.Id)
+					continue;
+
+				Point loc = new Point(item.Location.X * 16, item.Location.Y * 16);
+				Point[] offset =
+				{
+						new Point(0, 0),
+						new Point(8, 0),
+						new Point(0, 8),
+						new Point(8, 8),
+						new Point(4, 4),
+						new Point(4, 4),
+						new Point(4, 4),
+						new Point(4, 4),
+						new Point(4, 4),
+					};
+				loc.Offset(offset[(byte)item.SubPosition]);
+
+				e.Graphics.FillRectangle(Brushes.Yellow, new Rectangle(loc.X, loc.Y, 8, 8));
+			}
+
 		}
 
 		/// <summary>
@@ -794,7 +818,7 @@ namespace Explorer
 			}
 
 			// Trigger under mouse ?
-			TriggersLogBox.Text = "";
+			TriggerLogBox.Text = "";
 			for (int i = 0; i < maze.Triggers.Count; i++)
 			{
 				Trigger trigger = maze.Triggers[i];
@@ -802,7 +826,20 @@ namespace Explorer
 				if (trigger.Location.X != mazeloc.X || trigger.Location.Y != mazeloc.Y)
 					continue;
 
-				TriggersLogBox.Text += string.Format("Trigger {0} @ 0x{1:X4}\n", i, trigger.Offset);
+				TriggerLogBox.Text += string.Format("Trigger {0} : {1}\n", i, trigger.ToString());
+			}
+
+			// Item
+			ItemsLogBox.Text = "";
+			foreach(Item item in Assets.Items)
+			{
+				if (item.Level != maze.Id)
+					continue;
+
+				if (item.Location.X != mazeloc.X || item.Location.Y != mazeloc.Y)
+					continue;
+
+				ItemsLogBox.Text += string.Format("{0}\r\n", item.ToString());
 			}
 
 
@@ -843,7 +880,7 @@ namespace Explorer
 
 				if (monster.Location.X == mazeloc.X && monster.Location.Y == mazeloc.Y)
 				{
-					
+
 					break;
 				}
 			}
@@ -866,29 +903,6 @@ namespace Explorer
 		/// Base working directory
 		/// </summary>
 		string WorkingDirectory;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		List<Maze> Mazes = new List<Maze>();
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		List<Item> Items = new List<Item>();
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		List<ItemType> ItemTypes = new List<ItemType>();
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		List<string> TextData = new List<string>();
 
 
 		#endregion

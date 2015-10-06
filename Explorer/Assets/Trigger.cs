@@ -48,7 +48,7 @@ namespace Explorer
 		A = 0x01,
 		B = 0x02,
 		C = 0x04,
-		OnPartyEnter = 0x08,
+		OnPartyEnter = 0x08,			// Confirmed
 		D = 0x10,
 		HoleOrPressure = 0x20,
 		F = 0x40,

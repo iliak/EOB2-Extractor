@@ -15,7 +15,6 @@ namespace Explorer
 		public JumpToken(Script script) : base(script)
 		{
 			Target = script.ReadAddr();
-
 		}
 
 

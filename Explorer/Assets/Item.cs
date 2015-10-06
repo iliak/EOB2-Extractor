@@ -31,7 +31,7 @@ namespace Explorer
 			Charges = (byte)(b & 0x1F);
 			Picture = reader.ReadByte();
 			ItemTypeID = reader.ReadByte();
-			SubPos = reader.ReadByte();
+			SubPosition = reader.ReadByte();
 			Location = Location.FromValue(reader.ReadUInt16());
 			Unk0 = reader.ReadUInt16();
 			Unk1 = reader.ReadUInt16();
@@ -109,7 +109,7 @@ namespace Explorer
 		public byte Charges;
 		public byte Picture;
 		public byte ItemTypeID;
-		public byte SubPos;
+		public byte SubPosition;
 		public Location Location;
 		public byte Level;
 		public sbyte Value;

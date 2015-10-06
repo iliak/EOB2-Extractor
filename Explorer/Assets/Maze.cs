@@ -11,13 +11,24 @@ namespace Explorer
 	/// </summary>
 	public class Maze
 	{
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		public Maze(byte id)
+		{
+			Id = id;
+		}
+
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="filename"></param>
-		static public Maze FromFile(string filename)
+		static public Maze FromFile(byte id, string filename)
 		{
-			Maze maze = new Maze();
+			Maze maze = new Maze(id);
 			byte b;
 			ushort s;
 
@@ -235,7 +246,7 @@ namespace Explorer
 
 				#region Scripts
 				s = reader.ReadUInt16();            // Script length
-				maze.Script = new Script(reader.ReadBytes(s - 2));
+				maze.Script = new Script(maze, reader.ReadBytes(s - 2));
 				#endregion
 
 
@@ -293,6 +304,20 @@ namespace Explorer
 		}
 
 
+		/// <summary>
+		/// Get a message
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public string GetString(int id)
+		{
+			if (id >= Messages.Count)
+				return null;
+
+			return Messages[id];
+		}
+
+
 		#region Helpers
 
 		/// <summary>
@@ -335,7 +360,13 @@ namespace Explorer
 
 		#endregion
 
+
 		#region Properties
+
+		/// <summary>
+		/// Level id
+		/// </summary>
+		public byte Id;
 
 		/// <summary>
 		/// 

@@ -45,4 +45,9 @@ namespace Explorer
 
 		#endregion
 	}
+
+	//
+	// Spells :
+	// 0x0200 : Fireball (?)
+	//
 }
